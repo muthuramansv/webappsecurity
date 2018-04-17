@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div style='float: left;'><a href="home.php">Login</a></div>
+	<div style="float: right;">
+	<a href="file:///D:/Important/FH-Kiel/4_th_SEM/Web_App_Security/Team_3/Html_Mockups/home.php">Back to Home</a></div>
+	<h1 align=center><img  src="D:\Important\FH-Kiel\4_th_SEM\Web_App_Security\Team_3\Html_Mockups\webshop_logo.png" width="200" height="100" align=center></h1>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css" >
+	
+        body{ color: black; font: 14px sans-serif ; color:white
+		background-image: url("D:\Important\FH-Kiel\4_th_SEM\Web_App_Security\Team_3\Html_Mockups\Login_IMG.jpg");
+        height: 100%; 
+		background-position: center-top;
+        background-repeat: no-repeat;
+        background-size: cover;}
+        .wrapper{ width: 500px; padding: 20px;  }
+    </style>
+</head>
+<body background="D:\Important\FH-Kiel\4_th_SEM\Web_App_Security\Team_3\Html_Mockups\Login_IMG.jpg">
+    <div class="wrapper" >
+        <h2>Login</h2>
+        <p>Please fill in your credentials to login.</p>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" name="username"class="form-control">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div>
+            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+        </form>
+    </div>    
+</body>
+</html>
