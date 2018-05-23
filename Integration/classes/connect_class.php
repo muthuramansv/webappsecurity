@@ -1,7 +1,14 @@
 <?php
-
+/* Still one Warning left over. This suppresses the Warning.
+*/
 error_reporting(E_ERROR | E_PARSE);
 
+/*
+Class for connecting to the Database Webshop. 
+Providing two Functions.
+1: connect() -> returns $conn. (Connection variable, necessary for Prepared Statement. ).
+2: get_tbl_items() -> returns $array of values.
+*/
 class SimpleConnectDB
 {
 
@@ -27,7 +34,7 @@ class SimpleConnectDB
 	  }
 
 
-	   public function Get_tbl_items($name_)  {
+	   public function get_tbl_items()  {
 
 
 		$con = $this->connect();
@@ -36,9 +43,7 @@ class SimpleConnectDB
 		if($stmt = $con->prepare("SELECT *  FROM tbl_items "))
 		{
 
-		$stmt->bind_param('s', $name);
-		$name = $name_;
-
+	
 		$stmt->execute();
 
 
