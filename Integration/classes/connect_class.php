@@ -26,7 +26,7 @@ class SimpleConnectDB
 	  	   if ($conn->connect_error) {
 	  	   		die("Connection failed: " . $conn->connect_error);
 	  	   		}
-	  		echo "Connected successfully Test Neu Neu"."<br>";
+	  		echo "Connected successfully "."<br>";
 
 
 		 //$conn->close();
@@ -40,7 +40,7 @@ class SimpleConnectDB
 		$con = $this->connect();
 
 
-		if($stmt = $con->prepare("SELECT *  FROM tbl_items "))
+		if($stmt = $con->prepare("SELECT id,name,price  FROM tbl_items "))
 		{
 
 	
