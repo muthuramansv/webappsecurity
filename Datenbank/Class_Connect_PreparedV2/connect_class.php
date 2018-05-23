@@ -29,7 +29,7 @@ class SimpleConnectDB
 			
 		
 		
-		if($stmt = $conn->prepare("SELECT name, price FROM tbl_items where name=?"))
+		if($stmt = $conn->prepare("SELECT *  FROM tbl_items "))
 		{
 		
 		$stmt->bind_param('s', $name);
@@ -44,9 +44,11 @@ class SimpleConnectDB
 
 		while($row = $res->fetch_assoc()) {
 
-		echo "  ----- Name:      ". $row["name"]."<br>";
-		echo "  ----- Price:      ". $row["price"]."<br>";
-
+		$array = array($row["name"]."<br>",$row["price"]."<br>",$row["id"]."<br>");
+		
+		// echo "  ----- Name:      ". $row["name"]."<br>";
+		// echo "  ----- Price:      ". $row["price"]."<br>";
+		print_r($array);
 
 		}
 
