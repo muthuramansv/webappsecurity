@@ -64,7 +64,7 @@ class SimpleConnectDB
 		}
 		
 		
-		/* Prepared Statements for Items
+		/* Prepared Statements for Items / GET
 		
 		$conn->prepare("SELECT name FROM tbl_items where name=?")
 		$conn->prepare("SELECT name, price FROM tbl_items where name=?"))
@@ -73,6 +73,16 @@ class SimpleConnectDB
 		
 		*/
 		
+		/* Prepared Statements for User / GET firstname	lastname	address	mail
+		
+		$conn->prepare("SELECT firstname FROM tbl_user where firstname=?")
+		$conn->prepare("SELECT firstname, lastname FROM tbl_user where lastname=?"))
+		$conn->prepare("SELECT firstname, lastname FROM tbl_user where firstname=?"))
+		$conn->prepare("SELECT firstname, lastname, address	,mail FROM tbl_user where lastname=?"))
+		$conn->prepare("SELECT * FROM tbl_user where lastname=?"))
+		$conn->prepare("SELECT * FROM tbl_user where id=?"))
+		
+		*/
 
 }
 
