@@ -81,6 +81,49 @@ class SimpleConnectDB
 		$conn->prepare("SELECT firstname, lastname, address	,mail FROM tbl_user where lastname=?"))
 		$conn->prepare("SELECT * FROM tbl_user where lastname=?"))
 		$conn->prepare("SELECT * FROM tbl_user where id=?"))
+		$conn->prepare("SELECT * FROM tbl_user where pass=?"))
+		$conn->prepare("SELECT firstname, lastname FROM tbl_user where pass=? and mail=?"))
+		$conn->prepare("INSERT INTO tbl_user (firstname, lastname, address,mail,pass) VALUES (?, ?, ?,?,?,?)");
+		
+		*/
+		
+		
+		/* Prepared Statements for Orders / GET  id	id_user	id_items	amount	price		orderdate
+		
+		$conn->prepare("SELECT * FROM tbl_orders where id=?")
+		$conn->prepare("SELECT * FROM tbl_orders where id_user=?")
+		$conn->prepare("SELECT * FROM tbl_orders where id_items=?")
+		$conn->prepare("SELECT * FROM tbl_orders where orderdate=?")
+		$conn->prepare("SELECT * FROM tbl_orders where amount=?")
+		$conn->prepare("SELECT id_user FROM tbl_orders where id_user=?")
+		$conn->prepare("SELECT id_user FROM tbl_orders where id_items=?")
+		
+		
+		$conn->prepare("INSERT INTO tbl_orders (id_user, id_items, amount,price,orderdate) VALUES (?, ?, ?,?,?)");
+		
+		*/
+		
+		/* Prepared Statements for Basket / GET  id	cookie_user	id_items	amount
+
+		
+		$conn->prepare("SELECT * FROM tbl_basket where id=?")
+		$conn->prepare("SELECT * FROM tbl_basket where id_items=?")
+		$conn->prepare("SELECT * FROM tbl_basket where cookie_user=?")
+		$conn->prepare("SELECT * FROM tbl_basket where amount=?")
+		$conn->prepare("INSERT INTO tbl_basket (cookie_user, id_items, amount) VALUES (?, ?, ?)");
+		
+		*/
+		
+			
+		/* Prepared Statements for Cookie / GET  cookie_user	id_user	logged_in	login_expire
+
+		
+		$conn->prepare("SELECT * FROM tbl_cookie where id=?")
+		$conn->prepare("SELECT * FROM tbl_cookie where id_user=?")
+		$conn->prepare("SELECT * FROM tbl_cookie where cookie_user=?")
+		$conn->prepare("SELECT * FROM tbl_cookie where logged_in=?")
+		$conn->prepare("SELECT * FROM tbl_cookie where login_expire=?")
+		$conn->prepare("INSERT INTO tbl_cookie (cookie_user, id_user, logged_in,login_expire) VALUES (?, ?, ?,?)");
 		
 		*/
 
