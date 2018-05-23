@@ -4,7 +4,7 @@ include 'classes/pageBuilder.php';
 
 $html_code = "      <html>
                     <title>Web-Application-Security</title>"
-                    .PageBuilder::printHead(). 
+                    .PageBuilder::printHead().
                     "<table border=\"1\">
                     <tbody>
                         <tr>
@@ -43,3 +43,4 @@ $html_code = "      <html>
                     </html>";
 
 echo $html_code;
+?>

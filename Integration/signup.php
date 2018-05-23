@@ -1,26 +1,9 @@
 <?php
-
-$html_code  = "<!DOCTYPE html>
-<html lang=\"en\">
-<head>
-    <meta charset=\"UTF-8\">
-	<div style='float: left;'><a href=\"home.php\">Login</a></div>
-	<div style=\"float: right;\">
-	<a href=\"file:///D:/Important/FH-Kiel/4_th_SEM/Web_App_Security/Team_3/Html_Mockups/home.php\">Back to Home</a></div>
-	<h1 align=center><img  src=\"res/Webshop_Logo.png\" width=\"200\" height=\"100\" align=center></h1>
-	<meta charset=\"UTF-8\">
-    <title>Sign Up</title>
-    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css\">
-    <style type=\"text/css\" >
-
-        body{ color: black; font: 14px sans-serif ;
-            height: 100%;
-            background: url("/res/Login_IMG.JPG/") no-repeat center-top;
-            background-size: cover;}
-        .wrapper{ width: 500px; padding: 20px;  }
-    </style>
-</head>
-<body background=\"res/Login_IMG.JPG\">
+include 'classes/pageBuilder.php';
+$html_code  = "<html>
+<title>Web-Application-Security</title>"
+    .PageBuilder::printHead().
+"<body background=\"res/Login_IMG.JPG\">
 <div class=\"wrapper\">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
