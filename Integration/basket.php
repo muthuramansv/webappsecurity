@@ -1,10 +1,11 @@
 <?php
 
-$html_code  = "<!DOCTYPE html>
-<html lang=\"en\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
+$html_code  = "<html>
+<title>Web-Application-Security</title>"
+    .PageBuilder::printHead().
     
 	
-  <tbody>
+  "<tbody>
   <tr>
     <th>Number</th>
     <th>Article</th> 

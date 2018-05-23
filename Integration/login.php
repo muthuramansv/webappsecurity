@@ -1,10 +1,10 @@
 <?php
 
-$html_code  ="<!DOCTYPE html>
-<html lang=\"en\">
+$html_code  ="<html>
 
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
+        <title>Web-Application-Security</title>"
+    .PageBuilder::printHead().
+        "<p>Please fill in your credentials to login.</p>
         <form action=\"<?php echo htmlspecialchars($_SERVER\"PHP_SELF\"); ?>
             <div class=\"form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>\">
                 <label>Username</label>
