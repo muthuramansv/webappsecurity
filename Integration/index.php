@@ -1,12 +1,11 @@
 <?php
 
-$html_code = "      <html>
-                    <title>Web-Application-Security</title>
-                    
-                    <h1>Web-Application-Security</h1>
-                    <h2>Web-Shop</h2>
+include 'classes/pageBuilder.php';
 
-                    <table border=\"1\">
+$html_code = "      <html>
+                    <title>Web-Application-Security</title>"
+                    .PageBuilder::printHead(). 
+                    "<table border=\"1\">
                     <tbody>
                         <tr>
                             <th>Number</th>
