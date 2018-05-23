@@ -18,13 +18,15 @@ class PageBuilder {
                         </tr>";
                     
         foreach($items as $item){
-            $output."<tr>
+            $output = $output."<tr>
             <td>".$item[0]."</td>
             <td>".$item[1]."</td>
-            <td>".$item[2]."</td>
+            <td>".number_format($item[2], 2)."€</td>
             <td><a href=\"home.asp\">Add to Basket</a></td>
             </tr>";
         }
+
+        $output."</tbody></table>";
         return $output;
     }
 } 
