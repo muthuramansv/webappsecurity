@@ -7,10 +7,10 @@ error_reporting(E_ERROR | E_PARSE);
 
 class SimpleConnectDB
 {
-
-    public function connectDB() {
-
-
+	
+		public function Get_tbl_items($name_)  {
+			
+			
 	   $servername = "localhost";
 	   $username = "root";
 	   $password = "";
@@ -24,13 +24,16 @@ class SimpleConnectDB
 		echo "Connected successfully Test Neu Neu"."<br>";
 
 
-
-
+		 //$conn->close();
+			
+			
+		
+		
 		if($stmt = $conn->prepare("SELECT name, price FROM tbl_items where name=?"))
 		{
 		
 		$stmt->bind_param('s', $name);
-		$name = "The Web Application Hacker's Handbook";
+		$name = $name_;
 		
 		$stmt->execute();
 
@@ -57,9 +60,6 @@ class SimpleConnectDB
 
 		$stmt->close();
 
-
-
-		$conn->close();
 
 		}
 		
