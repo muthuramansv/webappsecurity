@@ -1,60 +1,46 @@
 <?php
 
-echo "<!DOCTYPE html>\n";
-echo "<html lang=\"en\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n";
-echo "    \n";
-echo "	</head><body background=\"res/Login_IMG.JPG\">\n";
-echo "	<div style='float: left;'><a href=\"home.php\">Login</a></div>\n";
-echo "	<div style=\"float: right;\">\n";
-echo "	<a href=\"file:///D:/Important/FH-Kiel/4_th_SEM/Web_App_Security/Team_3/Html_Mockups/home.php\">Back to Home</a></div>\n";
-echo "	<h1 align=\"center\"><img src=\"res/Webshop_Logo.png\" width=\"200\" height=\"100\" align=\"center\"></h1>\n";
-echo "	\n";
-echo "    <title></title>\n";
-echo "    <link rel=\"stylesheet\" href=\"./Index_Page_files/bootstrap.css\">\n";
-echo "    <style type=\"text/css\">\n";
-echo "        body{ color:black; font: 14px sans-serif ;\n";
-echo "            height: 2736px;\n";
-echo "            background: url(\"res/Login_IMG.JPG\");\n";
-echo "            no-repeat: center-top;}\n";
-echo "            width: 4864px;\n";
-echo "    </style>\n";
-echo "\n";
-echo "        <table class=\"table\" >\n";
-echo "  <tbody>\n";
-echo "  <tr>\n";
-echo "    <th>Number</th>\n";
-echo "    <th>Article</th> \n";
-echo "    <th>Price</th>\n";
-echo "	<th>Basket</th>\n";
-echo "  </tr>\n";
-echo "  <tr>\n";
-echo "    <td>1</td>\n";
-echo "    <td>The Web Application Hacker's Handbook</td> \n";
-echo "    <td>34,99 €</td>\n";
-echo "	<td><a href = \"home.asp\">Add to Basket</a></td>\n";
-echo "  </tr>\n";
-echo "  <tr>\n";
-echo "    <td>2</td>\n";
-echo "    <td>The Tangled Web: A Guide to Securing Modern Web Applications</td> \n";
-echo "    <td>40,00 €</td>\n";
-echo "	<td><a href = \"home.asp\">Add to Basket</a></td>\n";
-echo "  </tr>\n";
-echo "  <tr>\n";
-echo "    <td>3</td>\n";
-echo "    <td>Web Application Security( A Beginner's guide)</td> \n";
-echo "    <td>32,30 €</td>\n";
-echo "	<td><a href = \"home.asp\">Add to Basket</a></td>\n";
-echo "  </tr>\n";
-echo "  <tr>\n";
-echo "    <td>4</td>\n";
-echo "    <td>Silence on the Wire: A Field Guide to Passive Reconnaissance and Indirect Attacks</td> \n";
-echo "    <td>32,18 €</td>\n";
-echo "	<td><a href = \"home.asp\">Add to Basket</a></td>\n";
-echo "  </tr>\n";
-echo "</tbody>\n";
-echo "</table>    \n";
-echo "\n";
-echo "</body>\n";
-echo "</html>";
+$html_code = "      <html>
+                    <title>Web-Application-Security</title>
+                    
+                    <h1>Web-Application-Security</h1>
+                    <h2>Web-Shop</h2>
 
+                    <table border=\"1\">
+                    <tbody>
+                        <tr>
+                            <th>Number</th>
+                            <th>Article</th>
+                            <th>Price</th>
+                            <th>Basket</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>The Web Application Hacker's Handbook</td>
+                            <td>34,99 €</td>
+                            <td><a href=\"home.asp\">Add to Basket</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>The Tangled Web: A Guide to Securing Modern Web Applications</td>
+                            <td>40,00 €</td>
+                            <td><a href=\"home.asp\">Add to Basket</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Web Application Security( A Beginner's guide)</td>
+                            <td>32,30 €</td>
+                            <td><a href=\"home.asp\">Add to Basket</a></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Silence on the Wire: A Field Guide to Passive Reconnaissance and Indirect Attacks</td>
+                            <td>32,18 €</td>
+                            <td><a href=\"home.asp\">Add to Basket</a></td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    </body>
+                    </html>";
 
+echo $html_code;
