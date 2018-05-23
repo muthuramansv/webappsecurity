@@ -40,18 +40,12 @@ class SimpleConnectDB
 
 		$res = $stmt->get_result();
 
-		//var_dump($res->fetch_all());
+		$array = $res->fetch_all();
 
-		while($row = $res->fetch_assoc()) {
-
-		$array = array($row["name"]."<br>",$row["price"]."<br>",$row["id"]."<br>");
 		
-		// echo "  ----- Name:      ". $row["name"]."<br>";
-		// echo "  ----- Price:      ". $row["price"]."<br>";
-		print_r($array);
-
-		}
-
+		return $array;
+		
+		
 		}else {
 
 		$error = $conn->errno . ' ' . $conn->error;
@@ -127,6 +121,18 @@ class SimpleConnectDB
 		$conn->prepare("SELECT * FROM tbl_cookie where login_expire=?")
 		$conn->prepare("INSERT INTO tbl_cookie (cookie_user, id_user, logged_in,login_expire) VALUES (?, ?, ?,?)");
 		
+		*/
+		
+		/*while($row = $res->fetch_assoc()) {
+
+		$array = array($row["name"]."<br>",$row["price"]."<br>",$row["id"]."<br>");
+		
+		// echo "  ----- Name:      ". $row["name"]."<br>";
+		// echo "  ----- Price:      ". $row["price"]."<br>";
+		//print_r($array);
+		
+		
+		}
 		*/
 
 }

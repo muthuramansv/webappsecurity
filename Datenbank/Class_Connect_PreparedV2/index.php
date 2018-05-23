@@ -5,7 +5,16 @@ include("connect_class.php");
 $connectToDb = new SimpleConnectDB();
 $test = "The Web Application Hacker's Handbook";
 
-$connectToDb->Get_tbl_items($test);
+ 
+// Array as return Value; here 5 Values.
+$arrayTest = $connectToDb->Get_tbl_items($test); 
+
+// Example Access
+for($x = 0; $x < count($arrayTest); $x++) {
+    print_r ($arrayTest[$x]);
+    print_r ("<br><br><br><br><br>");
+}
+
 
 
 ?>
