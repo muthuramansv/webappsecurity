@@ -1,45 +1,28 @@
 <?php
 
-echo "<!DOCTYPE html>\n";
-echo "<html lang=\"en\">\n";
-echo "<head>\n";
-echo "    <div style='float: left;'><a href=\"home.php\">Login</a></div>\n";
-echo "	<div style=\"float: right;\">\n";
-echo "	<a href=\"file:///D:/Important/FH-Kiel/4_th_SEM/Web_App_Security/Team_3/Html_Mockups/home.php\">Back to Home</a></div>\n";
-echo "	<h1 align=center><img  src=\"res/Webshop_Logo.png\" width=\"200\" height=\"100\" align=center></h1>\n";
-echo "    <meta charset=\"UTF-8\">\n";
-echo "    <title>Login</title>\n";
-echo "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css\">\n";
-echo "    <style type=\"text/css\" >\n";
-echo "	\n";
-echo "        body{ color: black; font: 14px sans-serif ;\n";
-echo "            height: 100%;\n";
-echo "            background: url(\"res/Login_IMG.JPG\") no-repeat center-top;\n";
-echo "            background-size: cover;}\n";
-echo "        .wrapper{ width: 500px; padding: 20px;  }\n";
-echo "    </style>\n";
-echo "</head>\n";
-echo "<body background=\"res/Login_IMG.JPG\">\n";
-echo "    <div class=\"wrapper\" >\n";
-echo "        <h2>Login</h2>\n";
-echo "        <p>Please fill in your credentials to login.</p>\n";
-echo "        <form action=\"<?php echo htmlspecialchars($_SERVER(\"PHP_SELF\")); ?>\n";
-echo "            <div class=\"form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>\">\n";
-echo "                <label>Username</label>\n";
-echo "                <input type=\"text\" name=\"username\"class=\"form-control\">\n";
-echo "                <span class=\"help-block\"><?php echo $username_err; ?></span>\n";
-echo "            </div>    \n";
-echo "            <div class=\"form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>\">\n";
-echo "                <label>Password</label>\n";
-echo "                <input type=\"password\" name=\"password\" class=\"form-control\">\n";
-echo "                <span class=\"help-block\"><?php echo $password_err; ?></span>\n";
-echo "            </div>\n";
-echo "            <div class=\"form-group\">\n";
-echo "                <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n";
-echo "            </div>\n";
-echo "            <p>Don't have an account? <a href=\"register.php\">Sign up now</a>.</p>\n";
-echo "        </form>\n";
-echo "    </div>    \n";
-echo "</body>\n";
-echo "</html>";
+$html_code  ="<!DOCTYPE html>
+<html lang=\"en\">
 
+        <h2>Login</h2>
+        <p>Please fill in your credentials to login.</p>
+        <form action=\"<?php echo htmlspecialchars($_SERVER\"PHP_SELF\"); ?>
+            <div class=\"form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>\">
+                <label>Username</label>
+                <input type=\"text\" name=\"username\"class=\"form-control\">
+                <span class=\"help-block\"><?php echo $username_err; ?></span>
+            </div>    
+            <div class=\"form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>\">
+                <label>Password</label>
+                <input type=\"password\" name=\"password\" class=\"form-control\">
+                <span class=\"help-block\"><?php echo $password_err; ?></span>
+            </div>
+            <div class=\"form-group\">
+                <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">
+            </div>
+            <p>Don't have an account? <a href=\"register.php\">Sign up now</a>.</p>
+        </form>
+    </div>    
+</body>
+</html>";
+echo $html_code;
+?>

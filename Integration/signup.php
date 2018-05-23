@@ -1,69 +1,71 @@
 <?php
 
-echo "<!DOCTYPE html>\n";
-echo "<html lang=\"en\">\n";
-echo "<head>\n";
-echo "    <meta charset=\"UTF-8\">\n";
-echo "	<div style='float: left;'><a href=\"home.php\">Login</a></div>\n";
-echo "	<div style=\"float: right;\">\n";
-echo "	<a href=\"file:///D:/Important/FH-Kiel/4_th_SEM/Web_App_Security/Team_3/Html_Mockups/home.php\">Back to Home</a></div>\n";
-echo "	<h1 align=center><img  src=\"res/Webshop_Logo.png\" width=\"200\" height=\"100\" align=center></h1>\n";
-echo "	<meta charset=\"UTF-8\">\n";
-echo "    <title>Sign Up</title>\n";
-echo "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css\">\n";
-echo "    <style type=\"text/css\" >\n";
-echo "\n";
-echo "        body{ color: black; font: 14px sans-serif ;\n";
-echo "            height: 100%;\n";
-echo "            background: url(\"res/Login_IMG.JPG\") no-repeat center-top;\n";
-echo "            background-size: cover;}\n";
-echo "        .wrapper{ width: 500px; padding: 20px;  }\n";
-echo "    </style>\n";
-echo "</head>\n";
-echo "<body background=\"res/Login_IMG.JPG\">\n";
-echo "<div class=\"wrapper\">\n";
-echo "        <h2>Sign Up</h2>\n";
-echo "        <p>Please fill this form to create an account.</p>\n";
-echo "        <form action=\"<?php echo htmlspecialchars($_SERVER(\"PHP_SELF\")); ?>\n";
-echo "		    <div class=\"form-group <?php echo (!empty($F.Name_err)) ? 'has-error' : ''; ?>\" >\n";
-echo "                <label>First Name</label>\n";
-echo "                <input type=\"text\" name=\"F.Name\"class=\"form-control\" >\n";
-echo "                <span class=\"help-block\"></span>\n";
-echo "             </div>\n";
-echo "			 <div class=\"form-group <?php echo (!empty($L.Name_err)) ? 'has-error' : ''; ?>\">\n";
-echo "                <label>Last Name</label>\n";
-echo "                <input type=\"text\" name=\"L.Name\"class=\"form-control\" >\n";
-echo "                <span class=\"help-block\"></span>\n";
-echo "             </div>\n";
-echo "            <div class=\"form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>\">\n";
-echo "                <label>Username</label>\n";
-echo "                <input type=\"text\" name=\"username\"class=\"form-control\" >\n";
-echo "                <span class=\"help-block\"><?php echo $username_err; ?></span>\n";
-echo "            </div> \n";
-echo "             <div class=\"form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>\">\n";
-echo "                <label>E-Mail ID</label>\n";
-echo "                <input type=\"text\" name=\"E-Mail\"class=\"form-control\" >\n";
-echo "                <span class=\"help-block\"><?php echo $email_err; ?></span>\n";
-echo "             </div>			\n";
-echo "			\n";
-echo "            <div class=\"form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>\">\n";
-echo "                <label>Password</label>\n";
-echo "                <input type=\"password\" name=\"password\" class=\"form-control\" >\n";
-echo "                <span class=\"help-block\"><?php echo $password_err; ?></span>\n";
-echo "            </div>\n";
-echo "            <div class=\"form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>\">\n";
-echo "                <label>Confirm Password</label>\n";
-echo "                <input type=\"password\" name=\"confirm_password\" class=\"form-control\" >\n";
-echo "                <span class=\"help-block\"><?php echo $confirm_password_err; ?></span>\n";
-echo "            </div>\n";
-echo "            <div class=\"form-group\">\n";
-echo "                <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n";
-echo "                <input type=\"reset\" class=\"btn btn-default\" value=\"Reset\">\n";
-echo "            </div>\n";
-echo "            <p>Already have an account? <a href=\"login.php\">Login here</a>.</p>\n";
-echo "        </form>\n";
-echo "    </div>    \n";
-echo "</body>\n";
-echo "</html>\n";
+$html_code  = "<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+	<div style='float: left;'><a href=\"home.php\">Login</a></div>
+	<div style=\"float: right;\">
+	<a href=\"file:///D:/Important/FH-Kiel/4_th_SEM/Web_App_Security/Team_3/Html_Mockups/home.php\">Back to Home</a></div>
+	<h1 align=center><img  src=\"res/Webshop_Logo.png\" width=\"200\" height=\"100\" align=center></h1>
+	<meta charset=\"UTF-8\">
+    <title>Sign Up</title>
+    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css\">
+    <style type=\"text/css\" >
+
+        body{ color: black; font: 14px sans-serif ;
+            height: 100%;
+            background: url("/res/Login_IMG.JPG/") no-repeat center-top;
+            background-size: cover;}
+        .wrapper{ width: 500px; padding: 20px;  }
+    </style>
+</head>
+<body background=\"res/Login_IMG.JPG\">
+<div class=\"wrapper\">
+        <h2>Sign Up</h2>
+        <p>Please fill this form to create an account.</p>
+        <form action=\"<?php echo htmlspecialchars($_SERVER\"PHP_SELF\"); ?>
+		    <div class=\"form-group <?php echo (!empty($F_Name_err);) ? 'has-error' : ''; ?>\" >
+                <label>First Name</label>
+                <input type=\"text\" name=\"F.Name\"class=\"form-control\" >
+                <span class=\"help-block\"></span>
+             </div>
+			 <div class=\"form-group <?php echo (!empty($L_Name_err);) ? 'has-error' : ''; ?>\">
+                <label>Last Name</label>
+                <input type=\"text\" name=\"L.Name\"class=\"form-control\" >
+                <span class=\"help-block\"></span>
+             </div>
+            <div class=\"form-group <?php echo (!empty($username_err);) ? 'has-error' : ''; ?>\">
+                <label>Username</label>
+                <input type=\"text\" name=\"username\"class=\"form-control\" >
+                <span class=\"help-block\"><?php echo $username_err; ?></span>
+            </div> 
+             <div class=\"form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>\">
+                <label>E-Mail ID</label>
+                <input type=\"text\" name=\"E-Mail\"class=\"form-control\" >
+                <span class=\"help-block\"><?php echo $email_err; ?></span>
+             </div>			
+			
+            <div class=\"form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>\">
+                <label>Password</label>
+                <input type=\"password\" name=\"password\" class=\"form-control\" >
+                <span class=\"help-block\"><?php echo $password_err; ?></span>
+            </div>
+            <div class=\"form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>\">
+                <label>Confirm Password</label>
+                <input type=\"password\" name=\"confirm_password\" class=\"form-control\" >
+                <span class=\"help-block\"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <div class=\"form-group\">
+                <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">
+                <input type=\"reset\" class=\"btn btn-default\" value=\"Reset\">
+            </div>
+            <p>Already have an account? <a href=\"login.php\">Login here</a>.</p>
+        </form>
+    </div>    
+</body>
+</html>";
+
+echo $html_code;
 
 ?>
