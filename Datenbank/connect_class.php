@@ -1,45 +1,69 @@
-
-
-
-
-
-
 <?php
+
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+error_reporting(E_ERROR | E_PARSE);
+
+
 class SimpleConnectDB
 {
-    // Connection Variables
-	private $servername = "localhost";
-	private $username = "root";
-	private $password = "";
-	private $dbname = "webshop";
-	private $sql = "SELECT id, name, price, description FROM tbl_items";
-	private $conn = new mysqli($servername, $username, $password, $dbname);
-	private $result = $conn->query($sql);
-	
-	
 
-    // Deklaration einer Methode
     public function connectDB() {
-		
-		if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
+
+
+	   $servername = "localhost";
+	   $username = "root";
+	   $password = "";
+	   $dbname = "webshop";
+
+	   $conn = new mysqli($servername, $username, $password, $dbname);
+
+	   if ($conn->connect_error) {
+	   		die("Connection failed: " . $conn->connect_error);
+	   		}
+		echo "Connected successfully Test Neu"."<br>";
+
+
+
+
+		if($stmt = $conn->prepare("SELECT name FROM tbl_items where name=?"))
+		{
+		$stmt->bind_param('s', $name);
+
+		$name = "The Web Application Hacker's Handbook";
+		$stmt->execute();
+
+
+		$res = $stmt->get_result();
+
+		// var_dump($res->fetch_all());
+
+		while($row = $res->fetch_assoc()) {
+
+		echo "  ----- Name:      ". $row["name"]."<br>";
+
+
 		}
-		echo "Connected successfully"."<br>";
-		
-		if ($result->num_rows > 0) {
-		// output data of each row
-		while($row = $result->fetch_assoc()) {
-        echo " - Id:       " . $row["id"]. " ----- Name:      ". $row["name"]." ----- Price:      ". $row["price"]."<br>"." ----- Description:      ". $row["description"]."<br>";
+
+
+
+
+		}else {
+
+		$error = $conn->errno . ' ' . $conn->error;
+		    echo $error;
+
 		}
-		} else {
-			echo "0 results";
-}
+
+
+		//$stmt->close();
+
+
+
 		$conn->close();
-	
+
 		}
-		
-		
-		
-		
+
 }
+
 ?>

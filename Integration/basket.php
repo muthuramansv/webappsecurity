@@ -1,64 +1,47 @@
 <?php
 
-echo "<!DOCTYPE html>\n";
-echo "<html lang=\"en\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n";
-echo "    \n";
-echo "	</head><body background=\"res/Login_IMG.JPG\">\n";
-echo "	<div style='float: left;'><a href=\"home.php\">Login</a></div>\n";
-echo "	<div style=\"float: right;\"><a href=\"file:///D:/Important/FH-Kiel/4_th_SEM/Web_App_Security/Team_3/Html_Mockups/home.php\">Back to Home</a></div>\n";
-echo "	<h1 align=\"center\"><img src=\"res/Webshop_Logo.png\" width=\"200\" height=\"100\" align=\"center\"></h1>\n";
-echo "	\n";
-echo "    <title></title>\n";
-echo "    <link rel=\"stylesheet\" href=\"./Index_Page_files/bootstrap.css\">\n";
-echo "    <style type=\"text/css\">\n";
-echo "        body{ color:black; font: 14px sans-serif ;\n";
-echo "            height: 100%;\n";
-echo "            background: url(\"res/Login_IMG.JPG\") no-repeat center-top;\n";
-echo "            background-size: cover;}\n";
-echo "		.table th td {\n";
-echo "         padding: 15px;\n";
-echo "         text-align: left;\n";
-echo "        }\n";
-echo "          }\n";
-echo "		.click a {\n";
-echo "         display: block;\n";
-echo "         }\n";
-echo "    </style>\n";
-echo "\n";
-echo "        <table class=\"table\" >\n";
-echo "  <tbody>\n";
-echo "  <tr>\n";
-echo "    <th>Number</th>\n";
-echo "    <th>Article</th> \n";
-echo "    <th>Price</th>\n";
-echo "	<th>Count</th>\n";
-echo "	<th>Add or Remove</th>\n";
-echo "  </tr>\n";
-echo "  <tr>\n";
-echo "    <td>1</td>\n";
-echo "    <td>The Web Application Hacker's Handbook</td> \n";
-echo "    <td>34,99 €</td>\n";
-echo "	<td>1</td>\n";
-echo "	<td><a href = \"home.asp\">Add</a> / <a href = \"home.asp\">Remove</a></td>\n";
-echo "  </tr>\n";
-echo "  <tr>\n";
-echo "    <td>2</td>\n";
-echo "    <td>The Tangled Web: A Guide to Securing Modern Web Applications</td> \n";
-echo "    <td>40,00 €</td>\n";
-echo "	<td>2</td>\n";
-echo "	<td><a href = \"home.asp\">Add</a> / <a href = \"home.asp\">Remove</a></td>\n";
-echo "  </tr>\n";
-echo "  <tr>\n";
-echo "    <td></td>\n";
-echo "	<td>Total</td>\n";
-echo "    <td>117,99 €</td>\n";
-echo "	<td>3</td>\n";
-echo "	<td><a href = \"home.asp\">Order</a> / <a href = \"home.asp\">Cancel</a></td>\n";
-echo "  </tr>\n";
-echo "</tbody>\n";
-echo "</table>    \n";
-echo "\n";
-echo "</body>\n";
-echo "</html>";
+$html_code  = "<html>
+<title>Web-Application-Security</title>"
+    .PageBuilder::printHead().
+    
+	
+  "<tbody>
+  <tr>
+    <th>Number</th>
+    <th>Article</th> 
+    <th>Price</th>
+	<th>Count</th>
+	<th>Add or Remove</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>The Web Application Hacker's Handbook</td> 
+    <td>34,99 €</td>
+	<td>1</td>
+	<td><a href = \"home.asp\">Add</a> / <a href = \"home.asp\">Remove</a></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>The Tangled Web: A Guide to Securing Modern Web Applications</td> 
+    <td>40,00 €</td>
+	<td>2</td>
+	<td><a href = \"home.asp\">Add</a> / <a href = \"home.asp\">Remove</a></td>
+  </tr>
+  <tr>
+    <td></td>
+	<td>Total</td>
+    <td>117,99 €</td>
+	<td>3</td>
+	<td><a href = \"home.asp\">Order</a> / <a href = \"home.asp\">Cancel</a></td>
+  </tr>
+</tbody>
+</table>    
 
+</body>
+</html>";
+
+echo $html_code;
 ?>
+
+
+
