@@ -7,7 +7,7 @@ class PageBuilder {
         return "<h1>".self::$mainHead."</h1><h2>".self::$subHead."</h2>";
     }
 
-    public static function printTable($items) {
+    public static function printTable($items, $mysession) {
         $output = " <table border=\"1\">
                     <tbody>
                         <tr>
@@ -22,7 +22,7 @@ class PageBuilder {
             <td>".$item[0]."</td>
             <td>".$item[1]."</td>
             <td>".number_format($item[2], 2)."€</td>
-            <td><a href=\"home.asp\">Add to Basket</a></td>
+            <td><a href=\"index.php?item=".$item[0]."&token=".$mysession->getToken()."\">Add to Basket</a></td>
             </tr>";
         }
 
