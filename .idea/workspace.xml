@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1592151-4215-48b5-a775-062b61acaddc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Integration/classes/login_handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Integration/basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/Integration/basket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Integration/classes/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/Integration/classes/validationForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Integration/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Integration/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Integration/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/Integration/signup.php" afterDir="false" />
-    </list>
+    <list default="true" id="f1592151-4215-48b5-a775-062b61acaddc" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -254,7 +247,7 @@
       <workItem from="1526638312229" duration="757000" />
       <workItem from="1526639091018" duration="254000" />
       <workItem from="1526748952979" duration="4350000" />
-      <workItem from="1527545337686" duration="4649000" />
+      <workItem from="1527545337686" duration="4769000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1526638923362</created>
@@ -277,11 +270,18 @@
       <option name="project" value="LOCAL" />
       <updated>1527084807818</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Login_handler and Validation added">
+      <created>1527550671463</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1527550671463</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18615000" />
+    <option name="totallyTimeSpent" value="18735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -376,7 +376,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test" />
     <MESSAGE value="PHP files redefined" />
-    <option name="LAST_COMMIT_MESSAGE" value="PHP files redefined" />
+    <MESSAGE value="Login_handler and Validation added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login_handler and Validation added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Integration/index.php">
