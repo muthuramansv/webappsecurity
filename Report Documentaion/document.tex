@@ -1,0 +1,144 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{setspace}
+\doublespacing
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\usepackage[]{times}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{multirow} % Required for multirows
+
+\begin{document}
+	
+	\title{Web Security Application}
+	\author{Becker, Joshua\\ Okereke, Uchechukwu Okpo\\ Shama, Muthuraman Venkatesan\\ Ulbrich, Damian}
+	\date{\today}
+	\maketitle
+	\clearpage
+	
+	
+	\tableofcontents
+	\clearpage
+	
+	\section{Introduction}
+	
+	
+	\begin{flushleft}
+	Since the creation of the Internet, the world has seen it evolve with lots of practical applications. These include things like eCommerce, Instant Messaging, Video Streaming services and the likes. With this evolution and advancements, there has also been a rise in misuse and security concerns regarding identity theft, private data leaks etc.
+	
+		
+	One subset of eCommerce that is ever so popular is Online shopping, allowing consumers to directly buy goods or services from a seller over the Internet using a web browser. Consumers find a product of interest by visiting the website of the retailer directly or by searching among alternative vendors using a shopping search engine, which displays the same product's availability and pricing at different e-retailers. Customers must have access to the Internet and a valid method of payment in order to complete a transaction, such as a credit card, an Interac-enabled debit card, or a service such as PayPal. Hence, the element of security for user details is crucial.
+	
+	
+	In this project, we were tasked to create a simple eCommerce site called Webshop. We look to see how a user can interact with the online store and be able to make purchases with or without registering on the site while being safeguarded against security attacks. This report, documents the required specifications of the project, alongside how the requirements were implemented. Also, the challenges encountered during the course of the project.
+	
+	
+	\section{Features}
+	\subsection {Views}
+		
+	\subsection{Secure Session handling with Cookies and database}
+	
+	\subsection{Timeout for Session and Tokens}
+	
+	\subsection{Secure Storage of passwords}
+	
+	\subsection{CSRF handling}
+	
+	\begin{flushleft}
+		Cross-site request forgery, also known as one-click attack or session riding and abbreviated as CSRF or XSRF, is a type of malicious exploit of a website where unauthorized commands are transmitted from a user that the web application trusts. There are many ways in which a malicious website can transmit such commands; specially-crafted image tags, hidden forms, and JavaScript XMLHttpRequests, for example, can all work without the user's interaction or even knowledge. Unlike cross-site scripting (XSS), which exploits the trust a user has for a particular site, CSRF exploits the trust that a site has in a user's browser.
+	\end{flushleft}
+	
+	\subsection{XSS handling}
+	
+	\begin{flushleft}
+		Cross-site scripting (XSS) is a type of computer security vulnerability typically found in web applications. XSS enables attackers to inject client-side scripts into web pages viewed by other users. 
+	\end{flushleft}
+	
+	\subsection{SQL-injection handling}
+	
+	\subsection{Secure logic design}
+	
+	\section{Tools Used}
+	\subsection{Git}
+	Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files. 
+	
+	\subsection{PHP}
+	
+	PHP: Hypertext Preprocessor (or simply PHP) is a server-side scripting language designed for web development but also used as a general-purpose programming language. PHP code may be embedded into HTML code, or it can be used in combination with various web template systems, web content management systems, and web frameworks. 
+	\subsection{MySQL}
+	MySQL is an open-source relational database management system (RDBMS). MySQL is a central component of the LAMP open-source web application software stack. MySQL was used to handle database queries and user data.
+	\subsection{Trello}
+	Trello is a web-based project management application. Trello has a variety of work and personal uses and in this project we used it for  software project management.
+	
+	\section {Team Matrix}
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		 & Becker & Okereke & Shama & Ulbrich \\ \hline
+		 Project Planning & x & x & x & x \\ \hline
+		 Database Design &  &  &  & x \\ \hline
+		 XSS Handling &  & x &  &  \\ \hline
+		 CRSF Handling &  & x &  &  \\ \hline
+		 Sessions Management & x &  &  &  \\ \hline
+		 Frontend Design &  &  & x &  \\ \hline
+		 %Project Planning & x & x & x & x \\ \hline
+		 %Project Planning & x & x & x & x \\ \hline
+		 %Project Planning & x & x & x & x \\ \hline
+		 %Project Planning & x & x & x & x \\ \hline
+		 %Project Planning & x & x & x & x \\ \hline
+		 Documentation &  & x &  &  \\ \hline
+		 
+		
+	\end{tabular}
+	
+	\end{flushleft}
+		 	
+		
+	\section{Implementation}
+	
+	
+	\section{Challenges, Conclusion and Lessons Learnt}
+	\subsection{TEAM CHALLENGES}
+	\begin{flushleft}
+	
+		We were faced with the following challenges:
+		\begin{itemize}
+			\item \textbf{Time:} We had to figure out time to gather so we could work together since some of us didn?t have prior
+			experience in programming.
+			\item \textbf{Git:} Working with Git can always be tricky especially when merge conflicts arise. Lucky for us we were able to solve them.
+			\item \textbf{Session Management:}
+			\item \textbf{Secure Logic:} On paper it sounds simple, but figuring out how to come up with a secure logic and avoid different security task was tough.
+		\end{itemize}
+		
+	\end{flushleft}
+	
+	
+	\subsection{LESSONS LEARNT}
+	\begin{flushleft}
+		The following are a list of things learnt during the course of this project.
+		\begin{itemize}
+		\item \textbf{Coding Skills:} Every team member learnt a lot about PHP, MySQL and how various functions works. Since we developed a XAMPP stack application, we developed skills from frontend to backend. Also worth noting is it never got easier we just got better.
+		\item \textbf{Knowledge:} There is a lot of knowledge passed across to us during the lecture time from the first lecture to the end with practical examples.
+		\item \textbf{Team work:} This is one of the key skills that was learn in this course, we were taught how to build and work as a
+		team which helps us in our daily lives.
+		\item \textbf{Feedback:} We learned how to give and receive feedback in a friendly and professional way which helped to achieve the goal of delivering a successful project.
+		\end{itemize}
+	\end{flushleft}
+			
+		
+	\subsection{CONCLUSION}
+	\begin{flushleft}
+		
+	\end{flushleft}
+		
+	
+\end{document}
