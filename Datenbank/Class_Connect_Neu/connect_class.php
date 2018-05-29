@@ -149,6 +149,35 @@ class SimpleConnectDB
 
 		}
 		
+		public function set_tbl_basket($cookie_user_,$id_items_,$amount_)  {
+
+		$con = $this->connect();
+
+		if($stmt = $con->prepare("INSERT INTO tbl_basket (cookie_user, id_items, amount) VALUES (?, ?, ?)"))
+		{
+			
+		$stmt->bind_param("sii", $cookie_user, $id_items, $amount);
+		
+		$cookie_user = $cookie_user_;
+		$id_items = $id_items_;
+		$amount = $amount_;
+
+		$stmt->execute();
+
+		
+
+		}else {
+
+		$error = $conn->errno . ' ' . $conn->error;
+		    echo $error;
+
+		}
+
+		$stmt->close();
+		$con->close();
+
+		}
+		
 		
 		
 }
