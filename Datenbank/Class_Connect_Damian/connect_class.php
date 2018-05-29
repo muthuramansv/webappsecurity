@@ -27,7 +27,7 @@ class SimpleConnectDB
 	  	   if ($conn->connect_error) {
 	  	   		die("Connection failed: " . $conn->connect_error);
 	  	   		}
-	  		// echo "Connected successfully to Database Webshop"."<br>";
+	  		 //echo "Connected successfully to Database Webshop"."<br>";
 
 
 		//$conn->close();
@@ -148,64 +148,38 @@ class SimpleConnectDB
 		$con->close();
 
 		}
-		
-		
-	public function set_tbl_orders($id_user_, $id_items_, $amount_, $price_, $amountprice_, $orderdate_) {
-		$con = $this->connect();
-
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-
-		if ($stmt = $con->prepare("INSERT INTO tbl_orders (id_user, id_items, amount, price, amountprice, orderdate) VALUES (?, ?, ?, ?, ?, ?)")) {
-			if (!$stmt->bind_param("iiidds", $id_user, $id_items, $amount, $price, $amountprice, $orderdate)) {
-				echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-			}
-
-			$id_user = $id_user_;
-			$id_items = $id_items_;
-			$amount = $amount_;
-			$price = $price_;
-			$amountprice = $amountprice_;
-			$orderdate = $orderdate_;
-
-			if (!($query_result = $stmt->execute())) {
-				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-			}
 
 
-
-			echo $id_user . "<br>" . $id_items . "<br>" . $amount . "<br>" . $price .  "<br>" . $amountprice . "<br>" . $orderdate.  "Done" . "<br>";
-
-
-		} else {
-
-			$error = $conn->errno . ' ' . $conn->error;
-			echo $error;
-
-		}
-
-
-
-		$stmt->close();
-		$con->close();
-	}
-
-		public function set_tbl_basket($cookie_user_,$id_items_,$amount_)  {
-
-		$con = $this->connect();
-
-		if($stmt = $con->prepare("INSERT INTO tbl_basket (cookie_user, id_items, amount) VALUES (?, ?, ?)"))
-		{
 			
-		$stmt->bind_param("sii", $cookie_user, $id_items, $amount);
 		
-		$cookie_user = $cookie_user_;
-		$id_items = $id_items_;
-		$amount = $amount_;
+		public function set_tbl_basket($cookie_user_,$amount_)  {
 
-		$stmt->execute();
-
+		$con = $this->connect();
+		
+		if($stmt = $con->prepare("INSERT INTO tbl_basket (cookie_user,id_items, amount) VALUES ('test',5,7)"))
+		{
+		
+		
+		/*
+		if (!$stmt->bind_param("si", $cookie_user, $amount )) {
+			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+			$cookie_user = $cookie_user_;
+				
+			$amount = $amount_;
+            
+		}
+*/
+				
+				
+		
+		
+		if (!($query_result=$stmt->execute())) {
+                echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+            }
+		
+		
+		
+		echo $cookie_user."<br>".$amount."<br>"."Done"."<br>";
 		
 
 		}else {
@@ -214,12 +188,12 @@ class SimpleConnectDB
 		    echo $error;
 
 		}
+		
 
 		$stmt->close();
 		$con->close();
 
-		}
-
+}
 		
 		
 		
