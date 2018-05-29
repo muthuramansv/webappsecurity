@@ -152,23 +152,24 @@ class SimpleConnectDB
 
 			
 		
-		public function set_tbl_basket($cookie_user_,$id_items_,$amount_)  {
+		public function set_tbl_basket($cookie_user_,$amount_)  {
 
 		$con = $this->connect();
 		
-		if($stmt = $con->prepare("INSERT INTO tbl_basket (cookie_user, id_items, amount) VALUES (?,?,?)"))
+		if($stmt = $con->prepare("INSERT INTO tbl_basket (cookie_user,id_items, amount) VALUES ('test',5,7)"))
 		{
 		
 		
-		
-		if (!$stmt->bind_param("sii", $cookie_user, $id_items, $amount )) {
+		/*
+		if (!$stmt->bind_param("si", $cookie_user, $amount )) {
 			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+			$cookie_user = $cookie_user_;
+				
+			$amount = $amount_;
             
 		}
-
-				$cookie_user = $cookie_user_;
-				$id_items = $id_items_;
-				$amount = $amount_;
+*/
+				
 				
 		
 		
@@ -178,7 +179,7 @@ class SimpleConnectDB
 		
 		
 		
-		echo $cookie_user."<br>".$id_items."<br>".$amount."<br>"."Done"."<br>";
+		echo $cookie_user."<br>".$amount."<br>"."Done"."<br>";
 		
 
 		}else {
