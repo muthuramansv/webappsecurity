@@ -149,6 +149,30 @@ class SimpleConnectDB
 
 		}
 		
+		public function set_tbl_orders($id_user_, $id_items_, $amount_, $price_, $amountprice_, $orderdate_) {
+			$con = $this->connect();
+
+			if ($stmt = $con->prepare("INSERT INTO tbl_orders (id_user, id_items, amount, price, amountprice, orderdate) VALUES (?, ?, ?, ?, ?, ?)")) {
+				$stmt->bind_param("iiidds", $id_user, $id_items, $amount, $price, $amountprice, $orderdate);
+
+				$id_user = $id_user_;
+				$id_items = $id_items_;
+				$amount = $amount_;
+				$price = $price_;
+				$amountprice = $amountprice_;
+				$orderdate = $orderdate_;
+				
+				$stmt->execute();
+			} else {
+				$error = $conn->errno . ' ' . $conn->error;
+
+				echo $error;
+			}
+
+			$stmt->close();
+			$con->close();
+		}
+
 		public function set_tbl_basket($cookie_user_,$id_items_,$amount_)  {
 
 		$con = $this->connect();
@@ -177,6 +201,8 @@ class SimpleConnectDB
 		$con->close();
 
 		}
+
+		
 		
 		
 		
