@@ -22,11 +22,45 @@ class PageBuilder {
             <td>".$item[0]."</td>
             <td>".$item[1]."</td>
             <td>".number_format($item[2], 2)."€</td>
-            <td><a href=\"index.php?item=".$item[0]."&token=".$mysession->getToken()."\">Add to Basket</a></td>
+            <td>
+                <form action=\"index.php\" method=\"post\">
+                    <input type=\"hidden\" name=\"id\" value=\"".$item[0]."\">
+                    <input type=\"hidden\" name=\"name\" value=\"".$item[1]."\">
+                    <input type=\"hidden\" name=\"price\" value=\"".$item[2]."\">
+                    <input type=\"hidden\" name=\"token\" value=\"".$mysession->getToken()."\">
+                    <input type=\"submit\" value=\"Add to Basket\">
+                </form>
+            </td>
             </tr>";
         }
 
-        $output."</tbody></table>";
+        $output = $output."</tbody></table>";
+        return $output;
+    }
+
+
+    public static function printBasketTable($basket, $mysession){
+        $i = 1;
+        $output = "<table border=\"1\">
+                    <tbody>
+                        <tr>
+                            <th>Number</th>
+                            <th>Article</th> 
+                            <th>Price</th>
+                            <th>Count</th>
+                            <th>Remove</th>
+                        </tr>";
+
+        foreach($basket as $item){
+            $output = $output."<tr>
+                <td>".$i++."</td>
+                <td>".$item->getName()."</td> 
+                <td>".$item->getPrice()." €</td>
+                <td>".$item->getCount()."</td>
+                <td><a href = \"home.asp\">Add</a> / <a href = \"home.asp\">Remove</a></td>
+            </tr>";
+        }               
+        $output = $output."</tbody></table>";
         return $output;
     }
 } 

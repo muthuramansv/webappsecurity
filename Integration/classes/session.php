@@ -20,10 +20,28 @@ class CostumSession {
         return md5(openssl_random_pseudo_bytes(32));
     }
 
+    private function checkSessionKey($key){
+        if($key != 'token' || $key != 'article'){
+            return true;
+        }
+        return false;
+    }
+
     public function saveInSession($key, $value) {
-        if($key != 'token'){
+        if($this->checkSessionKey($key)){
             $_SESSION[$key] = $value;
         }
+    }
+
+    public function saveArticle($article){
+        if(!(isset($_SESSION['article']))){
+            $_SESSION['article'] = array();
+        }
+        array_push($_SESSION['article'], $article);
+    }
+
+    public function getFromSession($key) {
+        return $_SESSION[$key];
     }
     
     private function generateToken() {
