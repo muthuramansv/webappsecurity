@@ -16,11 +16,11 @@ $integer_3 = 8976;
 $integer_4 = 8976.434535;
 $integer_5 = 8976.453453;
 
-$connectToDb->set_tbl_basket($string,$integer_1,$integer_2);
-$connectToDb->set_tbl_orders($integer_1,$integer_2,$integer_3,$integer_4,$integer_5,$string);
+$connectToDb->set_tbl_basket($string,$integer_2);
+//$connectToDb->set_tbl_orders($integer_1,$integer_2,$integer_3,$integer_4,$integer_5,$string);
 
 $arrayTest = $connectToDb->get_tbl_basket();
-$arrayTest2 = $connectToDb->get_tbl_orders();
+//$arrayTest2 = $connectToDb->get_tbl_orders();
 
 // Example Access
 for($x = 0; $x < count($arrayTest); $x++) {
