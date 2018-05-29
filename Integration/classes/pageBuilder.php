@@ -7,7 +7,7 @@ class PageBuilder {
         return "<h1>".self::$mainHead."</h1><h2>".self::$subHead."</h2>";
     }
 
-    public static function printTable($items, $mysession) {
+    public static function printItemTable($items, $mysession) {
         $output = " <table border=\"1\">
                     <tbody>
                         <tr>
