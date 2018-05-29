@@ -148,43 +148,66 @@ class SimpleConnectDB
 		$con->close();
 
 		}
-
-
-			
 		
-		public function set_tbl_basket($cookie_user_,$amount_)  {
+	/*	
+		public function set_tbl_orders($id_user_, $id_items_, $amount_, $price_, $amountprice_, $orderdate_) {
+			$con = $this->connect();
+			
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+
+		$stmt = $con->prepare("INSERT INTO tbl_orders (id_user, id_items, amount, price, amountprice, orderdate) VALUES (?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param("iiidds", $id_user, $id_items, $amount, $price, $amountprice, $orderdate);
+
+				$id_user = $id_user_;
+				$id_items = $id_items_;
+				$amount = $amount_;
+				$price = $price_;
+				$amountprice = $amountprice_;
+				$orderdate = $orderdate_;
+				
+				$stmt->execute();
+			
+
+			$stmt->close();
+			$con->close();
+		}
+	*/	
+		
+		public function set_tbl_basket($cookie_user_,$id_items_,$amount_)  {
 
 		$con = $this->connect();
+		$query = "INSERT INTO tbl_basket(`cookie_user`,`id_items`, `amount`) VALUES ((?),(?),(?));";
 		
-		if($stmt = $con->prepare("INSERT INTO tbl_basket (cookie_user,id_items, amount) VALUES ('test',5,7)"))
+		if($stmt = $con->prepare($query))
 		{
 		
 		
-		/*
-		if (!$stmt->bind_param("si", $cookie_user, $amount )) {
+		
+		if (!$stmt->bind_param("sii", $cookie_user, $id_items, $amount )) {
 			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-			$cookie_user = $cookie_user_;
-				
-			$amount = $amount_;
+			echo "bind";
+			
             
 		}
-*/
-				
-				
-		
-		
+		    $cookie_user = $cookie_user_;
+			$id_items = $id_items_;
+			$amount = $amount_;
+			echo $cookie_user_."<br>".$id_items_."<br>".$amount_."<br>"."Done"."<br>";
+	
 		if (!($query_result=$stmt->execute())) {
                 echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+				echo "execute"."<br>";
             }
-		
-		
-		
-		echo $cookie_user."<br>".$amount."<br>"."Done"."<br>";
+			
+		echo $cookie_user."<br>".$id_items."<br>".$amount."<br>"."Done"."<br>";
 		
 
 		}else {
 
 		$error = $conn->errno . ' ' . $conn->error;
+			echo "else";
 		    echo $error;
 
 		}
