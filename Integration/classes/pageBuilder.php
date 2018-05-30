@@ -57,7 +57,12 @@ class PageBuilder {
                 <td>".$item->getName()."</td> 
                 <td>".$item->getPrice()." €</td>
                 <td>".$item->getCount()."</td>
-                <td><a href = \"home.asp\">Add</a> / <a href = \"home.asp\">Remove</a></td>
+                <td><a href = \"home.asp\">Remove</a></td>
+                <td><form action=\"login.php\" method=\"post\">
+                <input type=\"hidden\" name=\"token\" value=\"".$mysession->getToken()."\">
+                <input class=\"link\" type=\"submit\" value=\"Check-Out\">
+                </form>
+                </td>
             </tr>";
         }               
         $output = $output."</tbody></table>";
