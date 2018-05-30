@@ -11,7 +11,7 @@ $mysession = new CostumSession('WAS-Secure-Shop', 1800, '/', '127.0.0.1', false,
 
 $html_code  = "<html>
               <title>Web-Application-Security</title>
-              <div style='float: right;'><a href="login.php">Basket</a></div>"
+              <div style=\"float: right;\"><a href=\"login.php\">Basket</a></div>"
               .pageBuilder::printHead()
               .pageBuilder::printBasketTable(BasketHandler::getBasket($mysession), $mysession).
               "</body>
