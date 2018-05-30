@@ -14,7 +14,7 @@ $arrayTest = $connectToDb->get_tbl_items();
 $html_code = "      <html>
                     <head>
                         <title>Web-Application-Security</title>
-                        <div style=\"float: right;\"><a href=\"login.php\">Basket</a></div>
+                        <div style=\"float: right;\"><a href=\"basket.php\">Basket</a></div>
                     </head>
                     <body>"
                     .PageBuilder::printHead().
