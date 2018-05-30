@@ -13,6 +13,9 @@ class BasketHandler {
     }
 
     public static function getBasket($mysession) {
+        if ($mysession->getFromSession('article') == null){
+            return array();
+        }
         return $mysession->getFromSession('article');
     }
 }
