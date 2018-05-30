@@ -151,13 +151,12 @@ class SimpleConnectDB
 		
 		
 	public function set_tbl_orders($id_user_, $id_items_, $amount_, $price_, $amountprice_, $orderdate_) {
+
 		$con = $this->connect();
+		$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `amount`, `price`, `amountprice`, `orderdate`) VALUES ((?), (?), (?), (?), (?), (?));";
+		
+		if ($stmt = $con->prepare($query)) {
 
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-
-		if ($stmt = $con->prepare("INSERT INTO tbl_orders (id_user, id_items, amount, price, amountprice, orderdate) VALUES (?, ?, ?, ?, ?, ?)")) {
 			if (!$stmt->bind_param("iiidds", $id_user, $id_items, $amount, $price, $amountprice, $orderdate)) {
 				echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 			}
@@ -169,23 +168,20 @@ class SimpleConnectDB
 			$amountprice = $amountprice_;
 			$orderdate = $orderdate_;
 
-			if (!($query_result = $stmt->execute())) {
+			echo $id_user_ . "<br>" . $id_items_ . "<br>" . $amount_ . "<br>" . $price_ .  "<br>" . $amountprice_ . "<br>" . $orderdate_ .  "Done" . "<br>"; 
+
+			if(!($query_result=$stmt->execute())) {
 				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+				echo "execute"."<br>";
 			}
-
-
 
 			echo $id_user . "<br>" . $id_items . "<br>" . $amount . "<br>" . $price .  "<br>" . $amountprice . "<br>" . $orderdate.  "Done" . "<br>";
 
-
 		} else {
-
 			$error = $conn->errno . ' ' . $conn->error;
-			echo $error;
-
+			echo "else";
+		    echo $error;
 		}
-
-
 
 		$stmt->close();
 		$con->close();
