@@ -57,7 +57,7 @@ class PageBuilder {
                 <td>".$item->getName()."</td> 
                 <td>".$item->getPrice()." €</td>
                 <td>".$item->getCount()."</td>
-                <td><a href = \"home.asp\">Add</a> / <a href = \"home.asp\">Remove</a></td>
+                <td><a href = \"home.asp\">Remove</a></td>
             </tr>";
         }               
         $output = $output."</tbody></table>";
