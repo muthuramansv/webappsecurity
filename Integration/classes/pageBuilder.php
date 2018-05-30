@@ -28,7 +28,7 @@ class PageBuilder {
                     <input type=\"hidden\" name=\"name\" value=\"".$item[1]."\">
                     <input type=\"hidden\" name=\"price\" value=\"".$item[2]."\">
                     <input type=\"hidden\" name=\"token\" value=\"".$mysession->getToken()."\">
-                    <input type=\"submit\" value=\"Add to Basket\">
+                    <input class=\"link\" type=\"submit\" value=\"Add to Basket\">
                 </form>
             </td>
             </tr>";
