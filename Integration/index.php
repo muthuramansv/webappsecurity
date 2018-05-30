@@ -14,9 +14,10 @@ $arrayTest = $connectToDb->get_tbl_items();
 $html_code = "      <html>
                     <head>
                         <title>Web-Application-Security</title>
-                        <div style=\"float: right;\"><a href=\"basket.php\">Basket</a></div>
+                        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">
                     </head>
-                    <body>"
+                    <body>
+                    <div style=\"float: right;\"><a href=\"basket.php\">Basket</a></div>"
                     .PageBuilder::printHead().
                      PageBuilder::printItemTable($arrayTest, $mysession)."
                     </body>
