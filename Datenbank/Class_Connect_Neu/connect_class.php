@@ -215,6 +215,30 @@ class SimpleConnectDB
 		$con->close();
 
 		}
+		public function set_tbl_user($firstname_,$lastname_,$address_,$mail_,$pass_)  {
+
+		$con = $this->connect();
+		
+		$query = "INSERT INTO tbl_user(`firstname`,`lastname`,`address`,`mail`,`pass`) VALUES ((?),(?),(?),(?),(?));";
+		
+		$stmt = $con->prepare($query);
+		
+		
+		$stmt->bind_param("sssss",$firstname,$lastname,$address,$mail,$pass);
+			
+		$firstname = $firstname_;
+		$lastname = $lastname_;
+		$address = $address_;
+		$mail = $mail_;
+		$pass = $pass_;
+			
+		
+		$stmt->execute();
+        
+		$stmt->close();
+		$con->close();
+
+}
 
 		
 		
