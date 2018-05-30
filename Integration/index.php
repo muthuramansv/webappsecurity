@@ -12,7 +12,10 @@ BasketHandler::checkBasketSubmission($mysession);
 $arrayTest = $connectToDb->get_tbl_items();
 
 $html_code = "      <html>
-                    <title>Web-Application-Security</title>"
+                    <head>
+                        <title>Web-Application-Security</title>
+                    </head>
+                    <body>"
                     .PageBuilder::printHead().
                      PageBuilder::printItemTable($arrayTest, $mysession)."
                     </body>
