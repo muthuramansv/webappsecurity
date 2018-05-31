@@ -4,7 +4,7 @@
 error_reporting(E_ERROR | E_PARSE);
 
 /*
-Class for connecting to the Database Webshop. 
+Class for connecting to the Database Webshop.
 Providing two Functions.
 1: connect() -> returns variable $conn. (Connection variable, necessary for Prepared Statement).
 2: get_tbl_items() -> returns $array of values from database.
@@ -81,7 +81,7 @@ class SimpleConnectDB
 
 		$con = $this->connect();
 
-		if($stmt = $con->prepare("SELECT firstname, pass  FROM tbl_user "))
+		if($stmt = $con->prepare("SELECT firstname, pass, email  FROM tbl_user "))
 		{
 
 		$stmt->execute();
@@ -121,9 +121,9 @@ class SimpleConnectDB
 		$array = $res->fetch_all();
 
 		return $array;
-		
-		
-		
+
+
+
 
 		}else {
 
@@ -155,9 +155,9 @@ class SimpleConnectDB
 		$array = $res->fetch_all();
 
 		return $array;
-		
-		
-		
+
+
+
 
 		}else {
 
@@ -180,30 +180,30 @@ class SimpleConnectDB
 
 		$con = $this->connect();
 		$query = "INSERT INTO tbl_basket(`cookie_user`,`id_items`, `amount`) VALUES ((?),(?),(?));";
-		
+
 		if($stmt = $con->prepare($query))
 		{
-		
-		
-		
+
+
+
 		if (!$stmt->bind_param("sii", $cookie_user, $id_items, $amount )) {
 			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 			echo "bind";
-			
-            
+
+
 		}
 		    $cookie_user = $cookie_user_;
 			$id_items = $id_items_;
 			$amount = $amount_;
 			echo $cookie_user_."<br>".$id_items_."<br>".$amount_."<br>"."Done"."<br>";
-	
+
 		if (!($query_result=$stmt->execute())) {
                 echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 				echo "execute"."<br>";
             }
-			
+
 		echo $cookie_user."<br>".$id_items."<br>".$amount."<br>"."Done"."<br>";
-		
+
 
 		}else {
 
@@ -212,7 +212,7 @@ class SimpleConnectDB
 		    echo $error;
 
 		}
-		
+
 
 		$stmt->close();
 		$con->close();
@@ -230,7 +230,7 @@ class SimpleConnectDB
 
 	$con = $this->connect();
 	$query = "INSERT INTO tbl_user (`firstname`, `lastname`, `address`, `mail`, `pass`) VALUES ((?), (?), (?), (?), (?));";
-	
+
 	if ($stmt = $con->prepare($query)) {
 
 		if (!$stmt->bind_param("sssss", $firstname, $lastname, $address, $mail, $pass)) {
@@ -242,10 +242,10 @@ class SimpleConnectDB
 		$address = $address_;
 		$mail = $mail_;
 		$pass = $pass_;
-		
-		
 
-		echo $firstname_ . "<br>" . $lastname_ . "<br>" . $address_ . "<br>" . $mail_ .  "<br>" . $pass_ . "<br>" .  "Done" . "<br>"; 
+
+
+		echo $firstname_ . "<br>" . $lastname_ . "<br>" . $address_ . "<br>" . $mail_ .  "<br>" . $pass_ . "<br>" .  "Done" . "<br>";
 
 		if(!($query_result=$stmt->execute())) {
 			echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
@@ -277,7 +277,7 @@ class SimpleConnectDB
 
 	$con = $this->connect();
 	$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `amount`, `price`, `amountprice`, `orderdate`) VALUES ((?), (?), (?), (?), (?), (?));";
-	
+
 	if ($stmt = $con->prepare($query)) {
 
 		if (!$stmt->bind_param("iiidds", $id_user, $id_items, $amount, $price, $amountprice, $orderdate)) {
@@ -291,7 +291,7 @@ class SimpleConnectDB
 		$amountprice = $amountprice_;
 		$orderdate = $orderdate_;
 
-		echo $id_user_ . "<br>" . $id_items_ . "<br>" . $amount_ . "<br>" . $price_ .  "<br>" . $amountprice_ . "<br>" . $orderdate_ .  "Done" . "<br>"; 
+		echo $id_user_ . "<br>" . $id_items_ . "<br>" . $amount_ . "<br>" . $price_ .  "<br>" . $amountprice_ . "<br>" . $orderdate_ .  "Done" . "<br>";
 
 		if(!($query_result=$stmt->execute())) {
 			echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
@@ -308,10 +308,10 @@ class SimpleConnectDB
 
 	$stmt->close();
 	$con->close();
-}		
-		
-		
-		
+}
+
+
+
 }
 
 ?>
