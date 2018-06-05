@@ -1,8 +1,7 @@
 <?
 include 'classes/pageBuilder.php';
 include 'classes/connect_class.php';
-include 'classes/session.php';
-include 'classes/pageBuilder.php';
+
 
 
 $username="";
