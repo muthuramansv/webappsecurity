@@ -14,10 +14,6 @@ $lastname="";
 $address="";
 $errors= array();
 
-$mysession = new CostumSession('WAS-Secure-Shop', 1800, '/', '127.0.0.1', false, true);
-$connectToDb = new SimpleConnectDB();
-$arrayTest = $connectToDb->get_tbl_items();
-
 if(isset($POST['register'])){
     $username = isset($_POST['username']);
     $firstname = isset($_POST['firstname']);
