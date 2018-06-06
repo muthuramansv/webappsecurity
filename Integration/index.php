@@ -18,9 +18,11 @@ $html_code = "      <html>
                     </head>
                     <body>
                     <div style=\"float: right;\"><a href=\"basket.php\">Basket</a></div>"
-                    .PageBuilder::printHead().
-                     PageBuilder::printItemTable($arrayTest, $mysession)."
+                    .PageBuilder::printHead()
+                    .PageBuilder::printAdvertisment()
+                    .PageBuilder::printItemTable($arrayTest, $mysession)."
                     </body>
+                    ".PageBuilder::printFooter()."
                     </html>";
 
 echo $html_code;

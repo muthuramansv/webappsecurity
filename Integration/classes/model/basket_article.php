@@ -13,7 +13,7 @@ class BasketArticle {
     }
 
     public function getID(){
-        $this->id = $myid;
+        return $this->id;
     }
 
     public function getName(){
@@ -30,6 +30,10 @@ class BasketArticle {
 
     public function addCount(){
         $this->count++;
+    }
+
+    public function subCount(){
+        $this->count--;
     }
 }
 ?>
