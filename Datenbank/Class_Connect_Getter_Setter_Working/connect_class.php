@@ -264,6 +264,54 @@ class SimpleConnectDB
 	$con->close();
 }
 
+// Check User 1.1
+
+public function checkUSER($checkmail)  {
+
+		$con = $this->connect();
+
+		if($stmt = $con->prepare("SELECT mail FROM tbl_user WHERE mail LIKE id = $checkmail"))
+		{
+
+		$stmt->execute();
+
+		$res = $stmt->get_result();
+
+		$array = $res->fetch_all();
+		
+		if {
+			
+			echo "User already exists !";
+			
+			return 1;
+		}
+
+		else {
+			
+			echo "Usermail free";
+			return 0;
+		}
+		
+		
+
+
+
+
+		}else {
+
+		$error = $con->errno . ' ' . $con->error;
+		    echo $error;
+
+		}
+
+		$stmt->close();
+		$con->close();
+
+		}
+
+
+// Insert USer 1.2
+
 
     /**
      * @param $id_user_
