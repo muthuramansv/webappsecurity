@@ -81,7 +81,7 @@ class SimpleConnectDB
 
 		$con = $this->connect();
 
-		if($stmt = $con->prepare("SELECT firstname, pass, email  FROM tbl_user "))
+		if($stmt = $con->prepare("SELECT firstname, pass, mail  FROM tbl_user "))
 		{
 
 		$stmt->execute();
@@ -270,7 +270,7 @@ public function checkUSER($checkmail)  {
 
 		$con = $this->connect();
 
-		if($stmt = $con->prepare("SELECT mail FROM tbl_user WHERE mail LIKE id = $checkmail"))
+		if($stmt = $con->prepare("SELECT `mail` FROM tbl_user WHERE `mail` = '$checkmail' "))
 		{
 
 		$stmt->execute();
@@ -278,23 +278,19 @@ public function checkUSER($checkmail)  {
 		$res = $stmt->get_result();
 
 		$array = $res->fetch_all();
-		
-		if {
-			
+
+		if($array) {
+
 			echo "User already exists !";
-			
+
 			return 1;
 		}
 
 		else {
-			
+
 			echo "Usermail free";
 			return 0;
 		}
-		
-		
-
-
 
 
 		}else {

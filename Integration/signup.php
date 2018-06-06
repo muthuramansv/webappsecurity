@@ -1,46 +1,47 @@
 <?php
 include 'classes/pageBuilder.php';
+include 'classes/connect_class1.php';
+include 'classes/signuphandler.php';
+
+
 $html_code  = "<html>
 <title>Web-Application-Security</title>"
     .PageBuilder::printHead().
 "<div class=\"wrapper\">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
-        <form action=\"<?php echo htmlspecialchars($_SERVER\"PHP_SELF\"); ?>
-		    <div class=\"form-group <?php echo (!empty($F_Name_err);) ? 'has-error' : ''; ?>\" >
+        <form method='POST' action=\"classes\signuphandler.php\">
+       
+		    <div class=\"input-group\">
                 <label>First Name</label>
-                <input type=\"text\" name=\"F.Name\"class=\"form-control\" placeholder='Enter First Name' required>
-                <span class=\"help-block\"></span>
+                <input type=\"text\" name=\"firstname\"class=\"form-control\" placeholder='Enter First Name' >
              </div>
-			 <div class=\"form-group <?php echo (!empty($L_Name_err);) ? 'has-error' : ''; ?>\">
+			 <div class=\"input-group\">
                 <label>Last Name</label>
-                <input type=\"text\" name=\"L.Name\"class=\"form-control\" placeholder='Enter last Name' required >
-                <span class=\"help-block\"></span>
+                <input type=\"text\" name=\"lastname\"class=\"form-control\" placeholder='Enter last Name' >
              </div>
-            <div class=\"form-group <?php echo (!empty($username_err);) ? 'has-error' : ''; ?>\">
+            <div class=\"input-group\">
                 <label>Username</label>
-                <input type=\"text\" name=\"username\"class=\"form-control\" placeholder='Enter Username' required >
-                <span class=\"help-block\"><?php echo $username_err; ?></span>
+                <input type=\"text\" name=\"username\" placeholder='Enter Username' >
             </div> 
-             <div class=\"form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>\">
+             <div class=\"input-group\">
                 <label>E-Mail ID</label>
-                <input type=\"text\" name=\"E-Mail\"class=\"form-control\" placeholder='Enter Valid Email Id' required >
-                <span class=\"help-block\"><?php echo $email_err; ?></span>
+                <input type=\"text\" name=\"email\"class=\"form-control\" placeholder='Enter Valid Email Id' >                
              </div>			
-			
-            <div class=\"form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>\">
+            <div class=\"input-group\">
                 <label>Password</label>
-                <input type=\"password\" name=\"password\" class=\"form-control\" placeholder='Enter Password' required>
-                <span class=\"help-block\"><?php echo $password_err; ?></span>
+                <input type=\"password\" name=\"password_1\" class=\"form-control\" placeholder='Enter Password' >
             </div>
-            <div class=\"form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>\">
+            <div class=\"input-group\">
                 <label>Confirm Password</label>
-                <input type=\"password\" name=\"confirm_password\" class=\"form-control\" placeholder='Re-Enter Password' required>
-                <span class=\"help-block\"><?php echo $confirm_password_err; ?></span>
+                <input type=\"password\" name=\"password_2\" class=\"form-control\" placeholder='Re-Enter Password' >                
             </div>
-            <div class=\"form-group\">
-                <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">
-                <input type=\"reset\" class=\"btn btn-default\" value=\"Reset\">
+            <div class=\"input-group\">
+            <label>Address</label>
+            <textarea type=\"text\" name=\"address\" rows=\"4\" cols=\"50\"  class=\"input - group\" >                  
+            </textarea>
+            <div class=\"input-group\">
+            <button input type=\"submit\" class=\"btn btn-primary\" value=\"submit\"> Submit</button>
             </div>
             <p>Already have an account? <a href=\"login.php\">Login here</a>.</p>
         </form>
@@ -49,5 +50,4 @@ $html_code  = "<html>
 </html>";
 
 echo $html_code;
-
 ?>
