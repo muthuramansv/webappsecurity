@@ -1,6 +1,6 @@
-<?php 
+<?php
 class CostumSession {
-    private $token = null;  
+    private $token = null;
     function __construct($name, $lifetime, $path, $domain, $secure, $httponly) {
         session_start([
             'name' => $name,
@@ -12,7 +12,7 @@ class CostumSession {
         session_regenerate_id();
         //session_create_id($this->generatorRandomPrefixSID());
         if(!(isset($_SESSION['token']))){
-            $this->generateToken();   
+            $this->generateToken();
         }
         $this->token = $_SESSION['token'];
     }
@@ -31,6 +31,21 @@ class CostumSession {
         }
         return false;
     }
+
+
+    public function createUserToken () {
+
+		if(getFromSession('user_id')) {
+		return 0;
+		}
+		else {
+		$this->saveInSession('user_id',$this->generator());
+		return 1;
+
+		}
+    }
+
+
 
     public function saveInSession($key, $value) {
         if($this->checkSessionKey($key)){
@@ -51,18 +66,18 @@ class CostumSession {
         }
         return null;
     }
-    
+
     private function generateToken() {
         $this->token = $this->generator();
         $_SESSION['token'] = $this->token;
     }
-    
+
     public function getToken(){
         return $this->token;
     }
-    
+
     public function validateToken($form_token){
-        if($form_token === $this->getToken()){ 
+        if($form_token === $this->getToken()){
             $this->generateToken();
             return true;
         }
