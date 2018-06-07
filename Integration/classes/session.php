@@ -10,7 +10,7 @@ class CostumSession {
             'cookie_domain' => '127.0.0.1',
         ]);
         session_regenerate_id();
-        session_create_id($this->generatorRandomPrefixSID());
+        //session_create_id($this->generatorRandomPrefixSID());
         if(!(isset($_SESSION['token']))){
             $this->generateToken();   
         }
@@ -18,7 +18,7 @@ class CostumSession {
     }
 
     private function generatorRandomPrefixSID(){
-        return substr(md5(openssl_random_pseudo_bytes(32)), rand(1, 122), 6);
+        return rand(1, 122);
     }
 
     private function generator(){
