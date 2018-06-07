@@ -104,6 +104,33 @@ class SimpleConnectDB
 
 		}
 
+		public function get_tbl_user_login_with_token()  {
+
+				$con = $this->connect();
+
+				if($stmt = $con->prepare("SELECT firstname, pass, mail, token  FROM tbl_user "))
+				{
+
+				$stmt->execute();
+
+				$res = $stmt->get_result();
+
+				$array = $res->fetch_all();
+
+				return $array;
+
+				}else {
+
+				$error = $con->errno . ' ' . $con->error;
+				    echo $error;
+
+				}
+
+				$stmt->close();
+				$con->close();
+
+		}
+
     /**
      * @return mixed
      */
