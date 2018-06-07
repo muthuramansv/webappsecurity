@@ -226,14 +226,14 @@ class SimpleConnectDB
      * @param $mail_
      * @param $pass_
      */
-    public function set_tbl_user($firstname_, $lastname_, $address_, $mail_, $pass_) {
+    public function set_tbl_user($firstname_, $lastname_, $address_, $mail_, $pass_, $token_) {
 
 	$con = $this->connect();
-	$query = "INSERT INTO tbl_user (`firstname`, `lastname`, `address`, `mail`, `pass`) VALUES ((?), (?), (?), (?), (?));";
+	$query = "INSERT INTO tbl_user (`firstname`, `lastname`, `address`, `mail`, `pass`, `token`) VALUES ((?), (?), (?), (?), (?), (?));";
 
 	if ($stmt = $con->prepare($query)) {
 
-		if (!$stmt->bind_param("sssss", $firstname, $lastname, $address, $mail, $pass)) {
+		if (!$stmt->bind_param("sssss", $firstname, $lastname, $address, $mail, $pass, $token)) {
 			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 		}
 
@@ -242,6 +242,7 @@ class SimpleConnectDB
 		$address = $address_;
 		$mail = $mail_;
 		$pass = $pass_;
+		$token = $token_;
 
 
 
@@ -305,6 +306,44 @@ public function checkUSER($checkmail)  {
 
 		}
 
+		public function GetUserToken($checktoken)  {
+
+		$con = $this->connect();
+
+		if($stmt = $con->prepare("SELECT `mail` FROM tbl_user WHERE `token` = '$checktoken' "))
+		{
+
+		$stmt->execute();
+
+		$res = $stmt->get_result();
+
+		$array = $res->fetch_all();
+
+		if($array) {
+
+			echo "Token already exists !";
+
+			return 1;
+		}
+
+		else {
+
+			echo "Token does not exists";
+			return 0;
+		}
+
+
+		}else {
+
+		$error = $con->errno . ' ' . $con->error;
+		    echo $error;
+
+		}
+
+		$stmt->close();
+		$con->close();
+
+		}
 
     /**
      * @param $id_user_
@@ -350,8 +389,6 @@ public function checkUSER($checkmail)  {
 	$stmt->close();
 	$con->close();
 }
-
-
 
 }
 
