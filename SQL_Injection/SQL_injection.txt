@@ -1,1 +1,1 @@
-mysqli::escape_string())
+mysqli::escape_string()) -- In Function um unerlaubte Zeichen weg zu bekommen.
