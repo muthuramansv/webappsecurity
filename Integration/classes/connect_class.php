@@ -294,11 +294,17 @@ class SimpleConnectDB
 
 // Check User 1.1
 
+
 public function checkUSER($checkmail)  {
+
+
+
 
 		$con = $this->connect();
 
-		if($stmt = $con->prepare("SELECT `mail` FROM tbl_user WHERE `mail` = '$checkmail' "))
+		$checkmail_ = mysqli_real_escape_string($con, $checkmail);
+
+		if($stmt = $con->prepare("SELECT `mail` FROM tbl_user WHERE `mail` = '$checkmail_' "))
 		{
 
 		$stmt->execute();
@@ -333,11 +339,16 @@ public function checkUSER($checkmail)  {
 
 		}
 
+
+
+
 		public function GetUserToken($checktoken)  {
 
 		$con = $this->connect();
 
-		if($stmt = $con->prepare("SELECT `mail` FROM tbl_user WHERE `token` = '$checktoken' "))
+		$checktoken_ = mysqli_real_escape_string($con, $checktoken);
+
+		if($stmt = $con->prepare("SELECT `mail` FROM tbl_user WHERE `token` = '$checktoken_' "))
 		{
 
 		$stmt->execute();
