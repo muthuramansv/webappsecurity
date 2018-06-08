@@ -43,19 +43,6 @@ class SimpleConnectDB
 	  }
 
 
-	   /**
-         * Compute a hash of a password.
-         *
-         * @param string $password_ Password to hash.
-         * @return string The hash in format "$2y$11$.vGA1O9wmRjrwAVXD98HNOgsNpDczlqm3Jq7KnEd1rVAGv3Fykk1a"
-         */
-		
-	function password_hasher($password_) {
-		return $hash = password_hash($password_, PASSWORD_DEFAULT, ['cost' => 11]);
-	}
-
-	
-
     /**
      * @return mixed
      */
@@ -283,12 +270,12 @@ class SimpleConnectDB
 		$lastname = $lastname_;
 		$address = $address_;
 		$mail = $mail_;
-		$pass = password_hasher($pass_);
+		$pass = password_hash($pass_, PASSWORD_DEFAULT, ['cost' => 11]);
 		$token = $token_;
 
 
 
-		echo $firstname_ . "<br>" . $lastname_ . "<br>" . $address_ . "<br>" . $mail_ .  "<br>" . password_hasher($pass_) . "<br>" .  "Done" . "<br>";
+		echo $firstname_ . "<br>" . $lastname_ . "<br>" . $address_ . "<br>" . $mail_ .  "<br>" . $pass_ . "<br>" .  "Done" . "<br>";
 
 		if(!($query_result=$stmt->execute())) {
 			echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
