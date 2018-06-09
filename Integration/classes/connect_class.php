@@ -253,6 +253,8 @@ class SimpleConnectDB
      * @param $mail_
      * @param $pass_
      */
+
+	
     public function set_tbl_user($firstname_, $lastname_, $address_, $mail_, $pass_, $token_) {
 
 	$con = $this->connect();
@@ -268,7 +270,7 @@ class SimpleConnectDB
 		$lastname = $lastname_;
 		$address = $address_;
 		$mail = $mail_;
-		$pass = $pass_;
+		$pass = password_hash($pass_, PASSWORD_DEFAULT, ['cost' => 11]);
 		$token = $token_;
 
 
