@@ -297,7 +297,7 @@ class SimpleConnectDB
 // Check User 1.1
 
 
-public function checkUSER($checkmail)  {
+public function checkUSER($checkmail, $checkpassword)  {
 
 
 
@@ -305,8 +305,9 @@ public function checkUSER($checkmail)  {
 		$con = $this->connect();
 
 		$checkmail_ = mysqli_real_escape_string($con, $checkmail);
+		$checkpassword_ = mysqli_real_escape_string($con, $checkpassword);
 
-		if($stmt = $con->prepare("SELECT `mail` FROM tbl_user WHERE `mail` = '$checkmail_' "))
+		if($stmt = $con->prepare("SELECT `mail` , `password` FROM tbl_user WHERE `mail` = '$checkmail_' and `password` = '$checkpassword_' "))
 		{
 
 		$stmt->execute();
