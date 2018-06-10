@@ -14,4 +14,30 @@ class data_validation
         return strip_tags($input);
     }
 
+    //Validates E-Mail according to RFC 822
+    function checkEmailAdress($input){
+        if (filter_var($input, FILTER_VALIDATE_EMAIL)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    //Check if there is anything in the $input Variable which isn't an Word-Character
+    function checkNames($input){
+        if (preg_match("//^[\w]+$/i", $input)) {
+            return false; //Illegal Character found!
+        }
+        return true;
+    }
+
+    //Almost the same as checkNames but allow whitspaces because of Street-Names and House-Numbers
+    function checkAddress($input){
+        if (preg_match("//^[\w\s]+$/i", $input)) {
+            return false; //Illegal Character found!
+        }
+        return true;
+    }
+
 }
+?>
