@@ -32,20 +32,15 @@ class CostumSession {
         return false;
     }
 
-
     public function createUserToken () {
-
-		if(getFromSession('user_id')) {
-		return 0;
+		if($this->getFromSession('user_id') != null) {
+		    return 0;
 		}
 		else {
-		$this->saveInSession('user_id',$this->generator());
-		return 1;
-
+		    $this->saveInSession('user_id', $this->generator());
+		    return 1;
 		}
     }
-
-
 
     public function saveInSession($key, $value) {
         if($this->checkSessionKey($key)){

@@ -54,6 +54,60 @@ class PageBuilder {
         return $output;
     }
 
+    public static function printOrderTable($basket, $mysession, $totalCount, $totalPrice){
+        $i = 1;
+        
+        if (count($basket) > 0){
+            $output = "<table border=\"1\">
+                    <tbody>
+                        <tr>
+                            <th>Number</th>
+                            <th>Article</th> 
+                            <th>Price</th>
+                            <th>Count</th>
+                        </tr>";
+            foreach($basket as $item){
+                $output = $output."<tr>
+                    <td>".$i++."</td>
+                    <td>".$item->getName()."</td> 
+                    <td>".number_format($item->getPrice(), 2)."€</td>
+                    <td>".$item->getCount()."</td>
+                </tr>";
+            }               
+            $output = $output."   
+                <tr>
+                    <td colspan=\"2\">Total</td>
+                    <td>".number_format($totalPrice, 2)."€</td>
+                    <td>".$totalCount."</td>
+                </tr>
+                <tr>
+                    <td  colspan=\"2\">&nbsp;</td>
+
+                    </td>
+                    <td colspan=\"2\">
+                        <form action=\"index.php\">
+                            <input class=\"link\" type=\"submit\" value=\"Cancel Order\">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td  colspan=\"2\">&nbsp;</td>
+
+                    </td>
+                    <td colspan=\"2\">
+                        <form action=\"login.php\" method=\"post\">
+                            <input type=\"hidden\" name=\"token\" value=\"".$mysession->getToken()."\">
+                            <input class=\"link\" type=\"submit\" value=\"Place Order\">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+            </table>";
+        }else {
+            $output = "<h4>Your Basket is empty! Nothing to Check Out!</h4><a href=\"index.php\">Return to Home</a>";
+        }
+        return $output;
+    }
 
     public static function printBasketTable($basket, $mysession, $totalCount, $totalPrice){
         $i = 1;
