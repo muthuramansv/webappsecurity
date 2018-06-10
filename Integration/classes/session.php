@@ -2,7 +2,7 @@
 class CostumSession {
     private $token = null;
     function __construct($name, $lifetime, $path, $domain, $secure, $httponly) {
-        session_start([
+        session_start([ 
             'name' => $name,
             'cookie_lifetime' => $lifetime,
             'cookie_httponly' => $httponly,
@@ -10,7 +10,9 @@ class CostumSession {
             'cookie_domain' => '127.0.0.1',
         ]);
         session_regenerate_id();
-        //session_create_id($this->generatorRandomPrefixSID());
+        //session_create_id($this->generatorRandomPrefixSID()); //Unfortunatly not working under windows-machines!
+        //PHP's default session facilities are considered safe, the generated PHPSessionID is random enough...
+        //https://www.owasp.org/index.php/PHP_Security_Cheat_Sheet
         if(!(isset($_SESSION['token']))){
             $this->generateToken();
         }
