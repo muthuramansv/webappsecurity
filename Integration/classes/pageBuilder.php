@@ -15,6 +15,14 @@ class PageBuilder {
         <hr>";
     }
 
+    public static function printHeaderHTML(){
+        return "<head>
+                <title>".$mainHead."</title>
+                <link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">
+                <meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; child-src 'none';\">
+                </head>";
+    }
+
     public static function printItemTable($items, $mysession) {
         $output = " <table border=\"1\">
                     <tbody>

@@ -12,3 +12,6 @@
     box-sizing: border-box; 
 }
 
+#basket_home {
+    float: right;
+}

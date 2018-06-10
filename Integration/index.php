@@ -12,12 +12,9 @@ BasketHandler::checkBasketSubmission($mysession);
 $arrayTest = $connectToDb->get_tbl_items();
 
 $html_code = "      <html>
-                    <head>
-                        <title>Web-Application-Security</title>
-                        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">
-                    </head>
+                    ".PageBuilder::printHeaderHTML()."
                     <body>
-                    <div style=\"float: right;\"><a href=\"basket.php\">Basket</a></div>"
+                    <div id=\"basket_home\"><a href=\"basket.php\">Basket</a></div>"
                     .PageBuilder::printHead()
                     .PageBuilder::printAdvertisment()
                     .PageBuilder::printItemTable($arrayTest, $mysession)."
