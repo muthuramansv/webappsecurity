@@ -1,5 +1,7 @@
 <?php
 
+//File exsists two times. Always use Lowercase filenames.
+
 
         $servername = "localhost";
         $username = "root";
@@ -20,6 +22,13 @@
         //$vaddress = $address;
         //$vpassword = $password_1;
         //$vpassword1 = md5($vpassword);
+
+
+        //Almost no Validation of data, but better implementation of PHP!
+        //Always check before using any $_POST or $_GET variables if they are exsisting
+        //Also as well all databases access should be in a another class and validation put in methods to have smaller chunks of code.
+
+
         $username = $_POST['username'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];

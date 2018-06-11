@@ -1,6 +1,7 @@
 
 <?php
 
+//Should be in Connect Class
 
 $servername = "localhost";
 $username = "root";
@@ -16,6 +17,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+    //Bad! Exposes SQL Query if nothing is entered in Sign in!!!
     $email = $_POST['username'];
     $password1 = $_POST['password'];
     $password2 = md5($password1);

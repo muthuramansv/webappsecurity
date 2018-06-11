@@ -4,7 +4,7 @@ function formValidation()
     var firstname = document.registration.firstname;
     var lastname = document.registration.lastname;
     var username = document.registration.username;
-    var address = document.registration.address;
+    var address = document.registration.address; //Never used?
     var passsword_1 = document.registration.password_1;
     var password_2 = document.registration.password_2;
     var email = document.registration.email;
@@ -119,7 +119,7 @@ function ValidateEmail(email)
 }
 function password_equal(password_1,password_2)
 {
-    if (password_1 != password_1)
+    if (password_1 != password_1) //Mistake??? password_1 != password_2
     {
         alert("Passwords do not match");
         password_1.focus();
