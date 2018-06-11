@@ -1,17 +1,16 @@
 <?php
 include 'classes/pageBuilder.php';
 include 'classes/connect_class.php';
-include 'classes/signuphandler.php';
-
-
 $html_code  = "<html>
+
 <title>Web-Application-Security</title>"
     .PageBuilder::printHead().
-"<div class=\"wrapper\">
+    "<div class=\"wrapper\">
+
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
-        <form method='POST' action=\"classes\signuphandler.php\">
-
+        
+        <form name='registration' method='POST' id=\"formsignup\">
 		    <div class=\"input-group\">
                 <label>First Name</label>
                 <input type=\"text\" name=\"firstname\"class=\"form-control\" placeholder='Enter First Name' >
@@ -46,8 +45,9 @@ $html_code  = "<html>
             <p>Already have an account? <a href=\"login.php\">Login here</a>.</p>
         </form>
     </div>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js\" ></script>
+        <script src=\"data_validation.js\"></script>
 </body>
 </html>";
-
 echo $html_code;
 ?>

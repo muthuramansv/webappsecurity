@@ -1,4 +1,7 @@
+
 <?php
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -19,7 +22,7 @@ if ($conn->connect_error) {
     $sql = "SELECT * FROM tbl_user WHERE  mail = '$email' AND pass = '$password2'";
     $result = $conn->query($sql);
 $get_total_rows = $result->fetch_row();
-    if($get_total_rows === 1) {
+    if($get_total_rows >= 1) {
         echo "Muthu is Success!!!";
         header('Location: index.php');
     }
