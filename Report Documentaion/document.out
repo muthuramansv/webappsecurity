@@ -1,21 +1,9 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Features}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Views}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Secure Session handling with Cookies and database}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Timeout for Session and Tokens}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Secure Storage of passwords}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.5}{CSRF handling}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.6}{XSS handling}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.7}{SQL-injection handling}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.8}{Secure logic design}{section.2}% 10
-\BOOKMARK [1][-]{section.3}{Tools Used}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{Git}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{PHP}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.3}{MySQL}{section.3}% 14
-\BOOKMARK [2][-]{subsection.3.4}{Trello}{section.3}% 15
-\BOOKMARK [1][-]{section.4}{Team Matrix}{}% 16
-\BOOKMARK [1][-]{section.5}{Implementation}{}% 17
-\BOOKMARK [1][-]{section.6}{Challenges, Conclusion and Lessons Learnt}{}% 18
-\BOOKMARK [2][-]{subsection.6.1}{TEAM CHALLENGES}{section.6}% 19
-\BOOKMARK [2][-]{subsection.6.2}{LESSONS LEARNT}{section.6}% 20
-\BOOKMARK [2][-]{subsection.6.3}{CONCLUSION}{section.6}% 21
+\BOOKMARK [1][-]{section.2}{Architecture}{}% 2
+\BOOKMARK [1][-]{section.3}{Features}{}% 3
+\BOOKMARK [1][-]{section.4}{Tools Used}{}% 4
+\BOOKMARK [1][-]{section.5}{Team Matrix}{}% 5
+\BOOKMARK [1][-]{section.6}{Challenges and Lessons Learnt}{}% 6
+\BOOKMARK [2][-]{subsection.6.1}{TEAM CHALLENGES}{section.6}% 7
+\BOOKMARK [2][-]{subsection.6.2}{LESSONS LEARNT}{section.6}% 8
+\BOOKMARK [1][-]{section.7}{REFERENCES}{}% 9
