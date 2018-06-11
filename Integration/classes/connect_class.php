@@ -294,6 +294,45 @@ class SimpleConnectDB
 	$con->close();
 }
 
+public function set_tbl_user_without_token($firstname_, $lastname_, $address_, $mail_, $pass_) {
+
+	$con = $this->connect();
+	$query = "INSERT INTO tbl_user (`firstname`, `lastname`, `address`, `mail`, `pass`) VALUES ((?), (?), (?), (?), (?));";
+
+	if ($stmt = $con->prepare($query)) {
+
+		if (!$stmt->bind_param("sssss", $firstname, $lastname, $address, $mail, $pass)) {
+			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+		}
+
+		$firstname = $firstname_;
+		$lastname = $lastname_;
+		$address = $address_;
+		$mail = $mail_;
+		$pass = password_hash($pass_, PASSWORD_DEFAULT, ['cost' => 11]);
+		
+
+
+
+		echo $firstname_ . "<br>" . $lastname_ . "<br>" . $address_ . "<br>" . $mail_ .  "<br>" . $pass_ . "<br>" .  "Done" . "<br>";
+
+		if(!($query_result=$stmt->execute())) {
+			echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+			echo "execute"."<br>";
+		}
+
+		echo $firstname . "<br>" . $lastname . "<br>" . $address . "<br>" . $mail .  "<br>" . $pass . "<br>" .  "Done" . "<br>";
+
+	} else {
+		$error = $con->errno . ' ' . $con->error;
+		echo "else";
+		echo $error;
+	}
+
+	$stmt->close();
+	$con->close();
+}
+
 // Check User 1.1
 
 
@@ -308,6 +347,52 @@ public function checkUSER($checkmail, $checkpassword)  {
 		$checkpassword_ = mysqli_real_escape_string($con, $checkpassword);
 
 		if($stmt = $con->prepare("SELECT `mail` , `password` FROM tbl_user WHERE `mail` = '$checkmail_' and `password` = '$checkpassword_' "))
+		{
+
+		$stmt->execute();
+
+		$res = $stmt->get_result();
+
+		$array = $res->fetch_all();
+
+		if($array) {
+
+			echo "User already exists !";
+
+			return 1;
+		}
+
+		else {
+
+			echo "Usermail free";
+			return 0;
+		}
+
+
+		}else {
+
+		$error = $con->errno . ' ' . $con->error;
+		    echo $error;
+
+		}
+
+		$stmt->close();
+		$con->close();
+
+		}
+		
+		public function checkUSER_All($checkmail, $checkpassword)  {
+
+
+
+
+		$con = $this->connect();
+
+		$checkmail_ = mysqli_real_escape_string($con, $checkmail);
+		$checkpassword_ = mysqli_real_escape_string($con, $checkpassword);
+		
+
+		if($stmt = $con->prepare("SELECT * FROM tbl_user WHERE `mail` = '$checkmail_' AND `pass` = '$checkpassword_' "))
 		{
 
 		$stmt->execute();
