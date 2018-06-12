@@ -17,7 +17,7 @@ class PageBuilder {
 
     public static function printHeaderHTML(){
         return "<head>
-                <title>".$mainHead."</title>
+                <title>".self::$mainHead."</title>
                 <link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">
                 <meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; child-src 'none';\">
                 </head>";
@@ -157,9 +157,34 @@ class PageBuilder {
         return $output;
     }
 
+    public static function printLoginForm(){
+        return "
+        <h2>Please fill in your credentials to login.</h2>
+        <form method=\"POST\" action=\"login_handler.php\" ?>
+            <p>
+                <label>Username Or Email</label>
+                <input type=\"text\" name=\"username\" placeholder='Enter Username or Email'>
+                
+            </p>    
+            <p>
+                <label>Password</label>
+                <input type=\"password\" name=\"password\" class=\"form-control\" placeholder='Enter Password'>
+                
+            </p>
+            <p>
+                <input id=\"login\" type=\"submit\" value=\"Login\">
+            </p>
+            <p>Don't have an account? <a href=\"signup.php\">Sign up now</a>.</p>
+        </form>";
+    }
+
+    public static function printSignUpForm(){
+        
+    }
+
     public static function printFooter(){
         return "<footer>
-                    <p>".$mainHead." ".$subHead."</p>
+                    <p>".self::$mainHead." ".self::$subHead."</p>
                     <p>Contact information: <a href=\"mailto:admin@was-shop.com\">admin@was-shop.com</a></p>
                 </footer>";
     }
