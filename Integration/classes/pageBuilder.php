@@ -181,7 +181,7 @@ class PageBuilder {
     public static function printSignUpForm(){
         return "<h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
-        <form method=\"POST\">
+        <form method=\"POST\" action=\"signup.php\">
 		    <p>
                 <label>First Name</label>
                 <input type=\"text\" name=\"firstname\" placeholder='Enter First Name' >

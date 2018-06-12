@@ -345,8 +345,11 @@ public function checkUSER($checkmail, $checkpassword)  {
 
 		$checkmail_ = mysqli_real_escape_string($con, $checkmail);
 		$checkpassword_ = mysqli_real_escape_string($con, $checkpassword);
+		
+		
 
-		if($stmt = $con->prepare("SELECT `mail` , `password` FROM tbl_user WHERE `mail` = '$checkmail_' and `password` = '$checkpassword_' "))
+		if($stmt = $con->prepare("SELECT `mail` , `password` FROM tbl_user WHERE `mail` = '$checkmail_' AND `password` = '$checkpassword_' "))
+			
 		{
 
 		$stmt->execute();
@@ -384,52 +387,47 @@ public function checkUSER($checkmail, $checkpassword)  {
 		public function checkLoginCredentials($checkmail, $checkpassword)  {
 
 
-
-
 		$con = $this->connect();
-
 		$checkmail_ = mysqli_real_escape_string($con, $checkmail);
 		$checkpassword_ = mysqli_real_escape_string($con, $checkpassword);
-
-		if($stmt = $con->prepare("SELECT `mail` , `password` FROM tbl_user WHERE `mail` = '$checkmail_' and `password` = '$checkpassword_' "))
-		{
+		
+			
+		$query = "SELECT  `pass` , `mail` FROM tbl_user  ";
+		
+		
+		$stmt = $con->prepare($query);
 
 		$stmt->execute();
 
 		$res = $stmt->get_result();
 		
-		$hash = password_hash($checkpassword, PASSWORD_DEFAULT, ["cost" => 11]);
 		
-
+		$array = $res->fetch_all();
 		
-
-		if($res->num_rows > 0) {
 		
-			while($row =  $res->fetch_assoc()) {
-				if($row["mail"] == $checkmail && $row["pass"] == password_verify($checkpassword, $hash)) {
-					
-					return true;
-					echo "User and Password OK!";
-				}
+		foreach($array as $item){
+	
+		 $testpw = password_verify($checkpassword_ ,$item[0]);
+		 $testuser = $item[1];
+		 echo $testuser;
+		 
+		  
+         if( $testpw && $testuser)  {
+			 
+		 echo "True";
+         return true;
+		 
+		 }
+		 
+		 else {
 			
-			}
-			
-		}
-
-		else {
-
-			echo "User or Password not OK";
+			echo "False";
 			return false;
 		}
-
-
-		}else {
-
-		$error = $con->errno . ' ' . $con->error;
-		    echo $error;
-
-		}
-
+            
+        }
+		
+		
 		$stmt->close();
 		$con->close();
 
