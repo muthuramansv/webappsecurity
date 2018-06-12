@@ -409,7 +409,7 @@ public function checkUSER($checkmail, $checkpassword)  {
 				if($row["mail"] == $checkmail && $row["pass"] == password_verify($checkpassword, $hash)) {
 					
 					return true;
-					echo "User and Password OK!";
+					
 				}
 			
 			}
