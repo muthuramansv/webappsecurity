@@ -381,6 +381,52 @@ public function checkUSER($checkmail, $checkpassword)  {
 
 		}
 		
+		public function checkLoginCredentials($checkmail, $checkpassword)  {
+
+
+
+
+		$con = $this->connect();
+
+		$checkmail_ = mysqli_real_escape_string($con, $checkmail);
+		$checkpassword_ = mysqli_real_escape_string($con, $checkpassword);
+
+		if($stmt = $con->prepare("SELECT `mail` , `password` FROM tbl_user WHERE `mail` = '$checkmail_' and `password` = '$checkpassword_' "))
+		{
+
+		$stmt->execute();
+
+		$res = $stmt->get_result();
+		
+
+		$array = $res->fetch_all();
+
+		if($array) {
+
+			echo "User and Password OK!";
+
+			return 1;
+		}
+
+		else {
+
+			echo "User or Password not OK";
+			return 0;
+		}
+
+
+		}else {
+
+		$error = $con->errno . ' ' . $con->error;
+		    echo $error;
+
+		}
+
+		$stmt->close();
+		$con->close();
+
+		}
+		
 		public function checkUSER_All($checkmail, $checkpassword)  {
 
 
