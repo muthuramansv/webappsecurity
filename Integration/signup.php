@@ -1,8 +1,9 @@
 <?php
-include 'classes/pageBuilder.php';
-include 'classes/connect_class.php';
-$html_code  = "<html>
+include 'classes/sign_up_validation.php';
 
+SignUpValidation::management();
+
+$html_code  = "<html>
 <title>Web-Application-Security</title>"
     .PageBuilder::printHead().
     "<div class=\"wrapper\">
@@ -10,11 +11,12 @@ $html_code  = "<html>
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         
-        <form name='registration' method='POST' id=\"formsignup\">
+        <form  method='POST' action=\"signup.php\">
 		    <div class=\"input-group\">
                 <label>First Name</label>
                 <input type=\"text\" name=\"firstname\"class=\"form-control\" placeholder='Enter First Name' >
              </div>
+             
 			 <div class=\"input-group\">
                 <label>Last Name</label>
                 <input type=\"text\" name=\"lastname\"class=\"form-control\" placeholder='Enter last Name' >
@@ -25,7 +27,7 @@ $html_code  = "<html>
             </div>
              <div class=\"input-group\">
                 <label>E-Mail ID</label>
-                <input type=\"text\" name=\"email\"class=\"form-control\" placeholder='Enter Valid Email Id' >
+                <input type=\"text\" name=\"mail\"class=\"form-control\" placeholder='Enter Valid Email Id' >
              </div>
             <div class=\"input-group\">
                 <label>Password</label>
@@ -45,8 +47,6 @@ $html_code  = "<html>
             <p>Already have an account? <a href=\"login.php\">Login here</a>.</p>
         </form>
     </div>
-    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js\" ></script>
-        <script src=\"data_validation.js\"></script>
 </body>
 </html>";
 echo $html_code;
