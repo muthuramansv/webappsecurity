@@ -43,76 +43,75 @@ class SignUpValidation
     //Html_sanitization method
     public static function htmlValidation()
     {
-
-        DataValidation::html_sanitization(self::$username);
-        DataValidation::html_sanitization(self::$firstname);
-        DataValidation::html_sanitization(self::$lastname);
-        DataValidation::html_sanitization(self::$mail);
-        DataValidation::html_sanitization(self::$password_1);
-        DataValidation::html_sanitization(self::$password_2);
-        DataValidation::html_sanitization(self::$address);
-        return true;
+        if (DataValidation::html_sanitization(self::$username) && DataValidation::html_sanitization(self::$firstname) && DataValidation::html_sanitization(self::$lastname) && DataValidation::html_sanitization(self::$mail) && DataValidation::html_sanitization(self::$password_1) && DataValidation::html_sanitization(self::$password_2) && DataValidation::html_sanitization(self::$address)){
+            return true;
+        }
+        return false;
     }
 
     //Name checker method
     public static function nameValidation()
     {
-        DataValidation::checkNames(self::$firstname);
-        DataValidation::checkNames(self::$lastname);
-        return true;
+        if (DataValidation::checkNames(self::$firstname) && DataValidation::checkNames(self::$lastname)){
+            return true;
+        }
+        return false;
     }
 
     //Email Checker method
     public static function emailValidation()
     {
-        DataValidation::checkEmailAddress(self::$mail);
-        return true;
+        if (DataValidation::checkEmailAddress(self::$mail)){
+            return true;
+        }
+        return false;
     }
 
     //Password Checker method
     public static function passValidation()
     {
-        DataValidation::checkPasswords(self::$password_1);
-        return true;
+        if (DataValidation::checkPasswords(self::$password_1)){
+            return true;
+        }
+        return false;
     }
 
     //Userid checker method
     public static function useridValidation()
     {
-        DataValidation::checkUsername(self::$username);
-        return true;
+        if (DataValidation::checkUsername(self::$username)){
+            return true;
+        }
+        return false;
     }
 
     //Address checker method
     public static function checkAddress()
     {
-        DataValidation::checkAddress(self::$firstname);
-        return true;
+        if (DataValidation::checkAddress(self::$firstname)){
+            return true;
+        }
+        return false;
     }
 
     //Password equality checker method
     public static function equalPassword()
     {
-        DataValidation::equalPasswords(self::$password_1, self::$password_2);
-        return true;
-
+        if (DataValidation::equalPasswords(self::$password_1, self::$password_2)){
+            return true;
+        }
+        return false;
     }
 
     //Management function
     public static function management()
     {
         if (self::signupSubmit()) {
-            self::htmlValidation();
-            self::nameValidation();
-            self::emailValidation();
-            self::passValidation();
-            self::useridValidation();
-            self::checkAddress();
-            self::equalPassword();
-            return true;
-        } else {
-            return false;
+            if (self::htmlValidation() && self::nameValidation() && self::emailValidation() && self::passValidation() && self::useridValidation() && self::checkAddress() && self::equalPassword()){
+                return true;
+            }
         }
+        return false;
     }
 }
 ?>
