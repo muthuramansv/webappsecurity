@@ -17,6 +17,7 @@ class CostumSession {
             $this->generateToken();
         }
         $this->token = $_SESSION['token'];
+        $this->createUserToken();
     }
 
     private function generatorRandomPrefixSID(){
@@ -34,7 +35,11 @@ class CostumSession {
         return false;
     }
 
-    public function createUserToken () {
+    public function getUserToken(){
+        return $this->getFromSession('user_id');
+    }
+
+    private function createUserToken() {
 		if($this->getFromSession('user_id') != null) {
 		    return 0;
 		}
