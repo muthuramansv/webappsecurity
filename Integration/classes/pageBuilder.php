@@ -172,18 +172,54 @@ class PageBuilder {
                 
             </p>
             <p>
-                <input id=\"login\" type=\"submit\" value=\"Login\">
+                <input class=\"simple_button\" type=\"submit\" value=\"Login\">
             </p>
             <p>Don't have an account? <a href=\"signup.php\">Sign up now</a>.</p>
         </form>";
     }
 
     public static function printSignUpForm(){
-        
+        return "<h2>Sign Up</h2>
+        <p>Please fill this form to create an account.</p>
+        <form method=\"POST\">
+		    <p>
+                <label>First Name</label>
+                <input type=\"text\" name=\"firstname\" placeholder='Enter First Name' >
+            </p>
+			<p>
+                <label>Last Name</label>
+                <input type=\"text\" name=\"lastname\" placeholder='Enter last Name' >
+            </p>
+            <p>
+                <label>Username</label>
+                <input type=\"text\" name=\"username\" placeholder='Enter Username' >
+            </p>
+             <p>
+                <label>E-Mail ID</label>
+                <input type=\"text\" name=\"mail\" placeholder='Enter Valid Email Id' >
+             </p>
+            <p>
+                <label>Password</label>
+                <input type=\"password\" name=\"password_1\" placeholder='Enter Password' >
+            </p>
+            <p>
+                <label>Confirm Password</label>
+                <input type=\"password\" name=\"password_2\" placeholder='Re-Enter Password' >
+            </p>
+            <p>
+                <label>Address</label>
+                <textarea type=\"text\" name=\"address\" rows=\"4\" cols=\"50\" ></textarea>
+            </p>
+            <p>
+                <input class=\"simple_button\" type=\"submit\" value=\"Sign Up\">
+            </p>
+            <p>Already have an account? <a href=\"login.php\">Login here</a></p>
+        </form>";
     }
 
     public static function printFooter(){
         return "<footer>
+                    <hr>
                     <p>".self::$mainHead." ".self::$subHead."</p>
                     <p>Contact information: <a href=\"mailto:admin@was-shop.com\">admin@was-shop.com</a></p>
                 </footer>";
