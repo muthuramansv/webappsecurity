@@ -398,14 +398,22 @@ public function checkUSER($checkmail, $checkpassword)  {
 
 		$res = $stmt->get_result();
 		
+		$hash = password_hash($checkpassword, PASSWORD_DEFAULT, ["cost" => 11]);
+		
 
-		$array = $res->fetch_all();
+		
 
-		if($array) {
-
-			echo "User and Password OK!";
-
-			return true;
+		if($res->num_rows > 0) {
+		
+			while($row =  $res->fetch_assoc()) {
+				if($row["mail"] == $checkmail && $row["pass"] == password_verify($checkpassword, $hash)) {
+					
+					return true;
+					echo "User and Password OK!";
+				}
+			
+			}
+			
 		}
 
 		else {
