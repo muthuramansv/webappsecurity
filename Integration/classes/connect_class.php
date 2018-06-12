@@ -405,13 +405,13 @@ public function checkUSER($checkmail, $checkpassword)  {
 
 			echo "User and Password OK!";
 
-			return 1;
+			return true;
 		}
 
 		else {
 
 			echo "User or Password not OK";
-			return 0;
+			return false;
 		}
 
 
