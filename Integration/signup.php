@@ -1,6 +1,7 @@
 <?php
-include 'classes/sign_up_validation.php';
 include 'classes/session.php';
+include 'classes/sign_up_validation.php';
+
 
 $mysession = new CostumSession('WAS-Secure-Shop', 1800, '/', '127.0.0.1', false, true);
 

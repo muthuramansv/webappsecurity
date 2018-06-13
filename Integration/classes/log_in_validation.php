@@ -1,6 +1,5 @@
 <?php
 include 'login_data_validation.php';
-include 'connect_class.php';
 
 
 class LoginValidation

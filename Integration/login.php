@@ -1,7 +1,8 @@
 <?php
+include 'classes/session.php';
 include 'classes/pageBuilder.php';
 include 'classes/log_in_validation.php';
-include 'classes/session.php';
+
 
 $mysession = new CostumSession('WAS-Secure-Shop', 1800, '/', '127.0.0.1', false, true);
 
