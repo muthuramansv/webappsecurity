@@ -216,6 +216,10 @@ class PageBuilder {
             <p>Already have an account? <a href=\"login.php\">Login here</a></p>
         </form>";
     }
+	
+    public static function printError($error){
+        return "<div>".$error."<div>";
+    }
 
     public static function printFooter(){
         return "<footer>
