@@ -6,6 +6,7 @@ class LoginValidation
 {
     private static $mail = null;
     private static $password = null;
+    private static $token = null;
 
     public static function loginSubmit($mysession)
     {
@@ -13,6 +14,7 @@ class LoginValidation
             if($mysession->validateToken($_POST["token"])){
                 self::$mail = $_POST["mail"];
                 self::$password = $_POST["password"];
+                self::$token = $_POST["token"];
                 return true;
             }
             return false;
@@ -46,9 +48,18 @@ class LoginValidation
     public static function loginData()
     {
         $logindata = new SimpleConnectDB();
-        $logindata->get_tbl_user_login(self::$mail, self::$password);
-    }
+        if($logindata->checkUSER(self::$mail, self::$password) == 0){
+            echo PageBuilder::printError("Username or Password is Incorrect!");
+            return false;
+        }
+        else($logindata->getUserToken(self::$token)== 1)
+        {
+         $logindata->checkLoginCredentials(self::$mail, self::$password)==true)
 
+        }
+        return true;
+    }
+    
     //Login Management Method
     public static function login_management($mysession)
     {
