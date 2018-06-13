@@ -482,7 +482,7 @@ public function checkUSER($checkmail, $checkpassword)  {
 
 
 
-		public function GetUserToken($checktoken)  {
+		public function getUserToken($checktoken)  {
 
 		$con = $this->connect();
 

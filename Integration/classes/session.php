@@ -1,7 +1,12 @@
 <?php
+include 'classes/connect_class.php';
+
 class CostumSession {
     private $token = null;
+    private $connectToDb = null;
+
     function __construct($name, $lifetime, $path, $domain, $secure, $httponly) {
+        $this->connectToDb = new SimpleConnectDB();
         session_start([ 
             'name' => $name,
             'cookie_lifetime' => $lifetime,
@@ -44,7 +49,10 @@ class CostumSession {
 		    return 0;
 		}
 		else {
-		    $this->saveInSession('user_id', $this->generator());
+            do{
+                $mytoken = $this->generator();
+            } while($this->connectToDb->getUserToken($mytoken));
+		    $this->saveInSession('user_id', $mytoken);
 		    return 1;
 		}
     }
