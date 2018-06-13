@@ -1,15 +1,18 @@
 <?php
 include 'classes/pageBuilder.php';
 include 'classes/log_in_validation.php';
+include 'classes/session.php';
 
-LoginValidation::login_management();
+$mysession = new CostumSession('WAS-Secure-Shop', 1800, '/', '127.0.0.1', false, true);
+
+LoginValidation::login_management($mysession);
 
 //Never used Bootstrap CSS classes? //Also Interactions should be secured using CSRF
 $html_code  = "<html>"
         .PageBuilder::printHeaderHTML()
         ."<body>"
         .pageBuilder::printHead()
-        .pageBuilder::printLoginForm()
+        .pageBuilder::printLoginForm($mysession)
         ."</body>"
         .PageBuilder::printFooter()
         ."</html>";

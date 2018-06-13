@@ -8,18 +8,16 @@ class LoginValidation
     private static $mail = null;
     private static $password = null;
 
-    public static function loginSubmit()
+    public static function loginSubmit($mysession)
     {
-        if (isset($_POST["mail"]) && isset($_POST["password"])) {
-
+        if (isset($_POST["mail"]) && isset($_POST["password"]) && isset($_POST["token"])) {
+            if($mysession->validateToken($_POST["token"])){
                 self::$mail = $_POST["mail"];
                 self::$password = $_POST["password"];
                 return true;
-        } else {
-                LoginDataValidation::all_Empty();
-                return false;
+            }
+            return false;
         }
-
     }
 
     //Function for html_sanitization one of the methods to prevent XSS. Should be used for all user-input just to make sure
@@ -53,9 +51,9 @@ class LoginValidation
     }
 
     //Login Management Method
-    public static function login_management()
+    public static function login_management($mysession)
     {
-        if (self::loginSubmit())
+        if (self::loginSubmit($mysession))
         {
            if(self::loginHtmlValidation() && self::loginPassValidation())
             {
