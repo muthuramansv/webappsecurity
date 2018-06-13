@@ -11,6 +11,7 @@ class SignUpValidation
     private static $password_1 = null;
     private static $password_2 = null;
     private static $address = null;
+    private static $token = null;
 
     public static function signupSubmit($mysession)
     {
@@ -29,6 +30,7 @@ class SignUpValidation
                                         self::$password_1 = $_POST["password_1"];
                                         self::$password_2 = $_POST["password_2"];
                                         self::$address = $_POST["address"];
+                                        self::$token = $_POST["token'];
                                         return true;
                                     } else {
                                         DataValidation::all_Empty();
@@ -110,12 +112,28 @@ class SignUpValidation
         }
         return false;
     }
+    
+    //To Add User data into the DB with token verification
+    public static function signupData()
+    {
+        $signupdata = new SimpleConnectDB();
+        if($signupdata->checkUSER(self::$mail, self::$password) == 1){
+            echo PageBuilder::printError("An User already exists with same Email ID, Try logging in or enter a different Email ID!");
+            return false;
+        }
+        else($signupdata->getUserToken(self::$token)== 1)
+        {
+            $signupdata->set_tbl_user(self::$firstname, self::$firstname, self::$address, self::$mail, self::$password_1, self::$token);
+            return true;
+            }
+    }
 
     //Management function
     public static function management($mysession)
     {
         if (self::signupSubmit($mysession)) {
             if (self::htmlValidation() && self::nameValidation() && self::emailValidation() && self::passValidation() && self::useridValidation() && self::checkAddress() && self::equalPassword()){
+            self::signupData();
                 return true;
             }
         }
