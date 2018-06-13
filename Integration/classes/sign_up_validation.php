@@ -12,25 +12,27 @@ class SignUpValidation
     private static $password_2 = null;
     private static $address = null;
 
-    public static function signupSubmit()
+    public static function signupSubmit($mysession)
     {
-        if (isset($_POST["firstname"])) {
-            if (isset($_POST["lastname"])) {
-                if (isset($_POST["mail"])) {
-                    if (isset($_POST["password_1"])) {
-                        if (isset($_POST["password_2"])) {
-                            if (isset($_POST["address"])) {
-                                self::$username = $_POST["firstname"];
-                                self::$firstname = $_POST["firstname"];
-                                self::$lastname = $_POST["lastname"];
-                                self::$mail = $_POST["mail"];
-                                self::$password_1 = $_POST["password_1"];
-                                self::$password_2 = $_POST["password_2"];
-                                self::$address = $_POST["address"];
-                                return true;
-                            } else {
-                                DataValidation::all_Empty();
-                                return false;
+        if($mysession->validateToken($_POST["token"])){
+            if (isset($_POST["firstname"])) {
+                if (isset($_POST["lastname"])) {
+                    if (isset($_POST["mail"])) {
+                        if (isset($_POST["password_1"])) {
+                            if (isset($_POST["password_2"])) {
+                                if (isset($_POST["address"])) {
+                                    self::$username = $_POST["firstname"];
+                                    self::$firstname = $_POST["firstname"];
+                                    self::$lastname = $_POST["lastname"];
+                                    self::$mail = $_POST["mail"];
+                                    self::$password_1 = $_POST["password_1"];
+                                    self::$password_2 = $_POST["password_2"];
+                                    self::$address = $_POST["address"];
+                                    return true;
+                                } else {
+                                    DataValidation::all_Empty();
+                                    return false;
+                                }
                             }
                         }
                     }
@@ -104,9 +106,9 @@ class SignUpValidation
     }
 
     //Management function
-    public static function management()
+    public static function management($mysession)
     {
-        if (self::signupSubmit()) {
+        if (self::signupSubmit($mysession)) {
             if (self::htmlValidation() && self::nameValidation() && self::emailValidation() && self::passValidation() && self::useridValidation() && self::checkAddress() && self::equalPassword()){
                 return true;
             }

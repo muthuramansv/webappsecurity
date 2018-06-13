@@ -179,7 +179,7 @@ class PageBuilder {
         </form>";
     }
 
-    public static function printSignUpForm(){
+    public static function printSignUpForm($mysession){
         return "<h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form method=\"POST\" action=\"signup.php\">
@@ -213,6 +213,7 @@ class PageBuilder {
             </p>
             <p>
                 <input class=\"simple_button\" type=\"submit\" value=\"Sign Up\">
+                <input type=\"hidden\" name=\"token\" value=\"".$mysession->getToken()."\">
             </p>
             <p>Already have an account? <a href=\"login.php\">Login here</a></p>
         </form>";
