@@ -96,7 +96,7 @@ class SignUpValidation
     //Address checker method
     public static function checkAddress()
     {
-        if (DataValidation::checkAddress(self::$firstname)){
+        if (DataValidation::checkAddress(self::$address)){
             return true;
         }
         return false;
