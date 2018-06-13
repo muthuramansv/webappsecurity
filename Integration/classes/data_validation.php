@@ -32,7 +32,7 @@ class DataValidation
     //Check if there is anything in the $input Variable which isn't an Word-Character
     static function checkNames($input)
     {
-        if (preg_match('~"//^[\w]+$/i"~', $input)) {
+        if (!preg_match('~"//^[\w]+$/i"~', $input)) {
             echo PageBuilder::printError("Please enter alphabets only.");
             return false; //Illegal Character found!
         } else {

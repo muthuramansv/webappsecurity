@@ -220,7 +220,7 @@ class PageBuilder {
     }
 	
     public static function printError($error){
-        return "<div>".$error."<div>";
+        return "<p>".$error."</p>";
     }
 
     public static function printFooter(){

@@ -14,24 +14,26 @@ class SignUpValidation
 
     public static function signupSubmit($mysession)
     {
-        if($mysession->validateToken($_POST["token"])){
-            if (isset($_POST["firstname"])) {
-                if (isset($_POST["lastname"])) {
-                    if (isset($_POST["mail"])) {
-                        if (isset($_POST["password_1"])) {
-                            if (isset($_POST["password_2"])) {
-                                if (isset($_POST["address"])) {
-                                    self::$username = $_POST["firstname"];
-                                    self::$firstname = $_POST["firstname"];
-                                    self::$lastname = $_POST["lastname"];
-                                    self::$mail = $_POST["mail"];
-                                    self::$password_1 = $_POST["password_1"];
-                                    self::$password_2 = $_POST["password_2"];
-                                    self::$address = $_POST["address"];
-                                    return true;
-                                } else {
-                                    DataValidation::all_Empty();
-                                    return false;
+        if(isset($_POST["token"])){
+            if($mysession->validateToken($_POST["token"])){
+                if (isset($_POST["firstname"])) {
+                    if (isset($_POST["lastname"])) {
+                        if (isset($_POST["mail"])) {
+                            if (isset($_POST["password_1"])) {
+                                if (isset($_POST["password_2"])) {
+                                    if (isset($_POST["address"])) {
+                                        self::$username = $_POST["firstname"];
+                                        self::$firstname = $_POST["firstname"];
+                                        self::$lastname = $_POST["lastname"];
+                                        self::$mail = $_POST["mail"];
+                                        self::$password_1 = $_POST["password_1"];
+                                        self::$password_2 = $_POST["password_2"];
+                                        self::$address = $_POST["address"];
+                                        return true;
+                                    } else {
+                                        DataValidation::all_Empty();
+                                        return false;
+                                    }
                                 }
                             }
                         }
@@ -45,10 +47,14 @@ class SignUpValidation
     //Html_sanitization method
     public static function htmlValidation()
     {
-        if (DataValidation::html_sanitization(self::$username) && DataValidation::html_sanitization(self::$firstname) && DataValidation::html_sanitization(self::$lastname) && DataValidation::html_sanitization(self::$mail) && DataValidation::html_sanitization(self::$password_1) && DataValidation::html_sanitization(self::$password_2) && DataValidation::html_sanitization(self::$address)){
-            return true;
-        }
-        return false;
+        DataValidation::html_sanitization(self::$username);
+        DataValidation::html_sanitization(self::$firstname);
+        DataValidation::html_sanitization(self::$lastname);
+        DataValidation::html_sanitization(self::$mail);
+        DataValidation::html_sanitization(self::$password_1);
+        DataValidation::html_sanitization(self::$password_2);
+        DataValidation::html_sanitization(self::$address);
+        return true;
     }
 
     //Name checker method
