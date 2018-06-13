@@ -32,33 +32,33 @@ class DataValidation
     //Check if there is anything in the $input Variable which isn't an Word-Character
     static function checkNames($input)
     {
-        if (!preg_match('~"//^[\w]+$/i"~', $input)) {
-            echo PageBuilder::printError("Please enter alphabets only.");
-            return false; //Illegal Character found!
+        if (!preg_match('/^[A-Za-z\s]{1,20}$/', $input)) {
+            return true; //Illegal Character found!
         } else {
-            return true;
+            echo PageBuilder::printError("Please enter alphabets only.");
+            return false;
         }
     }
 
     //Almost the same as checkNames but allow whitspaces because of Street-Names and House-Numbers
     static function checkAddress($input)
     {
-        if (preg_match('~"//^[\w\s]+$/i"~', $input)) {
-            echo PageBuilder::printError("Please enter alphabets and numbers with comma seperation.");
+        if (preg_match('/^[A-Za-z0-9,\s]{1,40}$/', $input)) {
             return false; //Illegal Character found!
         }
         else{
-            return true;
+            echo PageBuilder::printError("Please enter alphabets and numbers with comma seperation, maximum of 40 characters.");
+            return false;
         }
     }
 
     // accepted password length between 8 and 20, start with character and can have special character.
     static function checkPasswords($input)
     {
-        if (preg_match("/^[a-zA-Z][0-9a-zA-Z_!$@#^&]{8,20}$/", $input)) {
-            echo PageBuilder::printError("Password should be between 8 to 20 characters long with alphabets, numbers and special characters.");
+        if (preg_match("^[A-Za-z0-9!@#$%][0-9A-Za-z!@#$%]{8,20}$", $input)) {
             return true;//Illegal Character found
         } else{
+            echo PageBuilder::printError("Password should be between 8 to 20 characters long with alphabets, at the least one number and at the least one special characters from ! @ # $ %.");
             return false;
         }
     }
@@ -77,10 +77,10 @@ class DataValidation
     //Validation of username.
     static function checkUsername($input)
     {
-        if (preg_match("/^[a-zA-Z0-9]{7,20}$/", $input)) {
-            echo PageBuilder::printError("Username should be between 7 to 20 characters long with alphabets, numbers.");
+        if (preg_match('/^[A-Za-z0-9]{7,20}$/', $input)) {
             return true;//Illegal Character found
         } else{
+            echo PageBuilder::printError("Username should be between 7 to 20 characters long with alphabets, numbers.");
             return false;
         }
     }
