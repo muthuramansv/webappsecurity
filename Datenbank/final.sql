@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2018 at 10:39 AM
+-- Generation Time: Jun 14, 2018 at 12:05 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -111,10 +111,10 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `firstname`, `lastname`, `address`, `mail`, `pass`, `token`) VALUES
-(3, 'Tom', 'Tyler', 'Mainstreet 5', 'tom@test.com', '123', 'ABC'),
-(4, 'Tim', 'Tyler', 'Mainstreet 6', 'tim@test.com', '123', 'ABCD'),
-(7, 'Steve', 'Rogers', 'Bakerstreet 7', 'steve@test.com', '123', 'ABCDE'),
-(10, 'John', 'DOE', 'Lanestreet 9', 'john@test.com', '123', 'ABCDEF');
+(13, 'John', 'Tyler', 'Street 7', 'john@test.com', '$2y$11$q/Bx7ebjUDSGeLj30ZwSR.XNYPQYOsQARRgsLPU8ScAnsINwFm/zC', 'ABCDE'),
+(14, 'Roger', 'Tyler', 'Street 8', 'roger@test.com', '$2y$11$eXxLdkNFEJ2e4HrfIyZbBuF8xGMy4lb0yKc6aI0HN3rs1isF0Jyiq', 'ABCDEF'),
+(15, 'Tim', 'Tyler', 'Street 5', 'tim@test.com', '$2y$11$ORJV4Inr8PIDNtXx8loEQ.f6wlZMw7MJ6rUl7.GevsFgzwncL0D62', 'ABC'),
+(19, 'Tom', 'Tyler', 'Street 6', 'tom@test.com', '$2y$11$m//jcJ9wLSD4o3pcaRn6/ugQwRpgcEywZMiLsU4/k/9mWXxzbQUQS', 'ABCD');
 
 --
 -- Indexes for dumped tables
@@ -186,7 +186,7 @@ ALTER TABLE `tbl_orders`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
