@@ -11,7 +11,6 @@ class SignUpValidation
     private static $password_1 = null;
     private static $password_2 = null;
     private static $address = null;
-    private static $token = null;
 
     public static function signupSubmit($mysession)
     {
@@ -30,7 +29,6 @@ class SignUpValidation
                                         self::$password_1 = $_POST["password_1"];
                                         self::$password_2 = $_POST["password_2"];
                                         self::$address = $_POST["address"];
-                                        self::$token = $_POST["token'];
                                         return true;
                                     } else {
                                         DataValidation::all_Empty();
@@ -114,18 +112,18 @@ class SignUpValidation
     }
     
     //To Add User data into the DB with token verification
-    public static function signupData()
+    public static function signupData($mysession)
     {
         $signupdata = new SimpleConnectDB();
-        if($signupdata->checkUSER(self::$mail, self::$password) == 1){
+        if($signupdata->checkUSER(self::$mail, self::$password)){ //Should be changed to only mail checking!!!
             echo PageBuilder::printError("An User already exists with same Email ID, Try logging in or enter a different Email ID!");
             return false;
         }
-        else($signupdata->getUserToken(self::$token)== 1)
+        else
         {
-            $signupdata->set_tbl_user(self::$firstname, self::$firstname, self::$address, self::$mail, self::$password_1, self::$token);
+            $signupdata->set_tbl_user(self::$firstname, self::$lastname, self::$address, self::$mail, self::$password_1, $mysession->getUserToken());
             return true;
-            }
+        }
     }
 
     //Management function
@@ -133,21 +131,12 @@ class SignUpValidation
     {
         if (self::signupSubmit($mysession)) {
             if (self::htmlValidation() && self::nameValidation() && self::emailValidation() && self::passValidation() && self::useridValidation() && self::checkAddress() && self::equalPassword()){
-            self::signupData();
-                return true;
+                if (self::signupData($mysession)){
+                    return true;
+                }
             }
         }
         return false;
     }
 }
 ?>
-
-
-
-
-
-
-
-
-
-
