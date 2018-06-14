@@ -32,7 +32,7 @@ class DataValidation
     //Check if there is anything in the $input Variable which isn't an Word-Character
     static function checkNames($input)
     {
-        if (!preg_match('/^[A-Za-z\s]{1,20}$/', $input)) {
+        if (!preg_match('/^[\w\W\s]{1,20}$/', $input)) {
             return true; //Illegal Character found!
         } else {
             echo PageBuilder::printError("Please enter alphabets only.");
@@ -43,7 +43,7 @@ class DataValidation
     //Almost the same as checkNames but allow whitspaces because of Street-Names and House-Numbers
     static function checkAddress($input)
     {
-        if (preg_match('/^[A-Za-z0-9,\s]{1,40}$/', $input)) {
+        if (preg_match('/^[\W\w\d\s,]{1,40}$/', $input)) {
             return false; //Illegal Character found!
         }
         else{
@@ -55,7 +55,7 @@ class DataValidation
     // accepted password length between 8 and 20, start with character and can have special character.
     static function checkPasswords($input)
     {
-        if (preg_match("^[A-Za-z0-9!@#$%][0-9A-Za-z!@#$%]{8,20}$", $input)) {
+        if (preg_match('/^[\W\w\d!@#$%][\W\w\d!@#$%]{8,20}$/', $input)) {
             return true;//Illegal Character found
         } else{
             echo PageBuilder::printError("Password should be between 8 to 20 characters long with alphabets, at the least one number and at the least one special characters from ! @ # $ %.");
@@ -77,7 +77,7 @@ class DataValidation
     //Validation of username.
     static function checkUsername($input)
     {
-        if (preg_match('/^[A-Za-z0-9]{7,20}$/', $input)) {
+        if (preg_match('/^[\W\w\d]{7,20}$/', $input)) {
             return true;//Illegal Character found
         } else{
             echo PageBuilder::printError("Username should be between 7 to 20 characters long with alphabets, numbers.");
