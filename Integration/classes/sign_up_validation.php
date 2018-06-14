@@ -16,12 +16,12 @@ class SignUpValidation
     {
         if(isset($_POST["token"])) {
             if ($mysession->validateToken($_POST["token"])) {
-                if (isset($_POST["firstname"]) && $_POST["firstname"] != "") {
-                    if (isset($_POST["lastname"]) && $_POST["lastname"] != "") {
-                        if (isset($_POST["mail"]) && $_POST["mail"] != "") {
-                            if (isset($_POST["password"]) && $_POST["password"] != "") {
-                                if (isset($_POST["cnfpassword"]) && $_POST["cnfpassword"] != "" ){
-                                    if (isset($_POST["address"]) && $_POST["address"] != "") {
+                if (isset($_POST["firstname"]) && $_POST["firstname"] != false) {
+                    if (isset($_POST["lastname"]) && $_POST["lastname"] != false) {
+                        if (isset($_POST["mail"]) && $_POST["mail"] != false) {
+                            if (isset($_POST["password"]) && $_POST["password"] != false) {
+                                if (isset($_POST["cnfpassword"]) && $_POST["cnfpassword"] != false ){
+                                    if (isset($_POST["address"]) && $_POST["address"] != false) {
                                         self::$username = $_POST["username"];
                                         self::$firstname = $_POST["firstname"];
                                         self::$lastname = $_POST["lastname"];
@@ -32,7 +32,7 @@ class SignUpValidation
                                         //var_dump();
                                         return true;
 
-                                    }
+                                    }else{echo "noo";}
                                 }
                             }
                         }

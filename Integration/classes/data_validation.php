@@ -44,7 +44,7 @@ class DataValidation
     static function checkAddress($input)
     {
         if (preg_match('/^[\W\w\d,][\W\w\d\s,]{1,40}$/', $input)) {
-            return false; //Illegal Character found!
+            return true; //Illegal Character found!
         }
         else{
             echo PageBuilder::printError("Please enter alphabets and numbers with comma seperation, maximum of 40 characters.");
@@ -67,12 +67,11 @@ class DataValidation
     static function equalPasswords($input1, $input2){
 
         if ($input2 != $input1) {
-            echo("Error... Passwords do not match");
-          echo PageBuilder::printError("Passwords are matching.");
-            return false;//Equal.
+          echo PageBuilder::printError("Passwords are not matching.");
+            return false;//45Equal.
 
         } else {
-           echo PageBuilder::printError("Passwords are matching.");
+           //echo PageBuilder::printError("Passwords are matching.");
             return true;
         }
     }
