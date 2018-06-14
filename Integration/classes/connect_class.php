@@ -262,7 +262,7 @@ class SimpleConnectDB
 
 	if ($stmt = $con->prepare($query)) {
 
-		if (!$stmt->bind_param("sssss", $firstname, $lastname, $address, $mail, $pass, $token)) {
+		if (!$stmt->bind_param("ssssss", $firstname, $lastname, $address, $mail, $pass, $token)) {
 			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 		}
 
@@ -336,7 +336,7 @@ public function set_tbl_user_without_token($firstname_, $lastname_, $address_, $
 // Check User 1.1
 
 
-public function checkUSER($checkmail, $checkpassword)  {
+public function checkUSER($checkmail)  {
 
 
 
@@ -344,11 +344,11 @@ public function checkUSER($checkmail, $checkpassword)  {
 		$con = $this->connect();
 
 		$checkmail_ = mysqli_real_escape_string($con, $checkmail);
-		$checkpassword_ = mysqli_real_escape_string($con, $checkpassword);
+		
 		
 		
 
-		if($stmt = $con->prepare("SELECT `mail` , `password` FROM tbl_user WHERE `mail` = '$checkmail_' AND `password` = '$checkpassword_' "))
+		if($stmt = $con->prepare("SELECT `mail` FROM tbl_user WHERE `mail` = '$checkmail_' "))
 			
 		{
 
