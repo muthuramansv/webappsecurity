@@ -84,9 +84,7 @@ CREATE TABLE `tbl_orders` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_items` int(11) NOT NULL,
-  `amount` int(11) NOT NULL,
-  `price` float NOT NULL,
-  `amountprice` float NOT NULL,
+  `count` int(11) NOT NULL,
   `orderdate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

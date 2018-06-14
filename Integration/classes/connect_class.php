@@ -609,10 +609,7 @@ class SimpleConnectDB
 	 * @param $amountprice_
 	 * @param $orderdate_
 	 */
-	public function set_tbl_orders($id_user_, $id_items_, $amount_, $price_, $amountprice_, $orderdate_)
-	{
-
-<<<<<<< HEAD
+	
     /**
      * @param $id_user_
      * @param $id_items_
@@ -621,68 +618,33 @@ class SimpleConnectDB
      * @param $amountprice_
      * @param $orderdate_
      */
-    public function set_tbl_orders($id_user_, $id_items_, $amount_, $orderdate_) {
+    public function set_tbl_orders($id_user_, $id_items_, $count_, $orderdate_) {
 
 	$con = $this->connect();
-	$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `amount`, `orderdate`) VALUES ((?), (?), (?), (?));";
-=======
-		$con = $this->connect();
-		$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `amount`, `price`, `amountprice`, `orderdate`) VALUES ((?), (?), (?), (?), (?), (?));";
-
-		if ($stmt = $con->prepare($query)) {
->>>>>>> 6e11859b9bc4086cde704cfe2dd24534555ceccc
+	$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `count`, `orderdate`) VALUES ((?), (?), (?), (?));";
 
 			if (!$stmt->bind_param("iiidds", $id_user, $id_items, $amount, $price, $amountprice, $orderdate)) {
 				echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 			}
 
-<<<<<<< HEAD
-		if (!$stmt->bind_param("iiis", $id_user, $id_items, $amount, $orderdate)) {
+		if (!$stmt->bind_param("iiis", $id_user, $id_items, $count, $orderdate)) {
 			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 		}
 
 		$id_user = $id_user_;
 		$id_items = $id_items_;
-		$amount = $amount_;
+		$count = $count_;
 		$orderdate = $orderdate_;
 
-		echo $id_user_ . "<br>" . $id_items_ . "<br>" . $amount_ . "<br>" . $orderdate_ .  "Done" . "<br>";
-=======
-			$id_user = $id_user_;
-			$id_items = $id_items_;
-			$amount = $amount_;
-			$price = $price_;
-			$amountprice = $amountprice_;
-			$orderdate = $orderdate_;
+		echo $id_user_ . "<br>" . $id_items_ . "<br>" . $count_ . "<br>" . $orderdate_ .  "Done" . "<br>";
 
-			echo $id_user_ . "<br>" . $id_items_ . "<br>" . $amount_ . "<br>" . $price_ . "<br>" . $amountprice_ . "<br>" . $orderdate_ . "Done" . "<br>";
+			echo $id_user . "<br>" . $id_items . "<br>" . $count . "<br>" . $price . "<br>" . $amountprice . "<br>" . $orderdate . "Done" . "<br>";
 
-			if (!($query_result = $stmt->execute())) {
-				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-				echo "execute" . "<br>";
-			}
->>>>>>> 6e11859b9bc4086cde704cfe2dd24534555ceccc
-
-			echo $id_user . "<br>" . $id_items . "<br>" . $amount . "<br>" . $price . "<br>" . $amountprice . "<br>" . $orderdate . "Done" . "<br>";
-
-<<<<<<< HEAD
-		echo $id_user . "<br>" . $id_items . "<br>" . $amount ."<br>" . $orderdate.  "Done" . "<br>";
-=======
-		} else {
-			$error = $con->errno . ' ' . $cnn->error;
-			echo "else";
-			echo $error;
-		}
->>>>>>> 6e11859b9bc4086cde704cfe2dd24534555ceccc
+		echo $id_user . "<br>" . $id_items . "<br>" . $count ."<br>" . $orderdate.  "Done" . "<br>";
 
 		$stmt->close();
 		$con->close();
 	}
-
-<<<<<<< HEAD
-	$stmt->close();
-	$con->close();
-}
 
 
 public function getLatestOrderFromUser($orderdate)  {
@@ -719,8 +681,6 @@ public function getLatestOrderFromUser($orderdate)  {
 
 
 
-=======
->>>>>>> 6e11859b9bc4086cde704cfe2dd24534555ceccc
 }
 
 ?>
