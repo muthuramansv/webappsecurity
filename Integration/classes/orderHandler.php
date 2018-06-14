@@ -6,5 +6,9 @@ class OrderHandler {
         }
         return false;
     }
+
+    static function logOutUser($db){
+        return $db->removeToken($mysession->getUserToken());
+    }
 }
 ?>
