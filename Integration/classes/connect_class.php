@@ -540,30 +540,22 @@ public function checkUSER($checkmail)  {
 
 		$token_ = mysqli_real_escape_string($con, $token);
 
-		if($stmt = $con->prepare("DELETE `token` FROM tbl_user WHERE `token` = '$token_' "))
+		if($stmt = $con->prepare("UPDATE tbl_user SET `token` = null WHERE `token`='$token' "))
 		{
 
 		$stmt->execute();
 
-		$res = $stmt->get_result();
+		
 
-		$array = $res->fetch_all();
-
-		if($array) {
+		
 
 			echo "Token DELETED !";
 
 			return 1;
 		}
 
+
 		else {
-
-			echo "Token does not exists";
-			return 0;
-		}
-
-
-		}else {
 
 		$error = $con->errno . ' ' . $con->error;
 		    echo $error;
