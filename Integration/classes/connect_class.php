@@ -573,7 +573,7 @@ public function checkUSER($checkmail)  {
 
 		$checktoken_ = mysqli_real_escape_string($con, $checktoken);
 
-		if($stmt = $con->prepare("SELECT `mail` FROM tbl_user WHERE `token` = '$checktoken_' "))
+		if($stmt = $con->prepare("SELECT `mail`, `address`,`firstname`,`lastname`  FROM tbl_user WHERE `token` = '$checktoken_' "))
 		{
 
 		$stmt->execute();
