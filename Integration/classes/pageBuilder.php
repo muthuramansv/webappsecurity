@@ -162,8 +162,8 @@ class PageBuilder {
         <h2>Please fill in your credentials to login.</h2>
         <form method=\"POST\" action=\"login.php\" ?>
             <p>
-                <label>Username Or Email</label>
-                <input type=\"text\" name=\"username\" placeholder='Enter Username or Email'>
+                <label>Email</label>
+                <input type=\"text\" name=\"mail\" placeholder='EnterEmail'>
                 
             </p>    
             <p>

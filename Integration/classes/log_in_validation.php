@@ -6,7 +6,6 @@ class LoginValidation
 {
     private static $mail = null;
     private static $password = null;
-    private static $token = null;
 
     public static function loginSubmit($mysession)
     {
@@ -14,7 +13,6 @@ class LoginValidation
             if($mysession->validateToken($_POST["token"])){
                 self::$mail = $_POST["mail"];
                 self::$password = $_POST["password"];
-                self::$token = $_POST["token"];
                 return true;
             }
             return false;
@@ -33,31 +31,30 @@ class LoginValidation
     //Email Checker Method
     public static function loginEmailValidation()
     {
-        LoginDataValidation::checkEmailAddress(self::$mail);
-        return true;
+        if (LoginDataValidation::checkEmailAddress(self::$mail)){
+            return true;
+        }
+        return false;
     }
 
     //Password Checker Method
     public static function loginPassValidation()
     {
-        LoginDataValidation::checkPasswords(self::$password);
-        return true;
+        if (LoginDataValidation::checkPasswords(self::$password)){
+            return true;
+        }
+        return false;
     }
 
     //Send Validated Data onto DB for Login
     public static function loginData()
     {
         $logindata = new SimpleConnectDB();
-        if($logindata->checkUSER(self::$mail, self::$password) == 0){
-            echo PageBuilder::printError("Username or Password is Incorrect!");
-            return false;
+        if($logindata->checkLoginCredentials(self::$mail, self::$password)){
+            return true;
         }
-        else($logindata->getUserToken(self::$token)== 1)
-        {
-         $logindata->checkLoginCredentials(self::$mail, self::$password)==true)
-
-        }
-        return true;
+        echo PageBuilder::printError("Username or Password is Incorrect!");
+        return false;
     }
     
     //Login Management Method
@@ -65,17 +62,15 @@ class LoginValidation
     {
         if (self::loginSubmit($mysession))
         {
-           if(self::loginHtmlValidation() && self::loginPassValidation())
+           if(self::loginHtmlValidation() && self::loginEmailValidation())
             {
-                self::loginData();
+                if (self::loginData()){
+                    return true;
+                }
             }
-        return true;
-        } else {
-        return false;
         }
+        return false;
     }
-
-
 }
 
 ?>
