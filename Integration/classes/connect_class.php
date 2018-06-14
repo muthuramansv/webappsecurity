@@ -616,32 +616,30 @@ public function checkUSER($checkmail)  {
      * @param $amountprice_
      * @param $orderdate_
      */
-    public function set_tbl_orders($id_user_, $id_items_, $amount_, $price_, $amountprice_, $orderdate_) {
+    public function set_tbl_orders($id_user_, $id_items_, $amount_, $orderdate_) {
 
 	$con = $this->connect();
-	$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `amount`, `price`, `amountprice`, `orderdate`) VALUES ((?), (?), (?), (?), (?), (?));";
+	$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `amount`, `orderdate`) VALUES ((?), (?), (?), (?));";
 
 	if ($stmt = $con->prepare($query)) {
 
-		if (!$stmt->bind_param("iiidds", $id_user, $id_items, $amount, $price, $amountprice, $orderdate)) {
+		if (!$stmt->bind_param("iiis", $id_user, $id_items, $amount, $orderdate)) {
 			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 		}
 
 		$id_user = $id_user_;
 		$id_items = $id_items_;
 		$amount = $amount_;
-		$price = $price_;
-		$amountprice = $amountprice_;
 		$orderdate = $orderdate_;
 
-		echo $id_user_ . "<br>" . $id_items_ . "<br>" . $amount_ . "<br>" . $price_ .  "<br>" . $amountprice_ . "<br>" . $orderdate_ .  "Done" . "<br>";
+		echo $id_user_ . "<br>" . $id_items_ . "<br>" . $amount_ . "<br>" . $orderdate_ .  "Done" . "<br>";
 
 		if(!($query_result=$stmt->execute())) {
 			echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 			echo "execute"."<br>";
 		}
 
-		echo $id_user . "<br>" . $id_items . "<br>" . $amount . "<br>" . $price .  "<br>" . $amountprice . "<br>" . $orderdate.  "Done" . "<br>";
+		echo $id_user . "<br>" . $id_items . "<br>" . $amount ."<br>" . $orderdate.  "Done" . "<br>";
 
 	} else {
 		$error = $con->errno . ' ' . $cnn->error;
@@ -652,6 +650,41 @@ public function checkUSER($checkmail)  {
 	$stmt->close();
 	$con->close();
 }
+
+
+public function getLatestOrderFromUser($orderdate)  {
+
+		$con = $this->connect();
+
+		if($stmt = $con->prepare("SELECT * FROM tbl_orders "))
+		{
+
+		$stmt->execute();
+
+		$res = $stmt->get_result();
+
+		$array = $res->fetch_all();
+
+		return $array;
+
+
+
+
+		}else {
+
+		$error = $con->errno . ' ' . $con->error;
+		    echo $error;
+
+		}
+
+		$stmt->close();
+		$con->close();
+
+		}
+		
+		
+
+
 
 }
 
