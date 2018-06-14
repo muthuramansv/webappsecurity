@@ -13,7 +13,7 @@ OrderHandler::placedOrder($mysession, $connectToDb);
 $html_code  =     "<html>"
                   .PageBuilder::printHeaderHTML()
                   ."<body>
-                  <div style=\"float: right;\"><a href=\"index.php\">Home</a></div>"
+                  <div id=\"basket_home\"><a href=\"index.php\">Home</a></div>"
                   .pageBuilder::printHead()
                   .pageBuilder::printOrderTable(BasketHandler::getBasket($mysession), $mysession, BasketHandler::totalBasketCount($mysession), BasketHandler::totalBasketPrice($mysession), 1).
                   "</body>

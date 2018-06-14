@@ -97,6 +97,7 @@ class PageBuilder {
                     <td colspan=\"2\">
                         <form action=\"order.php\" method=\"post\">
                             <input type=\"hidden\" name=\"token\" value=\"".$mysession->getToken()."\">
+                            <input type=\"hidden\" name=\"place\" value=\"1\">
                             <input class=\"link\" type=\"submit\" value=\"Place Order\">
                         </form>
                     </td>
@@ -229,6 +230,10 @@ class PageBuilder {
                     <p>".self::$mainHead." ".self::$subHead."</p>
                     <p>Contact information: <a href=\"mailto:admin@was-shop.com\">admin@was-shop.com</a></p>
                 </footer>";
+    }
+
+    public static function printMessage($msg){
+        return "<div id=\"msg_box\">".$msg."</div>";
     }
 } 
 ?>
