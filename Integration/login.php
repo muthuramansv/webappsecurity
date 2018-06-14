@@ -12,6 +12,7 @@ LoginValidation::login_management($mysession);
 $html_code  = "<html>"
         .PageBuilder::printHeaderHTML()
         ."<body>"
+        ."<div id=\"basket_home\"><a href=\"index.php\">Home</a></div>"
         .pageBuilder::printHead()
         .pageBuilder::printLoginForm($mysession)
         ."</body>"
