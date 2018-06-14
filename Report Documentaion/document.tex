@@ -47,7 +47,7 @@
 		
 	\section{Architecture}
 	
-	Because this was a test project, a "One-Tier Architecture" approach was taken. This involves putting all of the required components for a software application or technology on a single server or platform [1]. In future, this can be scaled to an "N-Tier Architecture".  As seen in figure 1, the 1-tier architecture consist of three parts: Presentation layer, Application layer and the Database layer. To achieve this XAMP (Cross-Platform, Apache, MariaDB, PHP) was used. 
+	Because this was a test project, a "One-Tier Architecture" approach was taken. This involves putting all of the required components for a software application or technology on a single server or platform [1]. In future, this can be scaled to an "N-Tier Architecture".  As seen in figure 1, the 1-tier architecture consist of three parts: Presentation layer, Application layer and the Database layer.    
 	\begin{figure}[h]
 			\begin{center}
 				\includegraphics[scale = 0.3]{one-tier-software-architecture}
@@ -58,13 +58,13 @@
 		\end{figure}
 		
 	\begin{itemize}
-		\item 	Presentation Layer: This is usually referred to as the application frontend. This is the layer a user or client interacts with. HTML, CSS and a bit of Javascript was used to achieve this.
+		\item 	Presentation Layer: This is usually referred to as the application frontend. This is the layer a user or client interacts with. HTML, CSS and a bit of Javascript was used to achieve this. As an example the PageBuilder-Class was used as the presentation layer in our application which includes only presentation layer related code without almost no connection to the business logic and database.
 		
-		\item Application Layer: Usually referred to as the backend of an application. This contains all the logic needed for the application to function properly from structure to security of the application. Making this the major focus of this project and PHP (Hypertext Preprocessor) was used here.
+		\item Application Layer: Usually referred to as the backend of an application. This contains all the logic needed for the application to function properly from structure to security of the application. Making this the major focus of this project and PHP (Hypertext Preprocessor) was used here.  We created multipile different classes to decouple the logic from the view.  The Business logic is the biggest part in out application and is represented by classes like session, data_validation and much more.
 		
-		\item Database Layer: This is where all user and admin data were stored. MySQL which is an open-source relational database management system, was used to create, store, read and update both user and admin data.
+		\item Database Layer: This is where all user and admin data were stored. MySQL which is an open-source relational database management system, was used to create, store, read and update both user and admin data. The whole Database access is encapsulated into the connect_class which provides all the necessary method to work with the database without worrying about queries.
 	\end{itemize}
-	To download and install this project, one must first install \textbf{\textit{XAMPP}} and clone the git repository (https://github.com/muthuramansv/webappsecurity.git) into the \textbf{\textit{htdocs}} folder. Start up XAMP, connect the database and run "localhost/webappsecurity/Integration/index.php".
+	To download and install this project, one must first install \textbf{\textit{XAMPP}} and clone the git repository (https://github.com/muthuramansv/webappsecurity.git) into the \textbf{\textit{htdocs}} folder. Start up XAMP, connect the database and run "127.0.0.1/webappsecurity/Integration/index.php" Make sure you use 127.0.0.1 instead of localhost as it is stated in the readme otherwise it will not work because of the domain-binding of the cookie.
 	
 	
 	
@@ -72,7 +72,7 @@
 	The sole criteria for this project was security based and the following features were required.
 	\begin{itemize}
 		\item \textbf{Secure Session Handling:} A web session is a sequence of network HTTP request and response transactions associated to the same user [2]. 
-		Web applications can keep track of both anonymous and authenticated users via a session ID, usually called a Token. A cookie is among the many forms of managing or handling a session. Since authenticated sessions contain lots of private information, they need to be protected from theft attacks which could lead to impersonation of a legitimate user. In other to guard against this, tokens need to be given an expiration time, rendering the session invalid and useless if stolen.
+		Web applications can keep track of both anonymous and authenticated users via a session ID, usually called a Token. A cookie is among the many forms of managing or handling a session. Since authenticated sessions contain lots of private information, they need to be protected from theft attacks which could lead to impersonation of a legitimate user. Our session is secured using sevearl counter measurements like changing the session id every interaction and provide and timeout for every session which also automatically logs out user. Especially in our application the secure session handling is extremly important because the whole basket of every user as well as the crsf token is stored in it. For this reason we created a whole class which just provides some kind of wrapper around our session object to manage and use it easily.
 		
 		\item \textbf{Secure Password Storage:} To prevent theft of user credentials, passwords need to be stored securely in the database. One way of achieving this is to never store the password as plaintext, instead salt and hash the user password before storing it in the database. There are several cryptographic algorithms available for this but not all suitable to prevent brute force attacks or rainbow tables. In this project the PHP password\_hash() function was used. It is a strong one-way algorithm, which automatically salts and hashes the inputed plaintext. The output (figure 2) can then be stored in the database.
 		\begin{figure}[h]
@@ -83,7 +83,7 @@
 			\end{center}
 		\end{figure}
 		
-		\textbf{\item Cross-Site Request Forgery Handling:} This occurs when an attacker uses a malicious web site, email, blog, instant message, or program to cause a user?s web browser to perform an unwanted action on a trusted site for which the user is currently authenticated [3]. In order to handle this attack a random token was generated and verified alongside.
+		\textbf{\item Cross-Site Request Forgery Handling:} This occurs when an attacker uses a malicious web site, email, blog, instant message, or program to cause a users web browser to perform an unwanted action on a trusted site for which the user is currently authenticated [3]. In order to handle this attack a random token was generated and verified alongside. In our application we store the csrf-token as it is also called in the session of the user itself which is whenever created someone visits our site. This way our load of the database gets reduced and we are not storing unimportant user-data. To make easy use of the tokens we created several functions in the session class which provides easy access to manage the csrf-tokens in the application. 
 				
 		\textbf{\item Cross-Site Scripting Handling:} This involves the insertion of malicious scripts into benign and trusted websites[4]. The attacker sends malicious code which is then used to steal a legitimate user cookie by redirecting the user to a different site or through popups. The easiest way of preventing this attack was to escape all untrusted data before echoing it out to the user.
 		
@@ -98,7 +98,7 @@
 		
 		\item \textbf{Trello:} This is a web-based tool which helps with project management. Trello allowed us to take an Agile approach towards completion of this project.
 		
-		\item \textbf{WhatsApp:} A bit strange, but yes, WhatsApp was our default communication tool. Group meet-ups and questions were conveyed through this medium.
+		\item \textbf{WhatsApp:} WhatsApp was our default communication tool. Group meet-ups and questions were conveyed through this medium.
 			
 	\end{itemize}
 	
@@ -127,21 +127,21 @@
 	
 	
 	\section{Challenges and Lessons Learnt}
-	\subsection{TEAM CHALLENGES}
+	\subsection{Team Challenges}
 	\begin{flushleft}
 	
 		We were faced with the following challenges:
 		\begin{itemize}
-			\item \textbf{Time:} We had to figure out time to gather so we could work together since some of us didn?t have prior
-			experience in programming.
-			\item \textbf{Git:} Working with Git can always be tricky especially when merge conflicts arise. Lucky for us we were able to solve them.
-			\item \textbf{Secure Logic:} On paper it sounds simple, but figuring out how to come up with a secure logic and avoid different security task was tough.
+			\item \textbf{Time:} We had to figure out time to gather so we could work together since some of us didnt have prior
+			experience in programming. We also had to struggle a lot with PHP in general, because the language was never teached in any lecture it was hard to walk on it. We had to figure out how to use static values, classes and pointer in PHP just to name some issues we had. Overall we even don't no yet if out application is code whise good structured code for an PHP program. Because this is essential for writing secure code we would recommend to at least have one senior PHP developer in such a project, who can be consulted for questions.
+			\item \textbf{Git:} Working with Git can always be tricky especially when merge conflicts arise. Lucky for us we were able to solve them. Also the huge gab between the knowledge of the the teammates where a problem. Some of us used an graphical-interface even some the CLI and others build-in IDE Plugins. To make all of them work together where challeging. Even if you are also managing documentation stuff in the repositiory as we did. 
+			\item \textbf{Secure Logic:} On paper it sounds simple, but figuring out how to come up with a secure logic and avoid different security task was tough. We opt for an keep-it-simple approach. We used mockups in the first to commit on an idea. After we have done this it was easier to get everybody onboard. Even a lot of challanges related to PHP arised. 
 		\end{itemize}
 		
 	\end{flushleft}
 	
 	
-	\subsection{LESSONS LEARNT}
+	\subsection{Lessons Learnt}
 	\begin{flushleft}
 		The following are a list of things learnt during the course of this project.
 		\begin{itemize}
@@ -153,7 +153,7 @@
 		\end{itemize}
 	\end{flushleft}
 	
-	\section{REFERENCES}
+	\section{References}
 	
 	\begin{enumerate}
 		\item Software Architecture: One-Tier, \textit{https://www.techopedia.com/definition/17374/one-tier-architecture}
