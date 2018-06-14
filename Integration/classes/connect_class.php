@@ -479,8 +479,101 @@ public function checkUSER($checkmail, $checkpassword)  {
 
 		}
 
+		
+		public function alterTokenFromUser($user,  $password, $newToken)  {
 
 
+		$con = $this->connect();
+		
+		
+		
+		$query = "SELECT  `pass` , `mail` FROM tbl_user  ";
+		
+		
+		$stmt = $con->prepare($query);
+
+		$stmt->execute();
+
+		$res = $stmt->get_result();
+		
+		
+		$array = $res->fetch_all();
+		
+		
+		foreach($array as $item){
+	
+		 $testpw = password_verify($password ,$item[0]);
+		 
+         if( $testpw )  {
+			 
+		 echo "Password found, token changed";
+		 
+		 $query2 = "UPDATE tbl_user SET `token`='$newToken' WHERE `mail`='$user' ";
+		 
+		 $stmt = $con->prepare($query2);
+
+		$stmt->execute();
+
+		
+         return true;
+		 
+		 }
+		 
+		 else {
+			
+			echo "False";
+			return false;
+		}
+            
+        }
+		
+		
+		$stmt->close();
+		$con->close();
+
+		}
+
+
+		public function removeToken($token)  {
+
+		$con = $this->connect();
+
+		$token_ = mysqli_real_escape_string($con, $token);
+
+		if($stmt = $con->prepare("DELETE `token` FROM tbl_user WHERE `token` = '$token_' "))
+		{
+
+		$stmt->execute();
+
+		$res = $stmt->get_result();
+
+		$array = $res->fetch_all();
+
+		if($array) {
+
+			echo "Token DELETED !";
+
+			return 1;
+		}
+
+		else {
+
+			echo "Token does not exists";
+			return 0;
+		}
+
+
+		}else {
+
+		$error = $con->errno . ' ' . $con->error;
+		    echo $error;
+
+		}
+
+		$stmt->close();
+		$con->close();
+
+		}
 
 		public function getUserToken($checktoken)  {
 
@@ -501,7 +594,7 @@ public function checkUSER($checkmail, $checkpassword)  {
 
 			echo "Token already exists !";
 
-			return 1;
+			return $array;
 		}
 
 		else {
