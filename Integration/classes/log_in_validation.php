@@ -47,10 +47,11 @@ class LoginValidation
     }
 
     //Send Validated Data onto DB for Login
-    public static function loginData()
+    public static function loginData($mysession)
     {
         $logindata = new SimpleConnectDB();
         if($logindata->checkLoginCredentials(self::$mail, self::$password)){
+            $logindata->alterTokenFromUser(self::$mail, self::$password, $mysession->getUserToken())
             return true;
         }
         echo PageBuilder::printError("Username or Password is Incorrect!");
@@ -64,7 +65,7 @@ class LoginValidation
         {
            if(self::loginHtmlValidation() && self::loginEmailValidation())
             {
-                if (self::loginData()){
+                if (self::loginData($mysession)){
                     return true;
                 }
             }
