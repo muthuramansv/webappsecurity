@@ -32,10 +32,10 @@ class DataValidation
     //Check if there is anything in the $input Variable which isn't an Word-Character
     static function checkNames($input)
     {
-        if (!preg_match('/^[\w\W\s]{1,20}$/', $input)) {
+        if (preg_match('/^[\w\W][\w\W]{1,20}$/', $input)) {
             return true; //Illegal Character found!
         } else {
-            echo PageBuilder::printError("Please enter alphabets only.");
+            echo PageBuilder::printError("Please enter alphabets only in name fields.");
             return false;
         }
     }
@@ -43,7 +43,7 @@ class DataValidation
     //Almost the same as checkNames but allow whitspaces because of Street-Names and House-Numbers
     static function checkAddress($input)
     {
-        if (preg_match('/^[\W\w\d\s,]{1,40}$/', $input)) {
+        if (preg_match('/^[\W\w\d,][\W\w\d\s,]{1,40}$/', $input)) {
             return false; //Illegal Character found!
         }
         else{
@@ -64,12 +64,16 @@ class DataValidation
     }
 
     //Confirming passwords entered.
-    static function equalPasswords($input1,$input2){
-        if ($input1 == $input2) {
-            return true;//Equal.
-        } else{
-            echo PageBuilder::printError("Passwords are not matching.");
-            return false;
+    static function equalPasswords($input1, $input2){
+
+        if ($input2 != $input1) {
+            echo("Error... Passwords do not match");
+          echo PageBuilder::printError("Passwords are matching.");
+            return false;//Equal.
+
+        } else {
+           echo PageBuilder::printError("Passwords are matching.");
+            return true;
         }
     }
 
@@ -77,7 +81,7 @@ class DataValidation
     //Validation of username.
     static function checkUsername($input)
     {
-        if (preg_match('/^[\W\w\d]{7,20}$/', $input)) {
+        if (preg_match('/^[\W\w\d][\W\w\d]{7,20}$/', $input)) {
             return true;//Illegal Character found
         } else{
             echo PageBuilder::printError("Username should be between 7 to 20 characters long with alphabets, numbers.");

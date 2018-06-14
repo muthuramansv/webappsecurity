@@ -9,15 +9,23 @@ class LoginValidation
 
     public static function loginSubmit($mysession)
     {
-        if (isset($_POST["mail"]) && isset($_POST["password"]) && isset($_POST["token"])) {
-            if($mysession->validateToken($_POST["token"])){
-                self::$mail = $_POST["mail"];
-                self::$password = $_POST["password"];
-                return true;
-            }
-            return false;
-        }
+       if(isset($_POST["token"])) {
+           if ($mysession->validateToken($_POST["token"])) {
+               if (((isset($_POST["mail"]) && ($_POST["mail"] != "")) )){
+                   if((isset($_POST["password"]) && ($_POST["password"] != ""))){
+                       self::$mail = $_POST["mail"];
+                       self::$password = $_POST["password"];
+                       return true;
+                   }
+               }
+               LoginDataValidation::all_Empty();
+               return false;
+           }
+       }
     }
+
+
+
 
     //Function for html_sanitization one of the methods to prevent XSS. Should be used for all user-input just to make sure
     //there is no malicious content in it like tags.
