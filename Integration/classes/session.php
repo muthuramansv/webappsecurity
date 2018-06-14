@@ -86,6 +86,10 @@ class CostumSession {
         return $this->token;
     }
 
+    public function deleteFromSession($key){
+        unset($_SESSION[$key]);
+    }
+
     public function validateToken($form_token){
         if($form_token === $this->getToken()){
             $this->generateToken();

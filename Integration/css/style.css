@@ -27,3 +27,22 @@
     font-size: 14px;
     box-sizing: border-box; 
 }
+
+#msg_box {
+    background-color:  rgb(155, 155, 155);
+    border: thin;
+    color: black;
+    font-size: 25px;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 1%;
+    text-decoration: blink;
+    bottom: 0%;
+}
+
+body {
+  padding: 0;
+  margin: 0;  
+}

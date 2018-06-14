@@ -54,10 +54,10 @@ class PageBuilder {
         return $output;
     }
 
-    public static function printOrderTable($basket, $mysession, $totalCount, $totalPrice){
+    public static function printOrderTable($basket, $mysession, $totalCount, $totalPrice, $loggedIn){
         $i = 1;
         
-        if (count($basket) > 0){
+        if ((count($basket) > 0) && $loggedIn){
             $output = "<table border=\"1\">
                     <tbody>
                         <tr>
@@ -97,6 +97,7 @@ class PageBuilder {
                     <td colspan=\"2\">
                         <form action=\"login.php\" method=\"post\">
                             <input type=\"hidden\" name=\"token\" value=\"".$mysession->getToken()."\">
+                            <input type=\"hidden\" name=\"place\" value=\"1\">
                             <input class=\"link\" type=\"submit\" value=\"Place Order\">
                         </form>
                     </td>
@@ -104,9 +105,13 @@ class PageBuilder {
             </tbody>
             </table>";
         }else {
-            $output = "<h4>Your Basket is empty! Nothing to Check Out!</h4><a href=\"index.php\">Return to Home</a>";
+            $output = "<h4>Your Basket is empty or You are not logged in!</h4><a href=\"index.php\">Return to Home</a>";
         }
         return $output;
+    }
+
+    public static function printMessage($msg){
+        return "<div id=\"msg_box\">".$msg."</div>";
     }
 
     public static function printBasketTable($basket, $mysession, $totalCount, $totalPrice){
