@@ -594,7 +594,7 @@ public function checkUSER($checkmail, $checkpassword)  {
 
 			echo "Token already exists !";
 
-			return 1;
+			return $array;
 		}
 
 		else {
