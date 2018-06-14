@@ -12,21 +12,24 @@ class OrderHandler {
     }
 
     static function checkLoggedIn($mysession, $db){ //Timeout!!!
-        if($db->getUserToken($mysession->getUserToken())){
+        if($db->getUserTokenFromDB($mysession->getUserToken())){
             return true;
         }
         return false;
     }
 
-    static function logOutUser($db){
-        return $db->removeToken($mysession->getUserToken());
+    static function logOutUser($mysession, $db){
+        if ($mysession->getUserToken() != null){
+            return $db->removeToken($mysession->getUserToken());
+        }
     }
 
     static function placedOrder($mysession, $db){
-        if (self::checkSubmitOrder($mysession) && self::checkLoggedIn($mysession, $db)){
-            PageBuilder::printMessage("Your Order has been successfully placed!");
+        //self::checkLoggedIn($mysession, $db)
+        if (self::checkSubmitOrder($mysession)){
+            echo PageBuilder::printMessage("Your Order has been placed successfull and You are automatically logged out!");
             $mysession->deleteFromSession("article");
-            self::logOutUser();
+            self::logOutUser($mysession, $db);
         }
     }
 

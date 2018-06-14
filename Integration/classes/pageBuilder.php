@@ -95,7 +95,7 @@ class PageBuilder {
 
                     </td>
                     <td colspan=\"2\">
-                        <form action=\"login.php\" method=\"post\">
+                        <form action=\"order.php\" method=\"post\">
                             <input type=\"hidden\" name=\"token\" value=\"".$mysession->getToken()."\">
                             <input type=\"hidden\" name=\"place\" value=\"1\">
                             <input class=\"link\" type=\"submit\" value=\"Place Order\">

@@ -9,6 +9,9 @@ BasketHandler::checkBasketSubmission($mysession);
 
 $arrayTest = $connectToDb->get_tbl_items();
 
+
+var_dump($_SESSION);
+
 $html_code = "      <html>
                     ".PageBuilder::printHeaderHTML()."
                     <body>

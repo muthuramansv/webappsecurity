@@ -45,15 +45,16 @@ class CostumSession {
     }
 
     private function createUserToken() {
-		if($this->getFromSession('user_id') != null) {
-		    return 0;
+		if($this->getUserToken()) {
+		    return false;
 		}
 		else {
+            echo "Hello World!!!";
             do{
                 $mytoken = $this->generator();
-            } while($this->connectToDb->getUserToken($mytoken));
+            } while($this->connectToDb->getUserTokenFromDB($mytoken));
 		    $this->saveInSession('user_id', $mytoken);
-		    return 1;
+		    return true;
 		}
     }
 

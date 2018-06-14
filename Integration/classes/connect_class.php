@@ -562,7 +562,7 @@ class SimpleConnectDB
 
 	}
 
-	public function getUserToken($checktoken)
+	public function getUserTokenFromDB($checktoken)
 	{
 
 		$con = $this->connect();
