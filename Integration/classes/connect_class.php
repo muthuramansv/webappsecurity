@@ -411,15 +411,18 @@ class SimpleConnectDB
 						if (password_verify($checkpassword, $hashed_password)) {
 								/* Password is correct, so start a new session and
 								save the username to the session */
-							echo 'login success';
+							//echo 'login success';
+							return true;
 						} else {
 								// Display an error message if password is not valid
-							echo 'The password you entered was not valid.';
+							// echo 'The username/password you entered was not valid.';
+							return false;
 						}
 					}
 				} else {
 						// Display an error message if username doesn't exist
-					echo 'No account found with that username.';
+					// echo 'No account found with that username.';
+					return false;
 				}
 			} else {
 				echo "Oops! Something went wrong. Please try again later.";
