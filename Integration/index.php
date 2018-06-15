@@ -12,16 +12,15 @@ $arrayTest = $connectToDb->get_tbl_items();
 
 var_dump($_SESSION);
 
-$html_code = "      <html>
-                    ".PageBuilder::printHeaderHTML()."
-                    <body>
+$html_code = "      <html>"
+                    .PageBuilder::printHeaderHTML().
+                    "<body>
                     <div id=\"basket_home\"><a href=\"basket.php\">Basket</a></div>"
                     .PageBuilder::printHead()
                     .PageBuilder::printAdvertisment()
-                    .PageBuilder::printItemTable($arrayTest, $mysession)."
-                    </body>
-                    ".PageBuilder::printFooter()."
-                    </html>";
+                    .PageBuilder::printItemTable($arrayTest, $mysession)
+                    .PageBuilder::printFooter().
+                    "</body></html>";
 
 echo $html_code;
 ?>

@@ -15,6 +15,7 @@ $html_code  =     "<html>"
                   ."<body>
                   <div id=\"basket_home\"><a href=\"index.php\">Home</a></div>"
                   .pageBuilder::printHead()
+                  .pageBuilder::printDeliveryAddress("TestWeg15", "Joshua", "Becker", 1)
                   .pageBuilder::printOrderTable(BasketHandler::getBasket($mysession), $mysession, BasketHandler::totalBasketCount($mysession), BasketHandler::totalBasketPrice($mysession), 1).
                   "</body>
               </html>";

@@ -35,5 +35,13 @@ class BasketArticle {
     public function subCount(){
         $this->count--;
     }
+
+    public function setName($myname){
+        $this->name = $myname;
+    }
+
+    public function setPrice($myprice){
+        $this->price = $myprice;
+    }
 }
 ?>

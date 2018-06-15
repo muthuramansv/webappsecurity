@@ -19,7 +19,7 @@ class PageBuilder {
         return "<head>
                 <title>".self::$mainHead."</title>
                 <link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">
-                <meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; child-src 'none';\">
+                <meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';\" >
                 </head>";
     }
 
@@ -234,6 +234,17 @@ class PageBuilder {
 
     public static function printMessage($msg){
         return "<div id=\"msg_box\">".$msg."</div>";
+    }
+
+    public static function printDeliveryAddress($address, $firstname, $lastname, $loggedin){
+        if ($loggedin){
+        return "<div id=\"delivery_details\">
+            <p>Your Delivery Address is:</p>
+            <p>".$firstname." ".$lastname."</p>
+            <p>".$address."</p>
+        </div>";
+        }
+        return "";
     }
 } 
 ?>

@@ -24,6 +24,16 @@ class OrderHandler {
         }
     }
 
+    static function validateWithDB($mysession, $db){
+        if(is_array($mysession->getFromSession("article"))){
+            foreach($mysession->getFromSession("article") as $item){ 
+                $result = $db->getItemByID($item->getID());
+                $item->setName($result[0]);
+                $item->setPrice($result[1]);
+            }
+        }
+    }
+
     static function placedOrder($mysession, $db){
         //self::checkLoggedIn($mysession, $db)
         if (self::checkSubmitOrder($mysession)){

@@ -42,6 +42,12 @@
     bottom: 0%;
 }
 
+#delivery_details {
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 1%;
+}
+
 body {
   padding: 0;
   margin: 0;  
