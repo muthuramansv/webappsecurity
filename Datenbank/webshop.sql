@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 09, 2018 at 11:24 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Host: localhost
+-- Generation Time: Jun 15, 2018 at 09:57 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,35 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `webshop`
 --
-CREATE DATABASE IF NOT EXISTS `webshop` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `webshop`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_basket`
---
-
-CREATE TABLE `tbl_basket` (
-  `id` int(11) NOT NULL,
-  `cookie_user` char(255) NOT NULL,
-  `id_items` int(11) NOT NULL,
-  `amount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_cookies`
---
-
-CREATE TABLE `tbl_cookies` (
-  `id` int(11) NOT NULL,
-  `cookie_user` char(255) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `logged_in` tinyint(1) NOT NULL,
-  `login_expire` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -86,11 +57,20 @@ CREATE TABLE `tbl_orders` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_items` int(11) NOT NULL,
-  `amount` int(11) NOT NULL,
-  `price` float NOT NULL,
-  `amountprice` float NOT NULL,
-  `orderdate` datetime NOT NULL
+  `count` int(11) NOT NULL,
+  `orderdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_orders`
+--
+
+INSERT INTO `tbl_orders` (`id`, `id_user`, `id_items`, `count`, `orderdate`) VALUES
+(1, 4, 1, 1, '2018-06-15 21:48:33'),
+(2, 4, 2, 1, '2018-06-15 21:48:33'),
+(3, 5, 2, 1, '2018-06-15 21:51:36'),
+(4, 5, 3, 2, '2018-06-15 21:51:36'),
+(5, 5, 2, 6, '2018-06-15 21:55:20');
 
 -- --------------------------------------------------------
 
@@ -105,7 +85,7 @@ CREATE TABLE `tbl_user` (
   `address` char(255) NOT NULL,
   `mail` char(255) NOT NULL,
   `pass` char(255) NOT NULL,
-  `token` varchar(128) NOT NULL
+  `token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -113,25 +93,15 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `firstname`, `lastname`, `address`, `mail`, `pass`, `token`) VALUES
-(1, 'Tim', 'Tyler', 'Road 5', 'Tom@test.com', '123', '');
+(1, 'Joshua', 'Becker', 'TestHome15', 'joshua.becker@student.fh-kiel.de', 'joshua', ''),
+(2, 'Joshua', 'Becker', 'dasda', 'joshua@test.com', '$2y$11$xyRpn4nI.7KIIyHXlX688.nQGtBbN4JGFAE40eHxB113XfIpzytpq', ''),
+(3, 'Tom', 'TestUser', 'TestWeg15', 'test@test.com', '$2y$11$uOKMY7SBs6.UZ3ubCyIPNeoiHaTK1HxmIRcyJjJgEBlG1k0Q6uOkK', '17143608b6def5c08c265eab0441f19f'),
+(4, 'Mueller', 'Meier', 'Meier-Weg 32', 'mueller@test.com', '$2y$11$Rl4x6JgUS6zbIWhmMxVM7eexKS9ywbqs9u3B20Fe1BnKHXo/Ohv2y', ''),
+(5, 'Muthu', 'Raman', 'Schoenkirchen Weg 23', 'muthu@test.com', '$2y$11$Se4ZJ.f4Di2HlNwNUkDvm.34NB6q7Hrc9guZaSg01HvoriA4t/0x2', '');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `tbl_basket`
---
-ALTER TABLE `tbl_basket`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_items` (`id_items`);
-
---
--- Indexes for table `tbl_cookies`
---
-ALTER TABLE `tbl_cookies`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `tbl_items`
@@ -158,18 +128,6 @@ ALTER TABLE `tbl_user`
 --
 
 --
--- AUTO_INCREMENT for table `tbl_basket`
---
-ALTER TABLE `tbl_basket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_cookies`
---
-ALTER TABLE `tbl_cookies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_items`
 --
 ALTER TABLE `tbl_items`
@@ -179,29 +137,17 @@ ALTER TABLE `tbl_items`
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `tbl_basket`
---
-ALTER TABLE `tbl_basket`
-  ADD CONSTRAINT `tbl_basket_ibfk_1` FOREIGN KEY (`id_items`) REFERENCES `tbl_items` (`id`);
-
---
--- Constraints for table `tbl_cookies`
---
-ALTER TABLE `tbl_cookies`
-  ADD CONSTRAINT `tbl_cookies_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id`);
 
 --
 -- Constraints for table `tbl_orders`
