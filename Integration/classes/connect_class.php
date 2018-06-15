@@ -215,29 +215,29 @@ class SimpleConnectDB
 
 
 			if (!$stmt->bind_param("sii", $cookie_user, $id_items, $amount)) {
-				echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-				echo "bind";
+				/* echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+				echo "bind"; */
 
 
 			}
 			$cookie_user = $cookie_user_;
 			$id_items = $id_items_;
 			$amount = $amount_;
-			echo $cookie_user_ . "<br>" . $id_items_ . "<br>" . $amount_ . "<br>" . "Done" . "<br>";
+			/* echo $cookie_user_ . "<br>" . $id_items_ . "<br>" . $amount_ . "<br>" . "Done" . "<br>"; */
 
 			if (!($query_result = $stmt->execute())) {
-				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-				echo "execute" . "<br>";
+				/* echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+				echo "execute" . "<br>"; */
 			}
 
-			echo $cookie_user . "<br>" . $id_items . "<br>" . $amount . "<br>" . "Done" . "<br>";
+			/* echo $cookie_user . "<br>" . $id_items . "<br>" . $amount . "<br>" . "Done" . "<br>"; */
 
 
 		} else {
 
 			$error = $con->errno . ' ' . $con->error;
-			echo "else";
-			echo $error;
+			/* echo "else";
+			echo $error; */
 
 		}
 
@@ -265,7 +265,7 @@ class SimpleConnectDB
 		if ($stmt = $con->prepare($query)) {
 
 			if (!$stmt->bind_param("ssssss", $firstname, $lastname, $address, $mail, $pass, $token)) {
-				echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+				/* echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error; */
 			}
 
 			$firstname = $firstname_;
@@ -280,16 +280,16 @@ class SimpleConnectDB
 			//echo $firstname_ . "<br>" . $lastname_ . "<br>" . $address_ . "<br>" . $mail_ . "<br>" . $pass_ . "<br>" . "Done" . "<br>";
 
 			if (!($query_result = $stmt->execute())) {
-				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-				echo "execute" . "<br>";
+				/* echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+				echo "execute" . "<br>"; */
 			}
-			echo "User added successfully!";
+			/* echo "User added successfully!"; */
 			//echo $firstname . "<br>" . $lastname . "<br>" . $address . "<br>" . $mail . "<br>" . $pass . "<br>" . "Done" . "<br>";
 
 		} else {
 			$error = $con->errno . ' ' . $con->error;
-			echo "else";
-			echo $error;
+			/* echo "else";
+			echo $error; */
 		}
 
 		$stmt->close();
@@ -305,7 +305,7 @@ class SimpleConnectDB
 		if ($stmt = $con->prepare($query)) {
 
 			if (!$stmt->bind_param("sssss", $firstname, $lastname, $address, $mail, $pass)) {
-				echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+				/* echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error; */
 			}
 
 			$firstname = $firstname_;
@@ -320,16 +320,16 @@ class SimpleConnectDB
 			//echo $firstname_ . "<br>" . $lastname_ . "<br>" . $address_ . "<br>" . $mail_ . "<br>" . $pass_ . "<br>" . "Done" . "<br>";
 
 			if (!($query_result = $stmt->execute())) {
-				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-				echo "execute" . "<br>";
+				// echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+				// echo "execute" . "<br>";
 			}
 
 			//echo $firstname . "<br>" . $lastname . "<br>" . $address . "<br>" . $mail . "<br>" . $pass . "<br>" . "Done" . "<br>";
 
 		} else {
 			$error = $con->errno . ' ' . $con->error;
-			echo "else";
-			echo $error;
+			/* echo "else";
+			echo $error; */
 		}
 
 		$stmt->close();
@@ -404,8 +404,8 @@ class SimpleConnectDB
 				if (mysqli_stmt_num_rows($stmt) == 1) {
 					// Bind result variables
 					mysqli_stmt_bind_result($stmt, $id, $name, $price);
-					echo $name;
-					echo $price;
+					/* echo $name;
+					echo $price; */
 					if (mysqli_stmt_fetch($stmt)) {
 						$result = array($name, $price);
 						return $result;
@@ -417,7 +417,7 @@ class SimpleConnectDB
 					return $result;
 				}
 			} else {
-				echo "Oops! Something went wrong. Please try again later.";
+				/* echo "Oops! Something went wrong. Please try again later."; */
 			}
 		}
 
@@ -448,7 +448,7 @@ class SimpleConnectDB
 				if (mysqli_stmt_num_rows($stmt) == 1) {
 						// Bind result variables
 					mysqli_stmt_bind_result($stmt, $checkmail, $hashed_password);
-					echo $hashed_password;
+					/* echo $hashed_password; */
 					if (mysqli_stmt_fetch($stmt)) {
 						if (password_verify($checkpassword, $hashed_password)) {
 								/* Password is correct, so start a new session and
@@ -467,7 +467,7 @@ class SimpleConnectDB
 					return false;
 				}
 			} else {
-				echo "Oops! Something went wrong. Please try again later.";
+				/* echo "Oops! Something went wrong. Please try again later."; */
 			}
 		}
 
@@ -511,7 +511,7 @@ class SimpleConnectDB
 		} else {
 
 			$error = $con->errno . ' ' . $con->error;
-			echo $error;
+			/* echo $error; */
 
 		}
 
@@ -532,12 +532,12 @@ class SimpleConnectDB
 		if ($stmt = $con->prepare("UPDATE tbl_user SET `token` = '$newToken' WHERE `mail`='$user' ")) {
 
 			$stmt->execute();
-			echo "Token DELETED !";
+			/* echo "Token DELETED !"; */
 			return 1;
 		} else {
 
 			$error = $con->errno . ' ' . $con->error;
-			echo $error;
+			/* echo $error; */
 
 		}
 
@@ -561,13 +561,13 @@ class SimpleConnectDB
 
 
 
-			echo "Token DELETED !";
+			/* echo "Token DELETED !"; */
 
 			return 1;
 		} else {
 
 			$error = $con->errno . ' ' . $con->error;
-			echo $error;
+			/* echo $error; */
 
 		}
 
@@ -598,7 +598,7 @@ class SimpleConnectDB
 				return $array;
 			} else {
 
-				echo "Token does not exists";
+				/* echo "Token does not exists"; */
 				return 0;
 			}
 
@@ -606,7 +606,7 @@ class SimpleConnectDB
 		} else {
 
 			$error = $con->errno . ' ' . $con->error;
-			echo $error;
+			/* echo $error; */
 
 		}
 
@@ -640,7 +640,7 @@ class SimpleConnectDB
 		if ($stmt = $con->prepare($query)) {
 
 			if (!$stmt->bind_param("iiis", $id_user, $id_items, $count, $orderdate)) {
-				echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+				/* echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error; */
 			}
 
 			$id_user = $id_user_;
@@ -652,16 +652,16 @@ class SimpleConnectDB
 				//echo $firstname_ . "<br>" . $lastname_ . "<br>" . $address_ . "<br>" . $mail_ . "<br>" . $pass_ . "<br>" . "Done" . "<br>";
 
 			if (!($query_result = $stmt->execute())) {
-				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-				echo "execute" . "<br>";
+				/* echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+				echo "execute" . "<br>"; */
 			}
 			echo "User added successfully!";
 				//echo $firstname . "<br>" . $lastname . "<br>" . $address . "<br>" . $mail . "<br>" . $pass . "<br>" . "Done" . "<br>";
 
 		} else {
 			$error = $con->errno . ' ' . $con->error;
-			echo "else";
-			echo $error;
+			/* echo "else";
+			echo $error; */
 		}
 
 		$stmt->close();
@@ -690,7 +690,7 @@ class SimpleConnectDB
 		} else {
 
 			$error = $con->errno . ' ' . $con->error;
-			echo $error;
+			/* echo $error; */
 
 		}
 
