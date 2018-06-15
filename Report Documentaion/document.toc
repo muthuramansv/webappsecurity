@@ -1,9 +1,9 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}
 \contentsline {section}{\numberline {2}Architecture}{1}{section.2}
-\contentsline {section}{\numberline {3}Features}{2}{section.3}
-\contentsline {section}{\numberline {4}Tools Used}{4}{section.4}
+\contentsline {section}{\numberline {3}Features}{3}{section.3}
+\contentsline {section}{\numberline {4}Tools Used}{5}{section.4}
 \contentsline {section}{\numberline {5}Team Matrix}{5}{section.5}
 \contentsline {section}{\numberline {6}Challenges and Lessons Learnt}{5}{section.6}
-\contentsline {subsection}{\numberline {6.1}TEAM CHALLENGES}{5}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}LESSONS LEARNT}{5}{subsection.6.2}
-\contentsline {section}{\numberline {7}REFERENCES}{6}{section.7}
+\contentsline {subsection}{\numberline {6.1}Team Challenges}{5}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Lessons Learnt}{6}{subsection.6.2}
+\contentsline {section}{\numberline {7}References}{7}{section.7}

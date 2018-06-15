@@ -60,10 +60,11 @@
 	\begin{itemize}
 		\item 	Presentation Layer: This is usually referred to as the application frontend. This is the layer a user or client interacts with. HTML, CSS and a bit of Javascript was used to achieve this. As an example the PageBuilder-Class was used as the presentation layer in our application which includes only presentation layer related code without almost no connection to the business logic and database.
 		
-		\item Application Layer: Usually referred to as the backend of an application. This contains all the logic needed for the application to function properly from structure to security of the application. Making this the major focus of this project and PHP (Hypertext Preprocessor) was used here.  We created multipile different classes to decouple the logic from the view.  The Business logic is the biggest part in out application and is represented by classes like session, data_validation and much more.
+		\item Application Layer: Usually referred to as the backend of an application. This contains all the logic needed for the application to function properly from structure to security of the application. Making this the major focus of this project and PHP (Hypertext Preprocessor) was used here.  We created multipile different classes to decouple the logic from the view.  The Business logic is the biggest part in out application and is represented by classes like session, data\_validation and much more.
 		
-		\item Database Layer: This is where all user and admin data were stored. MySQL which is an open-source relational database management system, was used to create, store, read and update both user and admin data. The whole Database access is encapsulated into the connect_class which provides all the necessary method to work with the database without worrying about queries.
+		\item Database Layer: This is where all user and admin data were stored. MySQL which is an open-source relational database management system, was used to create, store, read and update both user and admin data. The whole Database access is encapsulated into the connect\_class which provides all the necessary method to work with the database without worrying about queries.
 	\end{itemize}
+	
 	To download and install this project, one must first install \textbf{\textit{XAMPP}} and clone the git repository (https://github.com/muthuramansv/webappsecurity.git) into the \textbf{\textit{htdocs}} folder. Start up XAMP, connect the database and run "127.0.0.1/webappsecurity/Integration/index.php" Make sure you use 127.0.0.1 instead of localhost as it is stated in the readme otherwise it will not work because of the domain-binding of the cookie.
 	
 	
@@ -108,17 +109,17 @@
 		\hline
 		 & Becker & Okereke & Shama & Ulbrich \\ \hline
 		 Project Planning & x & x & x & x \\ \hline
-		 Database Design & x &  &  & x \\ \hline
-		 XSS Handling &  & x &  &  \\ \hline
-		 CSRF Handling &  &  &  &  \\ \hline
-		 Sessions Management & x &  &  &  \\ \hline
-		 Frontend Design &  &  & x &  \\ \hline
-		 SQL Injection Handling &  &  &  & x \\ \hline
+		 Database Design & x & x &  & x \\ \hline
+		 XSS Handling &  & x & x &   \\ \hline
+		 CSRF Handling & x & x &  &  \\ \hline
+		 Sessions Management & x &  & x &  \\ \hline
+		 Frontend Design & x &  & x &  \\ \hline
+		 SQL Injection Handling &  & x &  & x \\ \hline
+		 Backend Design &  & x & x & x \\ \hline
 		 %Project Planning & x & x & x & x \\ \hline
 		 %Project Planning & x & x & x & x \\ \hline
 		 %Project Planning & x & x & x & x \\ \hline
-		 %Project Planning & x & x & x & x \\ \hline
-		 Documentation &  & x &  &  \\ \hline
+		 Documentation & x & x & x & x \\ \hline
 	\end{tabular}
 	
 	\end{flushleft}
@@ -132,10 +133,10 @@
 	
 		We were faced with the following challenges:
 		\begin{itemize}
-			\item \textbf{Time:} We had to figure out time to gather so we could work together since some of us didnt have prior
-			experience in programming. We also had to struggle a lot with PHP in general, because the language was never teached in any lecture it was hard to walk on it. We had to figure out how to use static values, classes and pointer in PHP just to name some issues we had. Overall we even don't no yet if out application is code whise good structured code for an PHP program. Because this is essential for writing secure code we would recommend to at least have one senior PHP developer in such a project, who can be consulted for questions.
-			\item \textbf{Git:} Working with Git can always be tricky especially when merge conflicts arise. Lucky for us we were able to solve them. Also the huge gab between the knowledge of the the teammates where a problem. Some of us used an graphical-interface even some the CLI and others build-in IDE Plugins. To make all of them work together where challeging. Even if you are also managing documentation stuff in the repositiory as we did. 
-			\item \textbf{Secure Logic:} On paper it sounds simple, but figuring out how to come up with a secure logic and avoid different security task was tough. We opt for an keep-it-simple approach. We used mockups in the first to commit on an idea. After we have done this it was easier to get everybody onboard. Even a lot of challanges related to PHP arised. 
+			\item \textbf{Time:} We had to figure out time to gather so we could work together since some of us did not have prior
+			experience in programming. We also had to struggle a lot with PHP in general, because the language was never taught in any lecture it was hard to work on it. We had to figure out how to use static values, classes and pointers in PHP just to name some issues we had. Overall, we were not sure if our application code structure is good for a PHP program. Because this is essential for writing secure code we would recommend to at least have one senior PHP developer in such a project, who can be consulted for questions.
+			\item \textbf{Git:} Working with Git can always be tricky especially when merge conflicts arise. Lucky for us we were able to solve them. Also the huge gab between the knowledge of the the teammates where a problem. Some of us used a graphical-interface even some the CLI and others build-in IDE Plugins. To make all of them work together where challenging. Even if you are also managing documentation stuff in the repository as we did. 
+			\item \textbf{Secure Logic:} On paper it sounds simple, but figuring out how to come up with a secure logic and avoid different security task was tough. We opted for a keep-it-simple approach. We used mockups in the first to commit on an idea. After we had done this it was easier to get everybody onboard. Even a lot of challenges related to PHP arose. 
 		\end{itemize}
 		
 	\end{flushleft}
@@ -145,7 +146,7 @@
 	\begin{flushleft}
 		The following are a list of things learnt during the course of this project.
 		\begin{itemize}
-		\item \textbf{Coding Skills:} Every team member learnt a lot about PHP, MySQL and how various functions works. Since we developed a XAMPP stack application, we developed skills from frontend to backend. Also worth noting is it never got easier we just got better.
+		\item \textbf{Coding Skills:} Every team member learnt a lot about PHP, MySQL and how various functions works. Since we developed a XAMP stack application, we developed skills from frontend to backend. Also worth noting is it never got easier we just got better.
 		\item \textbf{Knowledge:} There is a lot of knowledge passed across to us during the lecture time from the first lecture to the end with practical examples.
 		\item \textbf{Team work:} This is one of the key skills that was learn in this course, we were taught how to build and work as a
 		team which helps us in our daily lives.
