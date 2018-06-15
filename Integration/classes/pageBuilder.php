@@ -1,12 +1,15 @@
-<?php 
+<?php
+//Class for the frontend rendering. This class is used to create all the html tags needed for display. Insert the appropiate data and get the html_string back
 class PageBuilder {
     private static $mainHead = 'Web-Application-Security';
     private static $subHead = 'Web-Shop';
    
+    //Print Main Headline of each Page
     public static function printHead() {
         return "<a href=\"index.php\"><h1>".self::$mainHead."</h1><h2>".self::$subHead."</h2></a>";
     }
 
+    //Print the Marquee rolling text...Very cool but deprecated tag :(
     public static function printAdvertisment(){
         return "
         <hr>
@@ -15,6 +18,7 @@ class PageBuilder {
         <hr>";
     }
 
+    //Print the Header section from html
     public static function printHeaderHTML(){
         return "<head>
                 <title>".self::$mainHead."</title>
@@ -23,6 +27,7 @@ class PageBuilder {
                 </head>";
     }
 
+    //Print the item table for the index.php
     public static function printItemTable($items, $mysession) {
         $output = " <table border=\"1\">
                     <tbody>
@@ -54,6 +59,7 @@ class PageBuilder {
         return $output;
     }
 
+    //Method to Print the orders table for the order.php
     public static function printOrderTable($basket, $mysession, $totalCount, $totalPrice, $loggedin){
         $i = 1;
         
@@ -110,6 +116,7 @@ class PageBuilder {
         return $output;
     }
 
+    //Print Method for print the Basket for the basket.php
     public static function printBasketTable($basket, $mysession, $totalCount, $totalPrice){
         $i = 1;
         
@@ -158,6 +165,7 @@ class PageBuilder {
         return $output;
     }
 
+    //Print Method for the LoginForm taket the Session object to get the needed token id to prevent from csrf
     public static function printLoginForm($mysession){
         return "
         <h2>Please fill in your credentials to login.</h2>
@@ -180,6 +188,7 @@ class PageBuilder {
         </form>";
     }
 
+    //Print Method for the SignupForm taket the Session object to get the needed token id to prevent from csrf
     public static function printSignUpForm($mysession){
         return "<h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
@@ -219,11 +228,13 @@ class PageBuilder {
             <p>Already have an account? <a href=\"login.php\">Login here</a></p>
         </form>";
     }
-	
+    
+    //Basic erros print method
     public static function printError($error){
         return "<p>".$error."</p>";
     }
 
+    //Print method for the footer
     public static function printFooter(){
         return "<footer>
                     <hr>
@@ -231,10 +242,12 @@ class PageBuilder {
                 </footer>";
     }
 
+    //Print message for user output
     public static function printMessage($msg){
         return "<div id=\"msg_box\">".$msg."</div>";
     }
 
+    //Display the delivery address on the order.php
     public static function printDeliveryAddress($address, $firstname, $lastname, $loggedin){
         if ($loggedin){
         return "<div id=\"delivery_details\">

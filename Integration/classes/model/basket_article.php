@@ -1,4 +1,6 @@
-<?php 
+<?php
+//Model used for storing and handling the items during the session
+//These objects are stored in the session-storage on the server in an array format
 class BasketArticle {
     private $id = null;
     private $name = null;
