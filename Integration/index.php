@@ -1,4 +1,5 @@
 <?php
+ini_set("display_errors",	0);
 include 'classes/session.php';
 include 'classes/pageBuilder.php';
 include 'classes/basket_handler.php';

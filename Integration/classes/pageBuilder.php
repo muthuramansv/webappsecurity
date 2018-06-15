@@ -144,7 +144,7 @@ class PageBuilder {
                     <td>".number_format($totalPrice, 2)."€</td>
                     <td>".$totalCount."</td>
                     <td>
-                        <form action=\"login.php\" method=\"post\">
+                        <form action=\"order.php\" method=\"post\">
                             <input type=\"hidden\" name=\"token\" value=\"".$mysession->getToken()."\">
                             <input class=\"link\" type=\"submit\" value=\"Check-Out\">
                         </form>

@@ -1,5 +1,5 @@
 <?php
-
+ini_set("display_errors",	0);	
 include 'classes/pageBuilder.php';
 include 'classes/basket_handler.php';
 include 'classes/session.php';
