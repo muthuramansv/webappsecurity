@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 15, 2018 at 09:57 PM
+-- Generation Time: Jun 15, 2018 at 10:19 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -61,17 +61,6 @@ CREATE TABLE `tbl_orders` (
   `orderdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_orders`
---
-
-INSERT INTO `tbl_orders` (`id`, `id_user`, `id_items`, `count`, `orderdate`) VALUES
-(1, 4, 1, 1, '2018-06-15 21:48:33'),
-(2, 4, 2, 1, '2018-06-15 21:48:33'),
-(3, 5, 2, 1, '2018-06-15 21:51:36'),
-(4, 5, 3, 2, '2018-06-15 21:51:36'),
-(5, 5, 2, 6, '2018-06-15 21:55:20');
-
 -- --------------------------------------------------------
 
 --
@@ -87,17 +76,6 @@ CREATE TABLE `tbl_user` (
   `pass` char(255) NOT NULL,
   `token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_user`
---
-
-INSERT INTO `tbl_user` (`id`, `firstname`, `lastname`, `address`, `mail`, `pass`, `token`) VALUES
-(1, 'Joshua', 'Becker', 'TestHome15', 'joshua.becker@student.fh-kiel.de', 'joshua', ''),
-(2, 'Joshua', 'Becker', 'dasda', 'joshua@test.com', '$2y$11$xyRpn4nI.7KIIyHXlX688.nQGtBbN4JGFAE40eHxB113XfIpzytpq', ''),
-(3, 'Tom', 'TestUser', 'TestWeg15', 'test@test.com', '$2y$11$uOKMY7SBs6.UZ3ubCyIPNeoiHaTK1HxmIRcyJjJgEBlG1k0Q6uOkK', '17143608b6def5c08c265eab0441f19f'),
-(4, 'Mueller', 'Meier', 'Meier-Weg 32', 'mueller@test.com', '$2y$11$Rl4x6JgUS6zbIWhmMxVM7eexKS9ywbqs9u3B20Fe1BnKHXo/Ohv2y', ''),
-(5, 'Muthu', 'Raman', 'Schoenkirchen Weg 23', 'muthu@test.com', '$2y$11$Se4ZJ.f4Di2HlNwNUkDvm.34NB6q7Hrc9guZaSg01HvoriA4t/0x2', '');
 
 --
 -- Indexes for dumped tables
