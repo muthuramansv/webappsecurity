@@ -283,7 +283,7 @@ class SimpleConnectDB
 				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 				echo "execute" . "<br>";
 			}
-            echo "User added successfully!";
+			echo "User added successfully!";
 			//echo $firstname . "<br>" . $lastname . "<br>" . $address . "<br>" . $mail . "<br>" . $pass . "<br>" . "Done" . "<br>";
 
 		} else {
@@ -384,45 +384,46 @@ class SimpleConnectDB
 
 	}
 
-	public function getItemByID($id) {
+	public function getItemByID($id)
+	{
 		$con = $this->connect();
 		$sql = "SELECT id, name, price  FROM tbl_items WHERE id = ? ";
 
 		if ($stmt = mysqli_prepare($con, $sql)) {
 			// Bind variables to the prepared statement as parameters
-		mysqli_stmt_bind_param($stmt, "i", $item);
+			mysqli_stmt_bind_param($stmt, "i", $item);
 
 			// Set parameters
-		$item = $id;
+			$item = $id;
 
 			// Attempt to execute the prepared statement
-		if (mysqli_stmt_execute($stmt)) {
+			if (mysqli_stmt_execute($stmt)) {
 				// Store result
-			mysqli_stmt_store_result($stmt);
+				mysqli_stmt_store_result($stmt);
 				// Check if id exists, if yes then return items
-			if (mysqli_stmt_num_rows($stmt) == 1) {
+				if (mysqli_stmt_num_rows($stmt) == 1) {
 					// Bind result variables
-				mysqli_stmt_bind_result($stmt, $id, $name, $price);
-				echo $name;
-				echo $price;
-				if (mysqli_stmt_fetch($stmt)) {
-					$result = array($name, $price);
+					mysqli_stmt_bind_result($stmt, $id, $name, $price);
+					echo $name;
+					echo $price;
+					if (mysqli_stmt_fetch($stmt)) {
+						$result = array($name, $price);
+						return $result;
+					}
+				} else {
+					// Display an error message if id doesn't exist
+				//echo 'No item found with that id.';
+					$result = array("unknown", 0);
 					return $result;
 				}
 			} else {
-					// Display an error message if id doesn't exist
-				//echo 'No item found with that id.';
-				$result = array("unknown", 0);
-				return $result;
+				echo "Oops! Something went wrong. Please try again later.";
 			}
-		} else {
-			echo "Oops! Something went wrong. Please try again later.";
 		}
-	}
 
-	mysqli_stmt_close($stmt);
+		mysqli_stmt_close($stmt);
 		// Close connection
-	mysqli_close($con);
+		mysqli_close($con);
 	}
 
 	public function checkLoginCredentials($checkmail, $checkpassword)
@@ -523,7 +524,7 @@ class SimpleConnectDB
 	public function alterTokenFromUser($user, $newToken)
 	{
 		// Prepare an insert statement
-		
+
 		$con = $this->connect();
 
 		$token_ = mysqli_real_escape_string($con, $token);
@@ -622,75 +623,83 @@ class SimpleConnectDB
 	 * @param $amountprice_
 	 * @param $orderdate_
 	 */
-	
-    /**
-     * @param $id_user_
-     * @param $id_items_
-     * @param $amount_
-     * @param $price_
-     * @param $amountprice_
-     * @param $orderdate_
-     */
-    public function set_tbl_orders($id_user_, $id_items_, $count_, $orderdate_) {
 
-	$con = $this->connect();
-	$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `count`, `orderdate`) VALUES ((?), (?), (?), (?));";
+	/**
+	 * @param $id_user_
+	 * @param $id_items_
+	 * @param $count_
+	 * @param $orderdate_
+	 */
+	public function set_tbl_orders($id_user_, $id_items_, $count_, $orderdate_)
+	{
 
-			if (!$stmt->bind_param("iiidds", $id_user, $id_items, $amount, $price, $amountprice, $orderdate)) {
+
+		$con = $this->connect();
+		$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `count`, `orderdate`) VALUES ((?), (?), (?), (?));";
+
+		if ($stmt = $con->prepare($query)) {
+
+			if (!$stmt->bind_param("iiis", $id_user, $id_items, $count, $orderdate)) {
 				echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 			}
 
-		if (!$stmt->bind_param("iiis", $id_user, $id_items, $count, $orderdate)) {
-			echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+			$id_user = $id_user_;
+			$id_items = $id_items_;
+			$count = $count_;
+			$orderdate = $orderdate_;
+					
+	
+				//echo $firstname_ . "<br>" . $lastname_ . "<br>" . $address_ . "<br>" . $mail_ . "<br>" . $pass_ . "<br>" . "Done" . "<br>";
+
+			if (!($query_result = $stmt->execute())) {
+				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+				echo "execute" . "<br>";
+			}
+			echo "User added successfully!";
+				//echo $firstname . "<br>" . $lastname . "<br>" . $address . "<br>" . $mail . "<br>" . $pass . "<br>" . "Done" . "<br>";
+
+		} else {
+			$error = $con->errno . ' ' . $con->error;
+			echo "else";
+			echo $error;
 		}
-
-		$id_user = $id_user_;
-		$id_items = $id_items_;
-		$count = $count_;
-		$orderdate = $orderdate_;
-
-		echo $id_user_ . "<br>" . $id_items_ . "<br>" . $count_ . "<br>" . $orderdate_ .  "Done" . "<br>";
-
-			echo $id_user . "<br>" . $id_items . "<br>" . $count . "<br>" . $price . "<br>" . $amountprice . "<br>" . $orderdate . "Done" . "<br>";
-
-		echo $id_user . "<br>" . $id_items . "<br>" . $count ."<br>" . $orderdate.  "Done" . "<br>";
 
 		$stmt->close();
 		$con->close();
 	}
 
 
-public function getLatestOrderFromUser($orderdate)  {
+	public function getLatestOrderFromUser($orderdate)
+	{
 
 		$con = $this->connect();
 
-		if($stmt = $con->prepare("SELECT * FROM tbl_orders "))
-		{
+		if ($stmt = $con->prepare("SELECT * FROM tbl_orders ")) {
 
-		$stmt->execute();
+			$stmt->execute();
 
-		$res = $stmt->get_result();
+			$res = $stmt->get_result();
 
-		$array = $res->fetch_all();
+			$array = $res->fetch_all();
 
-		return $array;
-
+			return $array;
 
 
 
-		}else {
 
-		$error = $con->errno . ' ' . $con->error;
-		    echo $error;
+		} else {
+
+			$error = $con->errno . ' ' . $con->error;
+			echo $error;
 
 		}
 
 		$stmt->close();
 		$con->close();
 
-		}
-		
-		
+	}
+
+
 
 
 
