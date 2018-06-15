@@ -593,7 +593,7 @@ class SimpleConnectDB
 
 			if ($array) {
 
-				echo "Token already exists !";
+				//echo "Token already exists !";
 
 				return $array;
 			} else {
@@ -659,16 +659,16 @@ class SimpleConnectDB
 	 * @param $count_
 	 * @param $orderdate_
 	 */
-	public function set_tbl_orders($id_user_, $id_items_, $count_, $orderdate_)
+	public function set_tbl_orders($id_user_, $id_items_, $count_)
 	{
 
-
+		$id_user_ = $this->getUserIDByToken($id_user_);
 		$con = $this->connect();
-		$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `count`, `orderdate`) VALUES ((?), (?), (?), (?));";
+		$query = "INSERT INTO tbl_orders (`id_user`, `id_items`, `count`) VALUES ((?), (?), (?));";
 
 		if ($stmt = $con->prepare($query)) {
 
-			if (!$stmt->bind_param("iiis", $id_user, $id_items, $count, $orderdate)) {
+			if (!$stmt->bind_param("iii", $id_user, $id_items, $count)) {
 				/* echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error; */
 			}
 
@@ -684,7 +684,7 @@ class SimpleConnectDB
 				/* echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 				echo "execute" . "<br>"; */
 			}
-			echo "User added successfully!";
+			//echo "User added successfully!";
 				//echo $firstname . "<br>" . $lastname . "<br>" . $address . "<br>" . $mail . "<br>" . $pass . "<br>" . "Done" . "<br>";
 
 		} else {

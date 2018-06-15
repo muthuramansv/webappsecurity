@@ -25,8 +25,8 @@ $html_code =        "<html>"
                     .PageBuilder::printHead()
                     .PageBuilder::printAdvertisment()
                     .PageBuilder::printItemTable($arrayTest, $mysession)
-                    .PageBuilder::printFooter().
-                    "</body></html>";
+                    .PageBuilder::printFooter()
+                    ."</body></html>";
 
 echo $html_code;
 ?>
