@@ -1,5 +1,5 @@
 <?php
-ini_set("display_errors", 0);	
+ini_set("display_errors", 0); //Better error_log("error1", 3, "/var/tmp/app_error.log");	
 include 'classes/session.php';
 include 'classes/pageBuilder.php';
 include 'classes/log_in_validation.php';
