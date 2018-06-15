@@ -18,7 +18,6 @@ class LoginValidation
                        return true;
                    }
                }
-               LoginDataValidation::all_Empty();
                return false;
            }
        }
@@ -76,6 +75,7 @@ class LoginValidation
                 if (self::loginData($mysession)){
                     return true;
                 }
+               header('Location: ./order.php');
             }
         }
         return false;
