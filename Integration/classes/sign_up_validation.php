@@ -138,6 +138,7 @@ class SignUpValidation
         if (self::signupSubmit($mysession)) {
             if (self::htmlValidation() && self::nameValidation() && self::emailValidation() && self::passValidation() && self::useridValidation() && self::checkAddress() && self::equalPasswords()){
                 if (self::signupData($mysession)){
+                    echo PageBuilder::printMessage("Account created successfully, Please use the link for logging in." );
                     return true;
                 }
             }
