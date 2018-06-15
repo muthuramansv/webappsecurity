@@ -384,6 +384,47 @@ class SimpleConnectDB
 
 	}
 
+	public function getItemByID($id) {
+		$con = $this->connect();
+		$sql = "SELECT id, name, price  FROM tbl_items WHERE id = ? ";
+
+		if ($stmt = mysqli_prepare($con, $sql)) {
+			// Bind variables to the prepared statement as parameters
+		mysqli_stmt_bind_param($stmt, "i", $item);
+
+			// Set parameters
+		$item = $id;
+
+			// Attempt to execute the prepared statement
+		if (mysqli_stmt_execute($stmt)) {
+				// Store result
+			mysqli_stmt_store_result($stmt);
+				// Check if id exists, if yes then return items
+			if (mysqli_stmt_num_rows($stmt) == 1) {
+					// Bind result variables
+				mysqli_stmt_bind_result($stmt, $id, $name, $price);
+				echo $name;
+				echo $price;
+				if (mysqli_stmt_fetch($stmt)) {
+					$result = array($name, $price);
+					return $result;
+				}
+			} else {
+					// Display an error message if id doesn't exist
+				//echo 'No item found with that id.';
+				$result = array("unknown", 0);
+				return $result;
+			}
+		} else {
+			echo "Oops! Something went wrong. Please try again later.";
+		}
+	}
+
+	mysqli_stmt_close($stmt);
+		// Close connection
+	mysqli_close($con);
+	}
+
 	public function checkLoginCredentials($checkmail, $checkpassword)
 	{
 
