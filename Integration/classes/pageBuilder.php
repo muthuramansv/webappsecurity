@@ -23,7 +23,7 @@ class PageBuilder {
         return "<head>
                 <title>".self::$mainHead."</title>
                 <link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">
-                <meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';\" >
+                <meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self'; frame-ancestors: 'self';\" >
                 </head>";
     }
 
