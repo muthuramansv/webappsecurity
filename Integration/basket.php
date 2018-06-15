@@ -9,17 +9,15 @@ BasketHandler::checkRemoveFromBasket($mysession);
 
 
 
-$html_code  = "<html>
-                  <head>
-                      <title>Web-Application-Security</title>
-                      <link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">
-                  </head>
-                  <body>
-                  <div style=\"float: right;\"><a href=\"index.php\">Home</a></div>"
-                  .pageBuilder::printHead()
-                  .pageBuilder::printBasketTable(BasketHandler::getBasket($mysession), $mysession, BasketHandler::totalBasketCount($mysession), BasketHandler::totalBasketPrice($mysession)).
-                  "</body>
-              </html>";
+$html_code  =   "<html>"
+                .PageBuilder::printHeaderHTML()
+                ."<body>"
+                .PageBuilder::printNavigation($mysession)
+                .PageBuilder::printHead()
+                .PageBuilder::printAdvertisment()
+                .pageBuilder::printBasketTable(BasketHandler::getBasket($mysession), $mysession, BasketHandler::totalBasketCount($mysession), BasketHandler::totalBasketPrice($mysession))
+                .PageBuilder::printFooter()
+                ."</body></html>";
 
 echo $html_code;
 ?>

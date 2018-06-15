@@ -12,8 +12,9 @@
     box-sizing: border-box; 
 }
 
-#basket_home {
+#navigation {
     float: right;
+    padding: 1%;
 }
 
 .simple_button {

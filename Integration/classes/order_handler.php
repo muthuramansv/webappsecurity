@@ -18,6 +18,24 @@ class OrderHandler {
         return false;
     }
 
+    static function getFirstnameByToken($mysession, $db){
+        if ($db->getUserTokenFromDB($mysession->getUserToken())){
+            return $db->getUserTokenFromDB($mysession->getUserToken())[0][2];
+        }
+    }
+
+    static function getLastnameByToken($mysession, $db){
+        if ($db->getUserTokenFromDB($mysession->getUserToken())){
+            return $db->getUserTokenFromDB($mysession->getUserToken())[0][3];
+        }
+    }
+
+    static function getAddressByToken($mysession, $db){
+        if ($db->getUserTokenFromDB($mysession->getUserToken())){
+            return $db->getUserTokenFromDB($mysession->getUserToken())[0][1];
+        }
+    }
+
     static function logOutUser($mysession, $db){
         if ($mysession->getUserToken() != null){
             return $db->removeToken($mysession->getUserToken());
@@ -35,8 +53,10 @@ class OrderHandler {
     }
 
     static function placedOrder($mysession, $db){
-        //self::checkLoggedIn($mysession, $db)
-        if (self::checkSubmitOrder($mysession)){
+        if (self::checkSubmitOrder($mysession) && self::checkLoggedIn($mysession, $db)){
+            foreach($mysession->getFromSession("article") as $item){
+                $db->set_tbl_orders($mysession->getUserToken(), $item->getID(), $item->getCount());
+            }
             echo PageBuilder::printMessage("Your Order has been placed successfull and You are automatically logged out!");
             $mysession->deleteFromSession("article");
             self::logOutUser($mysession, $db);

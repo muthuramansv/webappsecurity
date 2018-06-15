@@ -54,10 +54,10 @@ class PageBuilder {
         return $output;
     }
 
-    public static function printOrderTable($basket, $mysession, $totalCount, $totalPrice){
+    public static function printOrderTable($basket, $mysession, $totalCount, $totalPrice, $loggedin){
         $i = 1;
         
-        if (count($basket) > 0){
+        if ((count($basket) > 0) && $loggedin){
             $output = "<table border=\"1\">
                     <tbody>
                         <tr>
@@ -105,7 +105,7 @@ class PageBuilder {
             </tbody>
             </table>";
         }else {
-            $output = "<h4>Your Basket is empty! Nothing to Check Out!</h4><a href=\"index.php\">Return to Home</a>";
+            $output = "<h4>Your Basket is empty! Or You are not logged in!</h4><a href=\"index.php\">Return to Home</a>";
         }
         return $output;
     }
@@ -227,8 +227,7 @@ class PageBuilder {
     public static function printFooter(){
         return "<footer>
                     <hr>
-                    <p>".self::$mainHead." ".self::$subHead."</p>
-                    <p>Contact information: <a href=\"mailto:admin@was-shop.com\">admin@was-shop.com</a></p>
+                    <p>".self::$mainHead." ".self::$subHead."<p>Contact information: <a href=\"mailto:admin@was-shop.com\">admin@was-shop.com</a></p>
                 </footer>";
     }
 
@@ -245,6 +244,10 @@ class PageBuilder {
         </div>";
         }
         return "";
+    }
+
+    public static function printNavigation($mysession){
+        return "<div id=\"navigation\"><a href=\"index.php\">Home</a>&nbsp;|&nbsp;<a href=\"basket.php\">Basket</a>&nbsp;|&nbsp;<a href=\"order.php\">Current Order</a>&nbsp;|&nbsp;<a href=\"login.php\">Login</a>/<a href=\"login.php?logout=1&token=".$mysession->getToken()."\">Logout</a></div>";
     }
 } 
 ?>

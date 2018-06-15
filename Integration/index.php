@@ -9,13 +9,10 @@ BasketHandler::checkBasketSubmission($mysession);
 
 $arrayTest = $connectToDb->get_tbl_items();
 
-
-var_dump($_SESSION);
-
-$html_code = "      <html>"
+$html_code =        "<html>"
                     .PageBuilder::printHeaderHTML().
-                    "<body>
-                    <div id=\"basket_home\"><a href=\"basket.php\">Basket</a></div>"
+                    "<body>"
+                    .PageBuilder::printNavigation($mysession)
                     .PageBuilder::printHead()
                     .PageBuilder::printAdvertisment()
                     .PageBuilder::printItemTable($arrayTest, $mysession)
