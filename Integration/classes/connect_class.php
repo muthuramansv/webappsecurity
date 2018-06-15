@@ -520,56 +520,28 @@ class SimpleConnectDB
 	}
 
 
-	public function alterTokenFromUser($user, $password, $newToken)
+	public function alterTokenFromUser($user, $newToken)
 	{
-
-
+		// Prepare an insert statement
+		
 		$con = $this->connect();
 
+		$token_ = mysqli_real_escape_string($con, $token);
 
+		if ($stmt = $con->prepare("UPDATE tbl_user SET `token` = '$newToken' WHERE `mail`='$user' ")) {
 
-		$query = "SELECT  `pass` , `mail` FROM tbl_user  ";
+			$stmt->execute();
+			echo "Token DELETED !";
+			return 1;
+		} else {
 
-
-		$stmt = $con->prepare($query);
-
-		$stmt->execute();
-
-		$res = $stmt->get_result();
-
-
-		$array = $res->fetch_all();
-
-
-		foreach ($array as $item) {
-
-			$testpw = password_verify($password, $item[0]);
-
-			if ($testpw) {
-
-				echo "Password found, token changed";
-
-				$query2 = "UPDATE tbl_user SET `token`='$newToken' WHERE `mail`='$user' ";
-
-				$stmt = $con->prepare($query2);
-
-				$stmt->execute();
-
-
-				return true;
-
-			} else {
-
-				echo "False";
-				return false;
-			}
+			$error = $con->errno . ' ' . $con->error;
+			echo $error;
 
 		}
 
-
 		$stmt->close();
 		$con->close();
-
 	}
 
 

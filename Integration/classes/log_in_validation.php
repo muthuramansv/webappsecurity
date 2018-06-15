@@ -58,7 +58,7 @@ class LoginValidation
     {
         $logindata = new SimpleConnectDB();
         if($logindata->checkLoginCredentials(self::$mail, self::$password)){
-            $logindata->alterTokenFromUser(self::$mail, self::$password, $mysession->getUserToken());
+            $logindata->alterTokenFromUser(self::$mail, $mysession->getUserToken());
             return true;
         }
         echo PageBuilder::printError("Username or Password is Incorrect!");
