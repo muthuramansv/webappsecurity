@@ -615,6 +615,35 @@ class SimpleConnectDB
 
 	}
 
+
+	public function getUserIDByToken($checktoken)
+	{
+		$con = $this->connect();
+		if ($stmt = $con->prepare("SELECT `id` FROM tbl_user WHERE `token` = '$checktoken' ")) {
+
+			$stmt->execute();
+
+			$res = $stmt->get_result();
+
+			$array = $res->fetch_all();
+
+			if (is_array($array)) {
+				return $array[0][0];
+			} else {
+				return null;
+			}
+		} else {
+
+			$error = $con->errno . ' ' . $con->error;
+			/* echo $error; */
+
+		}
+
+		$stmt->close();
+		$con->close();
+
+	}
+
 	/**
 	 * @param $id_user_
 	 * @param $id_items_
