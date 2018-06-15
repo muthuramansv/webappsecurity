@@ -73,9 +73,9 @@ class LoginValidation
            if(self::loginHtmlValidation() && self::loginEmailValidation())
             {
                 if (self::loginData($mysession)){
+                    header('Location: ./order.php');
                     return true;
                 }
-               header('Location: ./order.php');
             }
         }
         return false;
