@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.24)  15 JUN 2018 16:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.24)  15 JUN 2018 22:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -216,6 +216,45 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 LaTeX Info: Redefining \[ on input line 2735.
 LaTeX Info: Redefining \] on input line 2736.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+
+LaTeX Warning: Command \@arrayparboxrestore  has changed.
+               Check if current package is valid.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks22
+\footnotemargin=\dimen116
+\c@pp@next@reset=\count109
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
+\CenteringLeftskip=\skip47
+\RaggedLeftLeftskip=\skip48
+\RaggedRightLeftskip=\skip49
+\CenteringRightskip=\skip50
+\RaggedLeftRightskip=\skip51
+\RaggedRightRightskip=\skip52
+\CenteringParfillskip=\skip53
+\RaggedLeftParfillskip=\skip54
+\RaggedRightParfillskip=\skip55
+\JustifyingParfillskip=\skip56
+\CenteringParindent=\skip57
+\RaggedLeftParindent=\skip58
+\RaggedRightParindent=\skip59
+\JustifyingParindent=\skip60
+)
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
@@ -245,31 +284,31 @@ Package graphics Info: Driver file: pdftex.def on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-\Gread@gobject=\count109
+\Gread@gobject=\count110
 ))
-\Gin@req@height=\dimen116
-\Gin@req@width=\dimen117
+\Gin@req@height=\dimen117
+\Gin@req@width=\dimen118
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen118
+\bigstrutjot=\dimen119
 ) (./document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 22.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -283,7 +322,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 143.
 )
-Package hyperref Info: Link coloring ON on input line 21.
+Package hyperref Info: Link coloring ON on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -291,30 +330,33 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count110
+\c@section@level=\count111
 )
-LaTeX Info: Redefining \ref on input line 21.
-LaTeX Info: Redefining \pageref on input line 21.
-LaTeX Info: Redefining \nameref on input line 21.
+LaTeX Info: Redefining \ref on input line 22.
+LaTeX Info: Redefining \pageref on input line 22.
+LaTeX Info: Redefining \nameref on input line 22.
 
 (./document.out) (./document.out)
 \@outlinefile=\write3
 \openout3 = `document.out'.
 
+Package ragged2e Info: ABD: executing \RaggedRight on input line 22.
+ ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
-\scratchdimen=\dimen119
+\scratchcounter=\count112
+\scratchdimen=\dimen120
 \scratchbox=\box29
-\nofMPsegments=\count112
-\nofMParguments=\count113
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count114
-\MPscratchDim=\dimen120
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
-\everyMPtoPDFconversion=\toks23
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen121
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks24
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -330,12 +372,14 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 27.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+LaTeX Font Info:    Try loading font information for U+msa on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 27.
+LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -343,7 +387,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
  (./document.toc
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
@@ -359,39 +403,44 @@ File: one-tier-software-architecture.png Graphic file (type png)
 
 <use one-tier-software-architecture.png>
 Package pdftex.def Info: one-tier-software-architecture.png used on input line 
-53.
+64.
 (pdftex.def)             Requested size: 189.40909pt x 169.23355pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 61.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 74.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.64 
+l.77 
       [1
 
 ]
+Overfull \hbox (5.0589pt too wide) in paragraph at lines 78--79
+[]\OT1/ptm/m/n/12 Database Layer: This is where all user and ad-min data were s
+tored. MySQL 
+ []
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 68.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 82.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.75 		\item \textbf
+l.91 		\item \textbf
                     {Secure Session Handling:} A web session is a sequence o...
 [2 <./one-tier-software-architecture.png>]
 <algo.png, id=72, 975.645pt x 242.9075pt>
 File: algo.png Graphic file (type png)
  <use algo.png>
-Package pdftex.def Info: algo.png used on input line 81.
+Package pdftex.def Info: algo.png used on input line 97.
 (pdftex.def)             Requested size: 292.69576pt x 72.8728pt.
 
 
@@ -400,66 +449,43 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
 (Font)              using `OMS/ptm/m/n' instead
-(Font)              for symbol `textbullet' on input line 87.
+(Font)              for symbol `textbullet' on input line 103.
 
 [3]
 LaTeX Font Info:    Font shape `OMS/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 89.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 105.
  [4 <./algo.png>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 131.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 153.
  [5] [6]
-Overfull \hbox (42.29472pt too wide) in paragraph at lines 160--161
-[]\OT1/ptm/m/n/12 Software Ar-chi-tec-ture: One-Tier, \OT1/ptm/m/it/12 https://
-www.techopedia.com/definition/17374/one-
- []
-
-
-Overfull \hbox (135.31778pt too wide) in paragraph at lines 161--162
-[]\OT1/ptm/m/n/12 Session Man-age-ment Cheat Sheet, \OT1/ptm/m/it/12 https://ww
-w.owasp.org/index.php/Session[]Management[]Cheat[]Sheet 
- []
-
-
-Overfull \hbox (123.17307pt too wide) in paragraph at lines 162--163
-[]\OT1/ptm/m/n/12 Cross-Site Re-quest Forgery (CSRF) Pre-ven-tion Cheat Sheet, 
-\OT1/ptm/m/it/12 https://www.owasp.org/index.php/Cross-
- []
-
-
-Overfull \hbox (34.45831pt too wide) in paragraph at lines 163--164
-[]\OT1/ptm/m/n/12 Cross-site Script-ing, https://www.owasp.org/index.php/Cross-
-site[]Scripting[](XSS) 
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 169.
-[7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 169.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
  (./document.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 169.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 169.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 191.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 191.
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: C19FAACFB66EA09F544DC3988DD8043D;464.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 169.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
  ) 
 Here is how much of TeX's memory you used:
- 6188 strings out of 493029
- 89125 string characters out of 6136234
- 173939 words of memory out of 5000000
- 9613 multiletter control sequences out of 15000+600000
- 24337 words of font info for 60 fonts, out of 8000000 for 9000
+ 6368 strings out of 493029
+ 92371 string characters out of 6136234
+ 175982 words of memory out of 5000000
+ 9782 multiletter control sequences out of 15000+600000
+ 24885 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,8n,28p,853b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,8n,28p,854b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
 utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on document.pdf (9 pages, 107759 bytes).
+Output written on document.pdf (9 pages, 108192 bytes).
 PDF statistics:
  131 PDF objects out of 1000 (max. 8388607)
  109 compressed objects within 2 object streams

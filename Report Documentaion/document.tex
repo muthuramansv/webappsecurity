@@ -12,6 +12,7 @@
 \usepackage[]{times}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
+\usepackage[document]{ragged2e}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{makeidx}
@@ -20,9 +21,17 @@
 
 \begin{document}
 	
-	\title{Web Security Application}
-	\author{Becker, Joshua\\ Okereke, Uchechukwu Okpo\\ Shama, Muthuraman Venkatesan\\ Ulbrich, Damian}
-	\date{\today}
+	\title{\textbf{Web Security Application\\
+		Team 1\\
+		Documentation Report} 	\vspace{50mm}}
+
+	
+
+
+ \author{Becker, Joshua -- 922465\\ Okereke, Uchechukwu Okpo -- 930610\\ Shama, Muthuraman Venkatesan -- 930012\\ Ulbrich, Damian -- }
+	
+	
+	\date{\vspace{50mm} \today}
 	\maketitle
 	\thispagestyle{empty}
 	\clearpage
@@ -32,10 +41,9 @@
 	\thispagestyle{empty}
 	\clearpage
 	\pagenumbering{arabic} 
+	
 	\section{Introduction}
 	
-	
-	\begin{flushleft}
 	Since the creation of the Internet, the world has seen it evolve with lots of practical applications. These include things like eCommerce, Instant Messaging, Video Streaming services and the likes. With this evolution and advancements, there has also been a rise in misuse and security concerns regarding identity theft, private data leaks etc.
 	
 		
@@ -47,22 +55,28 @@
 		
 	\section{Architecture}
 	
-	Because this was a test project, a "One-Tier Architecture" approach was taken. This involves putting all of the required components for a software application or technology on a single server or platform [1]. In future, this can be scaled to an "N-Tier Architecture".  As seen in figure 1, the 1-tier architecture consist of three parts: Presentation layer, Application layer and the Database layer.    
+	Because this was a test project, a "One-Tier Architecture" approach was taken. This involves putting all of the required components for a software application or technology on a single server or platform [1]. In future, this can be scaled to an "N-Tier Architecture".  As seen in figure 1, the 1-tier architecture consist of three parts: Presentation layer, Application layer and the Database layer.   
+	 
 	\begin{figure}[h]
+		
 			\begin{center}
+				
 				\includegraphics[scale = 0.3]{one-tier-software-architecture}
 			
 			\caption{One-Tier Architecture}
 			
 			\end{center}
+			
 		\end{figure}
 		
 	\begin{itemize}
+		
 		\item 	Presentation Layer: This is usually referred to as the application frontend. This is the layer a user or client interacts with. HTML, CSS and a bit of Javascript was used to achieve this. As an example the PageBuilder-Class was used as the presentation layer in our application which includes only presentation layer related code without almost no connection to the business logic and database.
 		
-		\item Application Layer: Usually referred to as the backend of an application. This contains all the logic needed for the application to function properly from structure to security of the application. Making this the major focus of this project and PHP (Hypertext Preprocessor) was used here.  We created multipile different classes to decouple the logic from the view.  The Business logic is the biggest part in out application and is represented by classes like session, data\_validation and much more.
+		\item Application Layer: Usually referred to as the backend of an application. This contains all the logic needed for the application to function properly from structure to security of the application. Making this the major focus of this project and PHP (Hypertext Preprocessor) was used here.  We created multiple different classes to decouple the logic from the view.  The Business logic is the biggest part in out application and is represented by classes like session, data\_validation and much more.
 		
 		\item Database Layer: This is where all user and admin data were stored. MySQL which is an open-source relational database management system, was used to create, store, read and update both user and admin data. The whole Database access is encapsulated into the connect\_class which provides all the necessary method to work with the database without worrying about queries.
+		
 	\end{itemize}
 	
 	To download and install this project, one must first install \textbf{\textit{XAMPP}} and clone the git repository (https://github.com/muthuramansv/webappsecurity.git) into the \textbf{\textit{htdocs}} folder. Start up XAMP, connect the database and run "127.0.0.1/webappsecurity/Integration/index.php" Make sure you use 127.0.0.1 instead of localhost as it is stated in the readme otherwise it will not work because of the domain-binding of the cookie.
@@ -70,10 +84,12 @@
 	
 	
 	\section{Features}
+	
 	The sole criteria for this project was security based and the following features were required.
+	
 	\begin{itemize}
 		\item \textbf{Secure Session Handling:} A web session is a sequence of network HTTP request and response transactions associated to the same user [2]. 
-		Web applications can keep track of both anonymous and authenticated users via a session ID, usually called a Token. A cookie is among the many forms of managing or handling a session. Since authenticated sessions contain lots of private information, they need to be protected from theft attacks which could lead to impersonation of a legitimate user. Our session is secured using sevearl counter measurements like changing the session id every interaction and provide and timeout for every session which also automatically logs out user. Especially in our application the secure session handling is extremly important because the whole basket of every user as well as the crsf token is stored in it. For this reason we created a whole class which just provides some kind of wrapper around our session object to manage and use it easily.
+		Web applications can keep track of both anonymous and authenticated users via a session ID, usually called a Token. A cookie is among the many forms of managing or handling a session. Since authenticated sessions contain lots of private information, they need to be protected from theft attacks which could lead to impersonation of a legitimate user. Our session is secured using several counter measurements like changing the session id every interaction and provide and timeout for every session which also automatically logs out user. Especially in our application the secure session handling is extremely important because the whole basket of every user as well as the crsf token is stored in it. For this reason we created a whole class which just provides some kind of wrapper around our session object to manage and use it easily.
 		
 		\item \textbf{Secure Password Storage:} To prevent theft of user credentials, passwords need to be stored securely in the database. One way of achieving this is to never store the password as plaintext, instead salt and hash the user password before storing it in the database. There are several cryptographic algorithms available for this but not all suitable to prevent brute force attacks or rainbow tables. In this project the PHP password\_hash() function was used. It is a strong one-way algorithm, which automatically salts and hashes the inputed plaintext. The output (figure 2) can then be stored in the database.
 		\begin{figure}[h]
@@ -86,14 +102,17 @@
 		
 		\textbf{\item Cross-Site Request Forgery Handling:} This occurs when an attacker uses a malicious web site, email, blog, instant message, or program to cause a users web browser to perform an unwanted action on a trusted site for which the user is currently authenticated [3]. In order to handle this attack a random token was generated and verified alongside. In our application we store the csrf-token as it is also called in the session of the user itself which is whenever created someone visits our site. This way our load of the database gets reduced and we are not storing unimportant user-data. To make easy use of the tokens we created several functions in the session class which provides easy access to manage the csrf-tokens in the application. 
 				
-		\textbf{\item Cross-Site Scripting Handling:} This involves the insertion of malicious scripts into benign and trusted websites[4]. The attacker sends malicious code which is then used to steal a legitimate user cookie by redirecting the user to a different site or through popups. The easiest way of preventing this attack was to escape all untrusted data before echoing it out to the user. We used method of regular expressions matching to avoid the malicious input insertion. This helped us in a way to avoid any unwanted inputs, by ommitting them when the regualr expression conditions are not matched and users are provided with error messages about their insertions into different tabs.
+		\textbf{\item Cross-Site Scripting Handling:} This involves the insertion of malicious scripts into benign and trusted websites[4]. The attacker sends malicious code which is then used to steal a legitimate user cookie by redirecting the user to a different site or through pop-ups. The easiest way of preventing this attack was to escape all untrusted data before echoing it out to the user. We used method of regular expressions matching to avoid the malicious input insertion. This helped us in a way to avoid any unwanted inputs, by omitting them when the regular expression conditions are not matched and users are provided with error messages about their insertions into different tabs.
 		
 		\textbf{\item SQL-Injection Handling:} This consists of putting a SQL query via the input data from the client to the web application[5]. To prevent this we made use of prepared statements with parameterized queries, which ensures an attacker cannot change the database query even when another SQL command is inserted by the attacker.
+		
 	\end{itemize}
 	
 		
 	\section{Tools Used}
+	
 	Teamwork and collaboration is usually a tricky subject, but thanks to certain technologies that has helped to ease this burden. The following are a list of tools we worked with for both collaboration and application building:
+	
 	\begin{itemize}
 		\item \textbf{Git:} Git is a version control system that helps track changes in project files. This really helps when coding on different platforms and machines. Source codes can be managed efficiently, generating less bugs.
 		
@@ -105,7 +124,9 @@
 	
 	
 	\section {Team Matrix}
+	
 	\begin{tabular}{|l|c|c|c|c|}
+		
 		\hline
 		 & Becker & Okereke & Shama & Ulbrich \\ \hline
 		 Project Planning & x & x & x & x \\ \hline
@@ -120,16 +141,16 @@
 		 %Project Planning & x & x & x & x \\ \hline
 		 %Project Planning & x & x & x & x \\ \hline
 		 Documentation & x & x & x & x \\ \hline
+		 
 	\end{tabular}
 	
-	\end{flushleft}
 	
 	
 	
 	
 	\section{Challenges and Lessons Learnt}
+	
 	\subsection{Team Challenges}
-	\begin{flushleft}
 	
 		We were faced with the following challenges:
 		\begin{itemize}
@@ -139,12 +160,11 @@
 			\item \textbf{Secure Logic:} On paper it sounds simple, but figuring out how to come up with a secure logic and avoid different security task was tough. We opted for a keep-it-simple approach. We used mockups in the first to commit on an idea. After we had done this it was easier to get everybody onboard. Even a lot of challenges related to PHP arose. 
 		\end{itemize}
 		
-	\end{flushleft}
-	
-	
+			
 	\subsection{Lessons Learnt}
-	\begin{flushleft}
+	
 		The following are a list of things learnt during the course of this project.
+		
 		\begin{itemize}
 		\item \textbf{Coding Skills:} Every team member learnt a lot about PHP, MySQL and how various functions works. Since we developed a XAMP stack application, we developed skills from frontend to backend. Also worth noting is it never got easier we just got better.
 		\item \textbf{Knowledge:} There is a lot of knowledge passed across to us during the lecture time from the first lecture to the end with practical examples.
@@ -152,17 +172,19 @@
 		team which helps us in our daily lives.
 		\item \textbf{Feedback:} We learned how to give and receive feedback in a friendly and professional way which helped to achieve the goal of delivering a successful project.
 		\end{itemize}
-	\end{flushleft}
+		
 	
 	\section{References}
 	
-	\begin{enumerate}
+\begin{flushleft}
+		\begin{enumerate}
 		\item Software Architecture: One-Tier, \textit{https://www.techopedia.com/definition/17374/one-tier-architecture}
 		\item Session Management Cheat Sheet, \textit{https://www.owasp.org/index.php/Session\_Management\_Cheat\_Sheet}
 		\item Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet, \textit{https://www.owasp.org/index.php/Cross-Site\_Request\_Forgery\_(CSRF)\_Prevention\_Cheat\_Sheet}
 		\item Cross-site Scripting, https://www.owasp.org/index.php/Cross-site\_Scripting\_(XSS)
 		\item SQL Injection, https://www.owasp.org/index.php/SQL\_Injection
 	\end{enumerate}
+\end{flushleft}
 	
 		
 	
